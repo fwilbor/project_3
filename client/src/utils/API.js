@@ -9,7 +9,7 @@ export default {
   getBook: function(id) {
     return axios.get("/api/books/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the book with the given ID
   deleteBook: function(id) {
     return axios.delete("/api/books/" + id);
   },
