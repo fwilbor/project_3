@@ -6,7 +6,14 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, min: [8, "Not strong enough"] },
   guardianPass: { type: String, required: false },
-  games: { type: Array, required: false }
+  history: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: "History"
+    }
+  ]
 });
 
 const User = mongoose.model("User", userSchema);
