@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
-const seeds = require("../../models/seed");
 
 router
   .route("/")
@@ -12,7 +11,5 @@ router
   .get(userController.findById)
   .put(userController.update)
   .delete(userController.remove);
-
-router.route("/seeds").get(seeds);
 
 module.exports = router;
