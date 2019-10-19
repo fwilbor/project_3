@@ -50,52 +50,52 @@ const gameSeeds = [
   }
 ];
 
-db.Game.remove({})
-  .then(() => db.Game.collection.insertMany(gameSeeds))
-  .then(data => {
-    console.log(data.result.n + " records inserted into Games");
-  })
-  .catch(err => {
-    console.error(err);
-  });
+db.Game.remove({}).then(() => {
+  db.Game.collection
+    .insertMany(gameSeeds)
+    .then(data => {
+      console.log(data.result.n + " records inserted into Games");
+      process.exit();
+    })
+    .catch(err => {
+      console.error(err);
+      process.exit();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
-db.User.find({})
-  .then(users => {
-    db.Game.find({})
-      .then(games => {
-        console.log(games);
-        console.log(users);
-        const historySeeds = [
-          {
-            date: "right here right now",
-            score: Math.floor(Math.random() * 10 + 1),
-            user: users[0]._id,
-            game: games[1]._id
-          },
-          {
-            date: "sometime last week",
-            score: Math.floor(Math.random() * 10 + 1),
-            user: users[1]._id,
-            game: games[0]._id
-          }
-        ];
-        db.History.remove({})
-          .then(() => db.History.collection.insertMany(historySeeds))
-          .then(data => {
-            console.log(data.result.n + " records inserted into History");
-            process.exit(0);
-          })
-          .catch(err => {
-            console.error(err);
-            process.exit(1);
-          });
-      })
-      .catch(err => {
-        console.log(err);
-        process.exit(1);
-      });
-  })
-  .catch(err => {
-    console.log(err);
-    process.exit(1);
-  });
+// db.Game.find({}).then(res => console.log(res));
+
+// db.Game.find({})
+//   .then(games => {
+//     console.log(games);
+//     const historySeeds = [
+//       {
+//         date: "right here right now",
+//         score: Math.floor(Math.random() * 10 + 1),
+//         game: games[1]._id
+//       },
+//       {
+//         date: "sometime last week",
+//         score: Math.floor(Math.random() * 10 + 1),
+//         game: games[0]._id
+//       }
+//     ];
+//     db.History.remove({})
+//       .then(() => db.History.collection.insertMany(historySeeds))
+//       .then(data => {
+//         console.log("Data: " + data);
+//         console.log(data.result.n + " records inserted into History");
+//         process.exit(0);
+//       })
+//       .catch(err => {
+//         console.error(err);
+//         process.exit(1);
+//       });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     process.exit(1);
+//   });
