@@ -4,7 +4,7 @@ const history = require("./history");
 const game = require("./game");
 
 router.use("/user", user);
-router.use("/history", history);
 router.use("/game", game);
+router.use("/history", history);
 
 module.exports = router;

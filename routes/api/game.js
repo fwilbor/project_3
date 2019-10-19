@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const userController = require("../../controllers/gameController");
+const gameController = require("../../controllers/gameController");
 
 router
   .route("/")
-  .get(userController.findAll)
-  .post(userController.create);
+  .get(gameController.findAll)
+  .post(gameController.create);
 
 router
   .route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
-  .delete(userController.remove);
+  .get(gameController.findById)
+  .put(gameController.update)
+  .delete(gameController.remove);
 
 module.exports = router;
