@@ -63,7 +63,8 @@ db.User.find({})
   .then(users => {
     db.Game.find({})
       .then(games => {
-        console.log(users[1]._id);
+        console.log(games);
+        console.log(users);
         const historySeeds = [
           {
             date: "right here right now",
