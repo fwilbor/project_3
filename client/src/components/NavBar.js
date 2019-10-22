@@ -28,62 +28,59 @@ function NavBar() {
           </button>
         </div>
 
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav ml-auto">
-            <li className="dropdown nav-item">
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="dropdown nav-item">
               <a
                 href="#"
-                className="dropdown-toggle nav-link"
+                class="dropdown-toggle nav-link"
                 data-toggle="dropdown"
               >
                 {/* TODO: Update Icons and Links*/}
-                <i className="material-icons">apps</i> About
+                <i class="material-icons">apps</i> About
               </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">layers</i> Our Philosophy
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="/" class="dropdown-item">
+                  <i class="material-icons">layers</i> Our Philosophy
                 </a>
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">line_style</i> About Us
+                <a href="/" class="dropdown-item">
+                  <i class="material-icons">line_style</i> About Us
                 </a>
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">content_paste</i> COOPA
+                <a href="/" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> COOPA
                   Documentation
                 </a>
               </div>
             </li>
-            <li className="dropdown nav-item">
+
+            <li class="dropdown nav-item">
               <a
                 href="#"
-                className="dropdown-toggle nav-link"
+                class="dropdown-toggle nav-link"
                 data-toggle="dropdown"
               >
-                <i className="material-icons">view_day</i> Parents
+                <i class="material-icons">view_day</i> Parents
               </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <a href="../sections.html#headers" className="dropdown-item">
-                  <i className="material-icons">dns</i> Parent Dashboard
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../sections.html#headers" class="dropdown-item">
+                  <i class="material-icons">dns</i> Parent Dashboard
                 </a>
               </div>
             </li>
-            <li className="dropdown nav-item">
+            <li class="dropdown nav-item">
               <a
                 href="#"
-                className="dropdown-toggle nav-link"
+                class="dropdown-toggle nav-link"
                 data-toggle="dropdown"
               >
-                <i className="material-icons">view_day</i> Kids
+                <i class="material-icons">view_day</i> Kids
               </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <a href="../sections.html#headers" className="dropdown-item">
-                  <i className="material-icons">dns</i> Kids Dashboard
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../sections.html#headers" class="dropdown-item">
+                  <i class="material-icons">dns</i> Kids Dashboard
                 </a>
               </div>
-            </li>
-            <li class="button-container nav-item iframe-extern">
-              <Link className="btn  btn-rose   btn-round btn-block" to="/signup">
-                <i class="material-icons">shopping_cart</i> Sign Up
-              </Link>
             </li>
           </ul>
         </div>
