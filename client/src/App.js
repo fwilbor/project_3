@@ -1,41 +1,52 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import NavTabs from "./components/NavTabs";
-import Home from "./components/pages/Home";
-import About from "./components/pages/About";
-import Blog from "./components/pages/Blog";
-import Contact from "./components/pages/Contact";
-import Wrapper from "./components/Wrapper";
+import Landing from "./pages/Landing";
+// import NavBar from "./components/NavBar";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import config from "./firebase";
 
-function App() {
-  return (
-    <Wrapper>
+firebase.initializeApp(config);
+
+class App extends Component {
+  state = {
+    user: ""
+  };
+
+  componentDidMount() {
+    const auth = firebase.auth();
+
+    // const promise = auth.createUserWithEmailAndPassword(
+    //   "tcutlip08@gmail.com",
+    //   "wizkik101"
+    // );
+
+    // promise
+    //   .then(result => {
+    //     console.log(result);
+    //   })
+    //   .catch(e => {
+    //     console.log(e.message);
+    //   });
+
+    auth.onAuthStateChanged(function(fbUser) {
+      if (fbUser) {
+        console.log(fbUser.email);
+      }
+    });
+  }
+  render() {
+    return (
       <Router>
-        <div>
-          <NavTabs />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/blog" component={Blog} />
-          <Route path="/contact" component={Contact} />
-        </div>
-      </Router>
-      <Router>
-        <div>
-          <Nav />
+        <>
+          {/* <NavBar /> */}
           <Switch>
-            <Route exact path="/" component={Books} />
-            <Route exact path="/books" component={Books} />
-            <Route exact path="/books/:id" component={Detail} />
-            <Route component={NoMatch} />
+            <Route exact path="/" component={Landing} />
           </Switch>
-        </div>
+        </>
       </Router>
-    </Wrapper>
-  );
+    );
+  }
 }
 
 export default App;
