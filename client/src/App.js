@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
-// import NavBar from "./components/NavBar";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "./firebase";
+import Signup from "./pages/Signup";
+import NavBar from "./components/NavBar";
+
 
 firebase.initializeApp(config);
+
 
 class App extends Component {
   state = {
@@ -39,7 +42,7 @@ class App extends Component {
     return (
       <Router>
         <>
-          {/* <NavBar /> */}
+          <NavBar />
           <Switch>
             <Route exact path="/" component={Landing} />
           </Switch>

@@ -5,28 +5,29 @@ import "../assets/css/material-kit.min.css";
 function NavBar() {
   return (
     <nav
-      class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg "
+      className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg "
       color-on-scroll="100"
       id="sectionsNav"
     >
-      <div class="container">
-        <div class="navbar-translate">
+      <div className="container">
+        <div className="navbar-translate">
           <Link className="navbar-brand" to="/">
             <b>JBOT</b>
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
+            <span className="sr-only">Toggle navigation</span>
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
         </div>
+
 
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
@@ -52,6 +53,7 @@ function NavBar() {
                 </a>
               </div>
             </li>
+
             <li class="dropdown nav-item">
               <a
                 href="#"
