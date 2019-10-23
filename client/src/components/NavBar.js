@@ -63,9 +63,12 @@ function NavBar() {
                 <i class="material-icons">view_day</i> Parents
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a href="../sections.html#headers" class="dropdown-item">
+                <Link to="./parent" class="dropdown-item">
                   <i class="material-icons">dns</i> Parent Dashboard
-                </a>
+                </Link>
+                <Link to="/" class="dropdown-item">
+                  <i class="material-icons">dns</i> Sign Out
+                </Link>
               </div>
             </li>
             <li class="dropdown nav-item">
