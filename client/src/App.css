@@ -5,3 +5,7 @@
 ul > li {
   text-align: left;
 }
+
+.features-5 {
+  background-image: url('./assets/img/bg12.jpg');
+}
