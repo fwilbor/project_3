@@ -12,7 +12,7 @@ if (!firebase.apps.length) {
 
 const auth = firebase.auth();
 
-class Signup extends Component {
+class SignUp extends Component {
   state = {
     user: "",
     name: "",
@@ -193,4 +193,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default SignUp;
