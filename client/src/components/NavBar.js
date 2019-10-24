@@ -1,33 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/material-kit.min.css";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import config from "../firebase";
 
-function NavBar() {
-  return (
-    <nav
-      className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg "
-      color-on-scroll="100"
-      id="sectionsNav"
-    >
-      <div className="container">
-        <div className="navbar-translate">
-          <Link className="navbar-brand" to="/">
-            <b>JBOT</b>
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="navbar-toggler-icon"></span>
-            <span className="navbar-toggler-icon"></span>
-            <span className="navbar-toggler-icon"></span>
-          </button>
-        </div>
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 
+const auth = firebase.auth();
+
+class NavBar extends Component {
+  signOut = () => {
+    firebase.auth().signOut();
+  };
+  render() {
+    return (
+      <nav
+        className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg "
+        color-on-scroll="100"
+        id="sectionsNav"
+      >
+        <div className="container">
+          <div className="navbar-translate">
+            <Link className="navbar-brand" to="/">
+              <b>JBOT</b>
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
 
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
@@ -98,9 +110,9 @@ function NavBar() {
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
+    );
+  }
 }
 
 export default NavBar;

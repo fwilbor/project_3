@@ -47,7 +47,7 @@ class SignUp extends Component {
     });
   };
 
-  handleInputSubmit = event => {
+  handleInputSignUp = event => {
     event.preventDefault();
 
     auth
@@ -66,10 +66,24 @@ class SignUp extends Component {
         console.log(e.message);
       });
   };
+  handleInputSignIn = event => {
+    event.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(e => {
+        console.log(e.message);
+      });
+  };
 
   checkIfSignedIn = () => {
-    auth.onAuthStateChanged(function(fbUser) {
+    auth.onAuthStateChanged(fbUser => {
       if (fbUser) {
+        console.log(fbUser.email);
+        // console.log(state);
         this.setState({ user: fbUser.email });
       } else {
         console.log("You are not signed in");
