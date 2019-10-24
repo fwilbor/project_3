@@ -41,82 +41,74 @@ class NavBar extends Component {
             </button>
           </div>
 
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="dropdown nav-item">
-                <a
-                  href="#"
-                  class="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
-                  {/* TODO: Update Icons and Links*/}
-                  <i class="material-icons">apps</i> About
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ml-auto">
+            <li className="dropdown nav-item">
+              <a
+                href="#"
+                className="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
+                {/* TODO: Update Icons and Links*/}
+                <i className="material-icons">apps</i> About
+              </a>
+              <div className="dropdown-menu dropdown-with-icons">
+                <a href="/" className="dropdown-item">
+                  <i className="material-icons">layers</i> Our Philosophy
                 </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="/" class="dropdown-item">
-                    <i class="material-icons">layers</i> Our Philosophy
-                  </a>
-                  <a href="/" class="dropdown-item">
-                    <i class="material-icons">line_style</i> About Us
-                  </a>
-                  <a href="/" class="dropdown-item">
-                    <i class="material-icons">content_paste</i> COOPA
-                    Documentation
-                  </a>
-                </div>
-              </li>
+                <a href="/" className="dropdown-item">
+                  <i className="material-icons">line_style</i> About Us
+                </a>
+                <a href="/" className="dropdown-item">
+                  <i className="material-icons">content_paste</i> COOPA
+                  Documentation
+                </a>
+              </div>
+            </li>
 
-              <li class="dropdown nav-item">
-                <a
-                  href="#"
-                  class="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
-                  <i class="material-icons">view_day</i> Parents
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <Link to="./parent" class="dropdown-item">
-                    <i class="material-icons">dns</i> Parent Dashboard
-                  </Link>
-                  <Link to="/" class="dropdown-item">
-                    <i class="material-icons">dns</i>
-                  </Link>
-                </div>
-              </li>
-              <li class="dropdown nav-item">
-                <a
-                  href="#"
-                  class="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
-                  <i class="material-icons">view_day</i> Kids
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="../sections.html#headers" class="dropdown-item">
-                    <i class="material-icons">dns</i> Kids Dashboard
-                  </a>
-                </div>
-              </li>
-              {/* TODO:Switch to conditional display */}
-              <li class="button-container nav-item iframe-extern">
-                <Link
-                  className="btn  btn-rose   btn-round btn-block"
-                  to="/sign-up"
-                >
-                  Sign Up/Sign In
+            <li className="dropdown nav-item">
+              <a
+                href="#"
+                className="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
+                <i className="material-icons">view_day</i> Parents
+              </a>
+              <div className="dropdown-menu dropdown-with-icons">
+                <Link to="./parent" className="dropdown-item">
+                  <i className="material-icons">dns</i> Parent Dashboard
                 </Link>
-              </li>
-              <li class="button-container nav-item iframe-extern">
-                <Link
-                  className="btn  btn-gray   btn-round btn-block"
-                  onClick={this.signOut}
-                  to="/sign-up"
-                >
-                  Sign Out
+                <Link to="/" className="dropdown-item">
+                  <i className="material-icons">dns</i> Sign Out
                 </Link>
-              </li>
-            </ul>
-          </div>
+              </div>
+            </li>
+            <li className="dropdown nav-item">
+              <a
+                href="#"
+                className="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
+                <i className="material-icons">view_day</i> Kids
+              </a>
+              <div className="dropdown-menu dropdown-with-icons">
+                <a href="../sections.html#headers" className="dropdown-item">
+                  <i className="material-icons">dns</i> Kids Dashboard
+                </a>
+              </div>
+            </li>
+            {/* TODO:Switch to conditional display */}
+            <li className="button-container nav-item iframe-extern">
+              <Link className="btn  btn-rose   btn-round btn-block" to="/signup">
+                Sign Up/Sign In
+              </Link>
+            </li>
+            <li className="button-container nav-item iframe-extern">
+              <Link className="btn  btn-gray   btn-round btn-block" to="/signup">
+                Sign Out
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     );
