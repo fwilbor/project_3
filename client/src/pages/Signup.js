@@ -31,7 +31,7 @@ class SignUp extends Component {
     });
   };
 
-  handleInputSubmit = event => {
+  handleInputSignUp = event => {
     event.preventDefault();
 
     auth
@@ -50,10 +50,24 @@ class SignUp extends Component {
         console.log(e.message);
       });
   };
+  handleInputSignIn = event => {
+    event.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(e => {
+        console.log(e.message);
+      });
+  };
 
   checkIfSignedIn = () => {
-    auth.onAuthStateChanged(function(fbUser) {
+    auth.onAuthStateChanged(fbUser => {
       if (fbUser) {
+        console.log(fbUser.email);
+        // console.log(state);
         this.setState({ user: fbUser.email });
       } else {
         console.log("You are not signed in");
@@ -124,18 +138,17 @@ class SignUp extends Component {
                     <a
                       href="/"
                       class="btn btn-rose btn-link btn-lg"
-                      onClick={this.handleInputSubmit}
+                      onClick={this.handleInputSignUp}
                     >
-                      Lets Go
+                      Sign Up
                     </a>
                   </div>
                 </div>
               </form>
             </div>
-          
 
-          {/* TODO: Switch to conditional display */}
-          <div className="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            {/* TODO: Switch to conditional display */}
+            <div className="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
               <h3>Sign In</h3>
               <form className="form" method="" action="">
                 <div className="card card-login card-hidden">
@@ -177,16 +190,15 @@ class SignUp extends Component {
                     <a
                       href="/"
                       class="btn btn-rose btn-link btn-lg"
-                      onClick={this.handleInputSubmit}
+                      onClick={this.handleInputSignIn}
                     >
-                      Let's Go
+                      Sign In
                     </a>
                   </div>
                 </div>
               </form>
             </div>
-
-            </div>
+          </div>
         </div>
       </div>
     );
