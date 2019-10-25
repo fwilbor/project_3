@@ -100,11 +100,12 @@ class SignUp extends Component {
       <div className="page-header header-filter">
         <div className="container">
           <div className="row">
-            <h3>We're glad you're here. Choose an option:</h3>
+            <h2>We're glad you're here. </h2>
             </div>
             <div className="row">
               {(!this.state.isLoggingIn && !this.state.isSigningUp) &&
                 <div className="options">
+                  <h3>Choose an option:</h3>
                   <button className="btn btn-link" onClick={() => this.optionSelect('signUp')}>
                     Sign Up
                   </button>
@@ -124,9 +125,18 @@ class SignUp extends Component {
             }
             </div>
             <div className="row">
-            {(this.state.isLoggingIn || this.state.isSigningUp) &&
+            {/* {(this.state.isLoggingIn || this.state.isSigningUp) &&
               <button className="btn btn-gray m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: false})}}>
                 Go Back
+              </button>
+            } */}
+            {this.state.isLoggingIn &&
+              <button className="btn btn-white m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: true})}}>
+                Or Create an Account
+              </button>
+            }{this.state.isSigningUp &&
+              <button className="btn btn-white m-auto" onClick={() => {this.setState({isLoggingIn: true, isSigningUp: false})}}>
+                Or Sign In
               </button>
             }
             </div>

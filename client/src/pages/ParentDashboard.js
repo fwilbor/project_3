@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 
+const title = {
+    'margin-top': '3em'
+  };
+  
 class ParentDashboard extends Component {
   render() {
     return (
@@ -9,7 +13,7 @@ class ParentDashboard extends Component {
         {/* TODO: Update this page to show relevant content. Supporting components for parent view should be added to this page. */}
         <div className="features-5">
           <div className="col-md-8 ml-auto mr-auto text-center">
-            <h2 className="title">Your life will be much easier</h2>
+            <h2 className="title" style={title}>Your life will be much easier</h2>
           </div>
           <div className="container">
             <div className="row">
