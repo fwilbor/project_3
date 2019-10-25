@@ -131,11 +131,11 @@ class SignUp extends Component {
               </button>
             } */}
             {this.state.isLoggingIn &&
-              <button className="btn btn-gray m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: true})}}>
+              <button className="btn btn-white m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: true})}}>
                 Or Create an Account
               </button>
             }{this.state.isSigningUp &&
-              <button className="btn btn-gray m-auto" onClick={() => {this.setState({isLoggingIn: true, isSigningUp: false})}}>
+              <button className="btn btn-white m-auto" onClick={() => {this.setState({isLoggingIn: true, isSigningUp: false})}}>
                 Or Sign In
               </button>
             }
