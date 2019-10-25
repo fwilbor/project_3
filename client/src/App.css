@@ -5,3 +5,18 @@
 ul > li {
   text-align: left;
 }
+
+.features-5 {
+  background-image: url('./assets/img/bg12.jpg');
+}
+
+.options{
+  text-align: center;
+  margin: auto;
+}
+.options button {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white !important;
+  margin: 20px;
+}
