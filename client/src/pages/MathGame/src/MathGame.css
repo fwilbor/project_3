@@ -1,0 +1,21 @@
+#mathjumbotron {
+  width: 100%;
+}
+
+#mathHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#mathcardHeader {
+  text-align: center;
+}
+
+#mathrow {
+  width: 100%;
+}
