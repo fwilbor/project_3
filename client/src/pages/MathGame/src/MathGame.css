@@ -1,0 +1,21 @@
+.jumbotron {
+  width: 100%;
+}
+
+.Header {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cardHeader {
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+}
