@@ -6,6 +6,7 @@ import config from "../firebase";
 import axios from "axios";
 import SignupForm from "../components/Form/SignupForm";
 import SigninForm from "../components/Form/SigninForm";
+import NavBar from "../components/NavBar";
 // import { BrowserHistory } from "react-history";
 
 if (!firebase.apps.length) {
@@ -94,6 +95,8 @@ class SignUp extends Component {
   render() {
     
     return (
+      <>
+      <NavBar/>
       <div className="page-header header-filter">
         <div className="container">
           <div className="row">
@@ -120,8 +123,16 @@ class SignUp extends Component {
               <SigninForm/>
             }
             </div>
+            <div className="row">
+            {(this.state.isLoggingIn || this.state.isSigningUp) &&
+              <button className="btn btn-gray m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: false})}}>
+                Go Back
+              </button>
+            }
+            </div>
         </div>
       </div>
+      </>
     );
   }
 }

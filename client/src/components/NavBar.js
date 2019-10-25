@@ -99,16 +99,17 @@ class NavBar extends Component {
             </li>
             {/* TODO:Switch to conditional display */}
             <li className="button-container nav-item iframe-extern">
-              <Link className="btn  btn-rose   btn-round btn-block" to="/signup">
+              <Link className="btn  btn-rose   btn-round btn-block" to="/sign-up">
                 Sign Up/Sign In
               </Link>
             </li>
             <li className="button-container nav-item iframe-extern">
-              <Link className="btn  btn-gray   btn-round btn-block" to="/signup">
+              <Link className="btn  btn-gray   btn-round btn-block" to="/sign-up">
                 Sign Out
               </Link>
             </li>
           </ul>
+        </div>
         </div>
       </nav>
     );
