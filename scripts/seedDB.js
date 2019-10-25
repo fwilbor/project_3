@@ -67,34 +67,34 @@ db.Game.remove({})
     console.error(err);
   });
 
-db.Game.find({})
-  .then(games => {
-    console.log(games);
-    // const historySeeds = [
-    //   {
-    //     date: "right here right now",
-    //     score: Math.floor(Math.random() * 10 + 1),
-    //     game: games[1]._id
-    //   },
-    //   {
-    //     date: "sometime last week",
-    //     score: Math.floor(Math.random() * 10 + 1),
-    //     game: games[0]._id
-    //   }
-    // ];
-    // db.History.remove({})
-    //   .then(() => db.History.collection.insertMany(historySeeds))
-    //   .then(data => {
-    //     console.log("Data: " + data);
-    //     console.log(data.result.n + " records inserted into History");
-    //     // process.exit(0);
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //     // process.exit(1);
-    //   });
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Game.find({})
+//   .then(games => {
+//     console.log(games);
+// const historySeeds = [
+//   {
+//     date: "right here right now",
+//     score: Math.floor(Math.random() * 10 + 1),
+//     game: games[1]._id
+//   },
+//   {
+//     date: "sometime last week",
+//     score: Math.floor(Math.random() * 10 + 1),
+//     game: games[0]._id
+//   }
+// ];
+// db.History.remove({})
+//   .then(() => db.History.collection.insertMany(historySeeds))
+//   .then(data => {
+//     console.log("Data: " + data);
+//     console.log(data.result.n + " records inserted into History");
+//     // process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     // process.exit(1);
+//   });
+// })
+// .catch(err => {
+//   console.error(err);
+//   process.exit(1);
+// });

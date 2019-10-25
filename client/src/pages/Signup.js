@@ -29,17 +29,20 @@ class SignUp extends Component {
     this.checkIfSignedIn();
   }
 
-  optionSelect = (option) => {
-    if(option === "signUp"){
-      this.setState(
-        {isSigningUp: true,
-        isLoggingIn: false});
-    }else{
+  componentDidUpdate() {
+    this.checkIfSignedIn();
+  }
+
+  optionSelect = option => {
+    if (option === "signUp") {
+      this.setState({ isSigningUp: true, isLoggingIn: false });
+    } else {
       this.setState({
         isLoggingIn: true,
-      isSigningUp: false});
+        isSigningUp: false
+      });
     }
-  }
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -93,45 +96,51 @@ class SignUp extends Component {
   };
 
   render() {
-    
     return (
       <>
-      <NavBar/>
-      <div className="page-header header-filter">
-        <div className="container">
-          <div className="row">
-            <h3>We're glad you're here. Choose an option:</h3>
+        <NavBar />
+        <div className="page-header header-filter">
+          <div className="container">
+            <div className="row">
+              <h3>We're glad you're here. Choose an option:</h3>
             </div>
             <div className="row">
-              {(!this.state.isLoggingIn && !this.state.isSigningUp) &&
+              {!this.state.isLoggingIn && !this.state.isSigningUp && (
                 <div className="options">
-                  <button className="btn btn-link" onClick={() => this.optionSelect('signUp')}>
+                  <button
+                    className="btn btn-link"
+                    onClick={() => this.optionSelect("signUp")}
+                  >
                     Sign Up
                   </button>
                   <span> Or </span>
-                <button className="btn btn-link" onClick={() => this.optionSelect('signIn')}>
+                  <button
+                    className="btn btn-link"
+                    onClick={() => this.optionSelect("signIn")}
+                  >
                     Sign In
                   </button>
                 </div>
-              }
-          </div>
-          <div className="row">
-            {this.state.isSigningUp && 
-              <SignupForm/>
-            }
-            {this.state.isLoggingIn && 
-              <SigninForm/>
-            }
+              )}
             </div>
             <div className="row">
-            {(this.state.isLoggingIn || this.state.isSigningUp) &&
-              <button className="btn btn-gray m-auto" onClick={() => {this.setState({isLoggingIn: false, isSigningUp: false})}}>
-                Go Back
-              </button>
-            }
+              {this.state.isSigningUp && <SignupForm />}
+              {this.state.isLoggingIn && <SigninForm />}
             </div>
+            <div className="row">
+              {(this.state.isLoggingIn || this.state.isSigningUp) && (
+                <button
+                  className="btn btn-gray m-auto"
+                  onClick={() => {
+                    this.setState({ isLoggingIn: false, isSigningUp: false });
+                  }}
+                >
+                  Go Back
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
       </>
     );
   }
