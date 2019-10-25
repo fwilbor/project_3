@@ -96,6 +96,9 @@ class NavBar extends Component {
                   <a href="../sections.html#headers" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
                   </a>
+                  <Link to="./mathGame" className="dropdown-item">
+                    <i className="material-icons">dns</i> Math Game
+                  </Link>
                 </div>
               </li>
               {/* TODO:Switch to conditional display */}
