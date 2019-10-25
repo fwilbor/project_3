@@ -20,3 +20,8 @@ ul > li {
   color: white !important;
   margin: 20px;
 }
+
+.bd-example {
+  width: 95%;
+  height: 70%;
+}
