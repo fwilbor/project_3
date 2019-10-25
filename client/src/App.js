@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/COPPA" component={COPPA} />
+        <Route exact path="/COPPA" component={COPPA} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/parent" component={ParentDashboard} />
         <Route exact path="/" component={Landing} />

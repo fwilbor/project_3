@@ -13,6 +13,7 @@ const auth = firebase.auth();
 
 class NavBar extends Component {
   signOut = () => {
+    console.log("sign out");
     firebase.auth().signOut();
   };
   render() {
@@ -41,75 +42,82 @@ class NavBar extends Component {
             </button>
           </div>
 
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav ml-auto">
-            <li className="dropdown nav-item">
-              <a
-                href="#"
-                className="dropdown-toggle nav-link"
-                data-toggle="dropdown"
-              >
-                {/* TODO: Update Icons and Links*/}
-                <i className="material-icons">apps</i> About
-              </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">layers</i> Our Philosophy
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav ml-auto">
+              <li className="dropdown nav-item">
+                <a
+                  href="#"
+                  className="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                >
+                  {/* TODO: Update Icons and Links*/}
+                  <i className="material-icons">apps</i> About
                 </a>
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">line_style</i> About Us
-                </a>
-                <a href="/COPPA" className="dropdown-item">
-                  <i className="material-icons">content_paste</i> COPPA
-                  Documentation
-                </a>
-              </div>
-            </li>
+                <div className="dropdown-menu dropdown-with-icons">
+                  <a href="/" className="dropdown-item">
+                    <i className="material-icons">layers</i> Our Philosophy
+                  </a>
+                  <a href="/" className="dropdown-item">
+                    <i className="material-icons">line_style</i> About Us
+                  </a>
+                  <a href="/COPPA" className="dropdown-item">
+                    <i className="material-icons">content_paste</i> COPPA
+                    Documentation
+                  </a>
+                </div>
+              </li>
 
-            <li className="dropdown nav-item">
-              <a
-                href="#"
-                className="dropdown-toggle nav-link"
-                data-toggle="dropdown"
-              >
-                <i className="material-icons">view_day</i> Parents
-              </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <Link to="./parent" className="dropdown-item">
-                  <i className="material-icons">dns</i> Parent Dashboard
-                </Link>
-                <Link to="/" className="dropdown-item">
-                  <i className="material-icons">dns</i> Sign Out
-                </Link>
-              </div>
-            </li>
-            <li className="dropdown nav-item">
-              <a
-                href="#"
-                className="dropdown-toggle nav-link"
-                data-toggle="dropdown"
-              >
-                <i className="material-icons">view_day</i> Kids
-              </a>
-              <div className="dropdown-menu dropdown-with-icons">
-                <a href="../sections.html#headers" className="dropdown-item">
-                  <i className="material-icons">dns</i> Kids Dashboard
+              <li className="dropdown nav-item">
+                <a
+                  href="#"
+                  className="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                >
+                  <i className="material-icons">view_day</i> Parents
                 </a>
-              </div>
-            </li>
-            {/* TODO:Switch to conditional display */}
-            <li className="button-container nav-item iframe-extern">
-              <Link className="btn  btn-rose   btn-round btn-block" to="/sign-up">
-                Sign Up/Sign In
-              </Link>
-            </li>
-            <li className="button-container nav-item iframe-extern">
-              <Link className="btn  btn-gray   btn-round btn-block" to="/sign-up">
-                Sign Out
-              </Link>
-            </li>
-          </ul>
-        </div>
+                <div className="dropdown-menu dropdown-with-icons">
+                  <Link to="./parent" className="dropdown-item">
+                    <i className="material-icons">dns</i> Parent Dashboard
+                  </Link>
+                  <Link to="/" className="dropdown-item">
+                    <i className="material-icons">dns</i> Sign Out
+                  </Link>
+                </div>
+              </li>
+              <li className="dropdown nav-item">
+                <a
+                  href="#"
+                  className="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                >
+                  <i className="material-icons">view_day</i> Kids
+                </a>
+                <div className="dropdown-menu dropdown-with-icons">
+                  <a href="../sections.html#headers" className="dropdown-item">
+                    <i className="material-icons">dns</i> Kids Dashboard
+                  </a>
+                </div>
+              </li>
+              {/* TODO:Switch to conditional display */}
+              <li className="button-container nav-item iframe-extern">
+                <Link
+                  className="btn  btn-rose   btn-round btn-block"
+                  to="/sign-up"
+                >
+                  Sign Up/Sign In
+                </Link>
+              </li>
+              <li className="button-container nav-item iframe-extern">
+                <Link
+                  className="btn  btn-gray   btn-round btn-block"
+                  to="/sign-up"
+                  onClick={this.signOut}
+                >
+                  Sign Out
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     );
