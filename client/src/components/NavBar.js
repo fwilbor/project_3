@@ -59,8 +59,8 @@ class NavBar extends Component {
                 <a href="/" className="dropdown-item">
                   <i className="material-icons">line_style</i> About Us
                 </a>
-                <a href="/" className="dropdown-item">
-                  <i className="material-icons">content_paste</i> COOPA
+                <a href="/COPPA" className="dropdown-item">
+                  <i className="material-icons">content_paste</i> COPPA
                   Documentation
                 </a>
               </div>

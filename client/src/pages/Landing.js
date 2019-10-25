@@ -77,9 +77,7 @@ const Landing = () => {
                       </div>
                       <h4 className="info-title">Verified Users</h4>
                       <p>
-                        Divide details about your product or agency work into
-                        parts. Write a few lines about each one. A paragraph
-                        describing a feature will be enough.
+                        
                       </p>
                     </div>
                   </div>
