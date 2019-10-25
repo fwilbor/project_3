@@ -18,18 +18,11 @@ const auth = firebase.auth();
 class SignUp extends Component {
   state = {
     user: "",
-    name: "",
-    email: "",
-    password: "",
     isSigningUp: false,
     isLoggingIn: false
   };
 
   componentDidMount() {
-    this.checkIfSignedIn();
-  }
-
-  componentDidUpdate() {
     this.checkIfSignedIn();
   }
 
@@ -90,7 +83,6 @@ class SignUp extends Component {
     auth.onAuthStateChanged(fbUser => {
       if (fbUser) {
         console.log(fbUser.email);
-        // console.log(state);
         this.setState({ user: fbUser.email });
       } else {
         console.log("You are not signed in");
@@ -127,8 +119,18 @@ class SignUp extends Component {
               )}
             </div>
             <div className="row">
-              {this.state.isSigningUp && <SignupForm />}
-              {this.state.isLoggingIn && <SigninForm />}
+              {this.state.isSigningUp && (
+                <SignupForm
+                  handleInputSignUp={this.handleInputSignUp}
+                  handleInputChange={this.handleInputChange}
+                />
+              )}
+              {this.state.isLoggingIn && (
+                <SigninForm
+                  handleInputSignIn={this.handleInputSignIn}
+                  handleInputChange={this.handleInputChange}
+                />
+              )}
             </div>
             <div className="row">
               {(this.state.isLoggingIn || this.state.isSigningUp) && (
