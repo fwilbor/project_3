@@ -140,7 +140,7 @@ class SignUp extends Component {
                     this.setState({ isLoggingIn: false, isSigningUp: false });
                   }}
                 >
-                  Go Back
+                  Go Back 
                 </button>
               )}
             </div>
