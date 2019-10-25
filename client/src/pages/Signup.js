@@ -53,6 +53,7 @@ class SignUp extends Component {
 
   handleInputSignUp = event => {
     event.preventDefault();
+    console.log("sign up");
 
     auth
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -70,8 +71,10 @@ class SignUp extends Component {
         console.log(e.message);
       });
   };
+
   handleInputSignIn = event => {
     event.preventDefault();
+    console.log("sign in");
 
     auth
       .signInWithEmailAndPassword(this.state.email, this.state.password)
