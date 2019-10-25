@@ -1,11 +1,11 @@
 import React from "react";
-import "./Button.css";
+import "./MathButton.css";
 
 const Button = props => {
   return (
     <div className="container">
       {props.answers.map(answer => (
-        <button className="btn btn-primary" key={answer} value={answer} onClick={() => props.testClick(answer, props.correctAnswer)}>
+        <button id="mathgamebuttons" className="btn btn-primary" key={answer} value={answer} onClick={() => props.testClick(answer, props.correctAnswer)}>
         {answer}
         {console.log()}
       </button>

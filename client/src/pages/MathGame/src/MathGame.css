@@ -1,8 +1,8 @@
-.jumbotron {
+#mathjumbotron {
   width: 100%;
 }
 
-.Header {
+#mathHeader {
   width: 100%;
   text-align: center;
 }
@@ -12,10 +12,10 @@
   text-align: center;
   margin-bottom: 20px;
 }
-.cardHeader {
+#mathcardHeader {
   text-align: center;
 }
 
-.row {
+#mathrow {
   width: 100%;
 }

@@ -91,9 +91,9 @@ class MathGame extends Component {
   render() {
     return (
       <Wrapper>
-        <div className="jumbotron">
-          <Header>J-BOT Math!</Header>
-          <h3 className="cardHeader">
+        <div className="jumbotron" id="mathjumbotron">
+          <Header id="mathHeader">J-BOT Math!</Header>
+          <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {correctGuesses}
             <br />
             Total Guesses: {totalGuesses}
@@ -104,7 +104,7 @@ class MathGame extends Component {
             <StartButton startClick={this.startGame} />
           ) : (
             <div className="container">
-              <div className="row">
+              <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
                     return (

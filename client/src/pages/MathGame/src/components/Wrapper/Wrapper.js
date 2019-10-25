@@ -1,6 +1,6 @@
 import React from "react";
-import "./Wrapper.css";
+import "./mathWrapper.css";
 
-const Wrapper = props => <div className="wrapper">{props.children}</div>;
+const Wrapper = props => <div id="mathwrapper" className="wrapper">{props.children}</div>;
 
 export default Wrapper;
