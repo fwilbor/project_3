@@ -106,6 +106,10 @@ class MathGame extends Component {
       });
   }
 
+  endGame() {
+    this.sendHighScore();
+  }
+
   render() {
     return (
       <Wrapper>
@@ -118,7 +122,9 @@ class MathGame extends Component {
             <br />
             High Score: {usersHighScore}
           </h3>
-          {!this.state.game ? (
+          {totalGuesses === math.length ? (
+            this.endGame()
+          ) : !this.state.game ? (
             <StartButton startClick={this.startGame} />
           ) : (
             <div className="container">
