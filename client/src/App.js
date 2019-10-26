@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import COPPA from "./pages/COPPA";
 import ParentDashboard from "./pages/ParentDashboard";
+import ChildDashboard from "./pages/ChildDashboard";
 import MathGame from "./pages/MathGame/src/MathGame";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/COPPA" component={COPPA} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/parent" component={ParentDashboard} />
+        <Route exact path="/child" component={ChildDashboard} />
         <Route exact path="/" component={Landing} />
       </Switch>
     </Router>
