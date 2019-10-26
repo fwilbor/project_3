@@ -93,9 +93,9 @@ class NavBar extends Component {
                   <i className="material-icons">view_day</i> Kids
                 </a>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <a href="../sections.html#headers" className="dropdown-item">
+                  <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
-                  </a>
+                  </Link>
                   <Link to="./mathGame" className="dropdown-item">
                     <i className="material-icons">dns</i> Math Game
                   </Link>
