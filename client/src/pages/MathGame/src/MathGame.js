@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import StartButton from "./components/StartButton";
 import math from "./jsonfiles/math.json";
 import "./MathGame.css";
+import axios from "axios";
 
 let correctGuesses = 0;
 let usersHighScore = 0;
@@ -23,8 +24,8 @@ class MathGame extends Component {
   };
 
   componentDidUpdate() {
-    console.log("Answer was clicked " + this.state.correctClicked);
-    console.log("Was this question disabled: " + this.state.disabled);
+    // console.log("Answer was clicked " + this.state.correctClicked);
+    // console.log("Was this question disabled: " + this.state.disabled);
   }
 
   componentDidMount() {
@@ -60,6 +61,9 @@ class MathGame extends Component {
       this.setState({ disabled: true });
     }
     this.changeDisplayedQuestion();
+    if (totalGuesses === 5) {
+      this.sendHighScore();
+    }
   };
 
   changeDisplayedQuestion = () => {
@@ -87,6 +91,20 @@ class MathGame extends Component {
     }
     console.log(this.state.displayQuestions);
   };
+
+  sendHighScore() {
+    axios
+      .post("/api/history", {
+        date: new Date(Date.now()),
+        score: this.state.usersHighScore
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (
