@@ -33,8 +33,7 @@ class ChildDashboard extends Component {
     axios
       .get("/api/user/email/" + userEmail)
       .then(res => {
-        // this.setState({ user: res.email });
-        console.log(res);
+        this.setState({ user: res.data });
       })
       .catch(err => {
         console.log(err);

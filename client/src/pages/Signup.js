@@ -72,7 +72,7 @@ class SignUp extends Component {
     auth
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(result => {
-        console.log(result);
+        console.log("Successfully Logged In");
       })
       .catch(e => {
         console.log(e.message);
