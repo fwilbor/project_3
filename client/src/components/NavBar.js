@@ -83,13 +83,13 @@ class NavBar extends Component {
               </li>
 
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Parents
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="./parent" className="dropdown-item">
                     <i className="material-icons">dns</i> Parent Dashboard
@@ -97,13 +97,13 @@ class NavBar extends Component {
                 </div>
               </li>
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Kids
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
