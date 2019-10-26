@@ -1,6 +1,9 @@
 .page-header {
   background-image: url('./assets/img/children.jpg');
 }
+.coppa-page {
+  height: 45vh !important;
+}
 
 ul > li {
   text-align: left;

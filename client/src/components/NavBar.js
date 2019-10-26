@@ -74,10 +74,10 @@ class NavBar extends Component {
                   <a href="/" className="dropdown-item">
                     <i className="material-icons">line_style</i> About Us
                   </a>
-                  <a href="/COPPA" className="dropdown-item">
+                  <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
                     Documentation
-                  </a>
+                  </Link>
                 </div>
               </li>
 
@@ -93,9 +93,6 @@ class NavBar extends Component {
                   <Link to="./parent" className="dropdown-item">
                     <i className="material-icons">dns</i> Parent Dashboard
                   </Link>
-                  <Link to="/" className="dropdown-item">
-                    <i className="material-icons">dns</i> Sign Out
-                  </Link>
                 </div>
               </li>
               <li className="dropdown nav-item">
@@ -109,9 +106,6 @@ class NavBar extends Component {
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
-                  </Link>
-                  <Link to="./mathGame" className="dropdown-item">
-                    <i className="material-icons">dns</i> Math Game
                   </Link>
                 </div>
               </li>

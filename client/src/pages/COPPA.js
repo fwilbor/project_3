@@ -3,25 +3,13 @@ import "../App.css";
 import "../assets/css/material-kit.min.css";
 import NavBar from "../components/NavBar";
 
-const Landing = () => {
+const COPPA = () => {
   return (
     <>
       <NavBar />
-      <div className="landing-page sidebar-collapse">
-        <div className="page-header header-filter" data-parallax="true">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <h1 className="title">JBot</h1>
-                <h3 className="subtitle ml-5">
-                  <em>A monitored educational gaming experience</em>
-                </h3>
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="main main-raised">
+      <div className="coppa-page page-header header-filter" data-parallax="true"></div>
+
+      <div className="main main-raised">
           <div className="container">
             <div className="section text-center">
               <div className="row">
@@ -99,7 +87,7 @@ const Landing = () => {
                         </li>
                       </ul>
 
-                      <h3>Children & Education:</h3>
+                      <h3>Children &amp; Education:</h3>
                       <ul>
                         <li>
                           We understand the importance of taking extra
@@ -140,54 +128,11 @@ const Landing = () => {
                   </h5>
                 </div>
               </div>
-              <div className="features">
-                <div className="row">
-                  {/* <div className="col-md-4"> */}
-                  {/* Centered this feature until we add additional features */}
-                  <div className="col">
-                    <div className="info">
-                      <div className="icon icon-success">
-                        <i className="material-icons">verified_user</i>
-                      </div>
-                      <h4 className="info-title">Verified Users</h4>
-                      <p></p>
-                    </div>
-                  </div>
-                  {/* TODO: Update the features section!!! */}
-                  {/* <div className="col-md-4">
-                  <div className="info">
-                    <div className="icon icon-info">
-                      <i className="material-icons">chat</i>
-                    </div>
-                    <h4 className="info-title">Free Chat</h4>
-                    <p>
-                      Divide details about your product or agency work into
-                      parts. Write a few lines about each one. A paragraph
-                      describing a feature will be enough.
-                    </p>
-                  </div>
-                </div> */}
-                  {/* <div className="col-md-4">
-                  <div className="info">
-                    <div className="icon icon-danger">
-                      <i className="material-icons">fingerprint</i>
-                    </div>
-                    <h4 className="info-title">Fingerprint</h4>
-                    <p>
-                      Divide details about your product or agency work into
-                      parts. Write a few lines about each one. A paragraph
-                      describing a feature will be enough.
-                    </p>
-                  </div>
-                </div> */}
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
 
-export default Landing;
+export default COPPA;
