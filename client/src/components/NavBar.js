@@ -110,9 +110,6 @@ class NavBar extends Component {
                   <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
                   </Link>
-                  <Link to="./mathGame" className="dropdown-item">
-                    <i className="material-icons">dns</i> Math Game
-                  </Link>
                 </div>
               </li>
               
