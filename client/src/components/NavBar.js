@@ -12,6 +12,20 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 class NavBar extends Component {
+  state = {
+    isSignedIn: false
+  };
+
+  componentDidMount() {
+    this.checkIfSignedIn();
+  }
+
+  checkIfSignedIn = () => {
+    auth.onAuthStateChanged(fbUser => {
+      fbUser ? this.setState({isSignedIn: true}) : this.setState({isSignedIn: false});
+    });
+  };
+
   signOut = () => {
     console.log("sign out");
     firebase.auth().signOut();
@@ -101,23 +115,18 @@ class NavBar extends Component {
                   </Link>
                 </div>
               </li>
-              {/* TODO:Switch to conditional display */}
+              
               <li className="button-container nav-item iframe-extern">
-                <Link
-                  className="btn  btn-rose   btn-round btn-block"
-                  to="/sign-up"
-                >
-                  Sign Up/Sign In
-                </Link>
-              </li>
-              <li className="button-container nav-item iframe-extern">
-                <Link
-                  className="btn  btn-gray   btn-round btn-block"
-                  to="/sign-up"
-                  onClick={this.signOut}
-                >
-                  Sign Out
-                </Link>
+              {
+                this.state.isSignedIn ? 
+                <Link className="btn btn-gray btn-round btn-block"
+                      to="/sign-up"
+                      onClick={this.signOut}>
+                  Sign Out </Link> : 
+                <Link className="btn btn-rose btn-round btn-block"
+                      to="/sign-up">
+                  Sign Up/Sign In</Link>
+              }
               </li>
             </ul>
           </div>
