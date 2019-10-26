@@ -130,14 +130,24 @@ class SignUp extends Component {
               )}
             </div>
             <div className="row">
-              {(this.state.isLoggingIn || this.state.isSigningUp) && (
+              {this.state.isLoggingIn && (
                 <button
                   className="btn btn-gray m-auto"
                   onClick={() => {
-                    this.setState({ isLoggingIn: false, isSigningUp: false });
+                    this.setState({ isLoggingIn: false, isSigningUp: true });
                   }}
                 >
-                  Go Back
+                  Or Sign Up
+                </button>
+              )}
+              {this.state.isSigningUp && (
+                <button
+                  className="btn btn-gray m-auto"
+                  onClick={() => {
+                    this.setState({ isLoggingIn: true, isSigningUp: false });
+                  }}
+                >
+                  Or Sign In
                 </button>
               )}
             </div>
