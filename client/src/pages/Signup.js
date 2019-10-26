@@ -17,9 +17,12 @@ const auth = firebase.auth();
 
 class SignUp extends Component {
   state = {
-    user: "",
+    username: "",
+    email: "",
+    password: "",
     isSigningUp: false,
-    isLoggingIn: false
+    isLoggingIn: false,
+    canSubmit: false
   };
 
   componentDidMount() {
@@ -48,21 +51,27 @@ class SignUp extends Component {
     event.preventDefault();
     console.log("sign up");
 
-    auth
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(result => {
-        axios
-          .post("/api/user", this.state)
-          .then(res => {
-            console.log(res);
+    if(!this.state.email || !this.state.password){
+      alert(`You must enter a valid email and password`);
+    } else {
+        this.setState({canSubmit: true});
+
+        auth
+          .createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .then(result => {
+            axios
+              .post("/api/user", this.state)
+              .then(res => {
+                console.log(res);
+              })
+              .catch(err => {
+                console.log(err);
+              });
           })
-          .catch(err => {
-            console.log(err);
+          .catch(e => {
+            console.log(e.message);
           });
-      })
-      .catch(e => {
-        console.log(e.message);
-      });
+      }
   };
 
   handleInputSignIn = event => {
@@ -110,7 +119,7 @@ class SignUp extends Component {
                     className="btn btn-link"
                     onClick={() => this.optionSelect("signIn")}
                   >
-                    Sign In
+                    Sign In 
                   </button>
                 </div>
               )}
@@ -120,6 +129,7 @@ class SignUp extends Component {
                 <SignupForm
                   handleInputSignUp={this.handleInputSignUp}
                   handleInputChange={this.handleInputChange}
+                  canSubmit={this.state.canSubmit}
                 />
               )}
               {this.state.isLoggingIn && (
