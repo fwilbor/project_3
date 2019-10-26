@@ -27,7 +27,9 @@ class ChildDashboard extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/");
+      fbUser
+        ? this.getUserInfo(fbUser.email)
+        : this.props.history.push("/sign-up");
     });
   };
 
@@ -168,7 +170,7 @@ class ChildDashboard extends Component {
                 <div className="row">
                   <div className="info info-horizontal">
                     <div className="icon icon-primary">
-                      <i className="material-icons">extension</i>
+                      <i className="material-icons">poll</i>
                     </div>
                     <div className="description">
                       <h4 className="info-title">Stats</h4>

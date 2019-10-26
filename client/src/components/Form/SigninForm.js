@@ -41,12 +41,13 @@ function SigninForm(props) {
             </span>
           </div>
           <div className="card-footer justify-content-center">
-            <a
+            <button
               className="btn btn-rose btn-link btn-lg"
+              disabled={(!props.canSubmit)}
               onClick={props.handleInputSignIn}
             >
               Let's Go
-            </a>
+            </button>
           </div>
         </div>
       </form>

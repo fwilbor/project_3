@@ -59,53 +59,50 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link 
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
-                  {/* TODO: Update Icons and Links*/}
                   <i className="material-icons">apps</i> About
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <a href="/" className="dropdown-item">
-                    <i className="material-icons">layers</i> Our Philosophy
-                  </a>
-                  <a href="/" className="dropdown-item">
-                    <i className="material-icons">line_style</i> About Us
-                  </a>
-                  <a href="/COPPA" className="dropdown-item">
+                  <Link to="/about/philosophy" className="dropdown-item">
+                    <i className="material-icons">emoji_objects</i> Our Philosophy
+                  </Link>
+                  <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
                     Documentation
-                  </a>
+                  </Link>
+                  <Link to="/about/us" className="dropdown-item">
+                    <i className="material-icons">group</i> About Us
+                  </Link>
+                  
                 </div>
               </li>
 
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Parents
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="./parent" className="dropdown-item">
                     <i className="material-icons">dns</i> Parent Dashboard
                   </Link>
-                  <Link to="/" className="dropdown-item">
-                    <i className="material-icons">dns</i> Sign Out
-                  </Link>
                 </div>
               </li>
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Kids
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard

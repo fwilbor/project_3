@@ -1,6 +1,17 @@
-import React from "react";
+import React, { Component }  from "react";
+import { Link } from "react-router-dom";
 
-function SignupForm(props) {
+class SignupForm extends Component {
+  state = {
+    accepted: false
+  }
+
+  toggleAccepted = () => {
+    let accept = !this.state.accepted;
+    this.setState({ accepted: accept });
+  };
+
+  render() {
   return (
     <div className="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
       <h3>Create An Account</h3>
@@ -18,8 +29,8 @@ function SignupForm(props) {
                   type="text"
                   className="form-control"
                   placeholder="Name..."
-                  name="name"
-                  onChange={props.handleInputChange}
+                  name="username"
+                  onChange={this.props.handleInputChange}
                 />
               </div>
             </span>
@@ -35,7 +46,7 @@ function SignupForm(props) {
                   className="form-control"
                   placeholder="Email..."
                   name="email"
-                  onChange={props.handleInputChange}
+                  onChange={this.props.handleInputChange}
                 />
               </div>
             </span>
@@ -51,23 +62,39 @@ function SignupForm(props) {
                   className="form-control"
                   placeholder="Password..."
                   name="password"
-                  onChange={props.handleInputChange}
+                  onChange={this.props.handleInputChange}
                 />
+              </div>
+            </span>
+            <span className="bmd-form-group">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">
+                  <input  id="coppa" 
+                          type="checkbox" 
+                          aria-label="Checkbox for accepting terms"
+                          onChange={this.toggleAccepted}
+                          />
+                  </span>
+                </div>
+                  <span htmlFor="coppa">Check here to accept the <Link to="/COPPA"> Terms</Link></span>
               </div>
             </span>
           </div>
           <div className="card-footer justify-content-center">
-            <a
+            <button
               className="btn btn-rose btn-link btn-lg"
-              onClick={props.handleInputSignUp}
+              disabled={(!this.state.accepted && !this.props.canSubmit)}
+              onClick={this.props.handleInputSignUp}
             >
               Lets Go
-            </a>
+            </button>
           </div>
         </div>
       </form>
     </div>
   );
+}
 }
 
 export default SignupForm;
