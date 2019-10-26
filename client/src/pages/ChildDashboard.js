@@ -107,16 +107,6 @@ class ChildDashboard extends Component {
             </div>
             </div>
             <div className="row">
-              <div className="info info-horizontal">
-                <div className="icon icon-primary">
-                  <i className="material-icons">extension</i>
-                </div>
-                <div className="description">
-                  <h4 className="info-title">Stats</h4>
-                  <p>Check your gaming history and stats.</p>
-
-                </div>
-              </div>
               <div className="row">
                 <div className="info info-horizontal">
                   <div className="icon icon-primary">
@@ -130,6 +120,7 @@ class ChildDashboard extends Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </>
     );
