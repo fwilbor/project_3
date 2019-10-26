@@ -1,18 +1,57 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar"
+import axios from "axios";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import config from "../firebase";
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+
+const auth = firebase.auth();
 
 class ChildDashboard extends Component {
-    render() {
-        return (
-            <>
-            <NavBar />
-            <div className="features-3 mt-2">
+  state = {
+    user: ""
+  };
+
+  componentDidMount() {
+    this.checkIfSignedIn();
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.user);
+  }
+
+  checkIfSignedIn = () => {
+    auth.onAuthStateChanged(fbUser => {
+      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/");
+    });
+  };
+
+  getUserInfo(userEmail) {
+    axios
+      .get("/api/user/email/" + userEmail)
+      .then(res => {
+        this.setState({ user: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    return (
+      <>
+        <NavBar />
+        <div className="features-3 mt-2">
           <div className="row">
             <div className="col-md-4">
               <div className="phone-container">
-                  <div>Placeholder Image</div>
-                <img src="./assets/img/sections/iphone.png" alt="placeholder"/>
+                <div>Placeholder Image</div>
+                <img src="./assets/img/sections/iphone.png" alt="placeholder" />
               </div>
             </div>
             <div className="col-md-8">
@@ -75,16 +114,26 @@ class ChildDashboard extends Component {
                 <div className="description">
                   <h4 className="info-title">Stats</h4>
                   <p>Check your gaming history and stats.</p>
+
                 </div>
               </div>
+              <div className="row">
+                <div className="info info-horizontal">
+                  <div className="icon icon-primary">
+                    <i className="material-icons">extension</i>
+                  </div>
+                  <div className="description">
+                    <h4 className="info-title">Stats</h4>
+                    <p>Check your gaming history and stats.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>    
-            
-            </>
-        );
-    }
+        </div>
+      </>
+    );
+  }
 }
 
 export default ChildDashboard;
