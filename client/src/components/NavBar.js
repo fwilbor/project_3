@@ -64,18 +64,17 @@ class NavBar extends Component {
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
-                  {/* TODO: Update Icons and Links*/}
                   <i className="material-icons">apps</i> About
                 </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <Link to="/" className="dropdown-item">
+                  <Link to="/about/philosophy" className="dropdown-item">
                     <i className="material-icons">emoji_objects</i> Our Philosophy
                   </Link>
                   <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
                     Documentation
                   </Link>
-                  <Link to="/" className="dropdown-item">
+                  <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
                   
