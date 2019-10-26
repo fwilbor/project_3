@@ -59,25 +59,26 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link 
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   {/* TODO: Update Icons and Links*/}
                   <i className="material-icons">apps</i> About
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <a href="/" className="dropdown-item">
-                    <i className="material-icons">layers</i> Our Philosophy
-                  </a>
-                  <a href="/" className="dropdown-item">
-                    <i className="material-icons">line_style</i> About Us
-                  </a>
+                  <Link to="/" className="dropdown-item">
+                    <i className="material-icons">emoji_objects</i> Our Philosophy
+                  </Link>
                   <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
                     Documentation
                   </Link>
+                  <Link to="/" className="dropdown-item">
+                    <i className="material-icons">group</i> About Us
+                  </Link>
+                  
                 </div>
               </li>
 

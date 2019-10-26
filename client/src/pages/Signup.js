@@ -45,6 +45,12 @@ class SignUp extends Component {
     this.setState({
       [name]: value
     });
+  
+    if((this.state.email.length > 3) && (this.state.password.length > 3)){
+      this.setState({canSubmit: true});
+    } else {
+      this.setState({canSubmit: false});
+    }
   };
 
   handleInputSignUp = event => {
@@ -78,6 +84,10 @@ class SignUp extends Component {
     event.preventDefault();
     console.log("sign in");
 
+    if(!this.state.email || !this.state.password){
+      alert(`You must enter a valid email and password`);
+    } else {
+        this.setState({canSubmit: true});
     auth
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(result => {
@@ -86,6 +96,7 @@ class SignUp extends Component {
       .catch(e => {
         console.log(e.message);
       });
+    }
   };
 
   checkIfSignedIn = () => {
@@ -136,6 +147,7 @@ class SignUp extends Component {
                 <SigninForm
                   handleInputSignIn={this.handleInputSignIn}
                   handleInputChange={this.handleInputChange}
+                  canSubmit={this.state.canSubmit}
                 />
               )}
             </div>
