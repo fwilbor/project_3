@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 import "../assets/css/material-kit.min.css";
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -7,7 +8,6 @@ import axios from "axios";
 import SignupForm from "../components/Form/SignupForm";
 import SigninForm from "../components/Form/SigninForm";
 import NavBar from "../components/NavBar";
-// import { BrowserHistory } from "react-history";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -72,7 +72,7 @@ class SignUp extends Component {
     auth
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(result => {
-        console.log(result);
+        console.log("Successfully Logged In");
       })
       .catch(e => {
         console.log(e.message);
@@ -81,12 +81,9 @@ class SignUp extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      if (fbUser) {
-        console.log(fbUser.email);
-        this.setState({ user: fbUser.email });
-      } else {
-        console.log("You are not signed in");
-      }
+      fbUser
+        ? this.props.history.push("/child")
+        : console.log("You are not signed in");
     });
   };
 
@@ -140,7 +137,7 @@ class SignUp extends Component {
                     this.setState({ isLoggingIn: false, isSigningUp: false });
                   }}
                 >
-                  Go Back 
+                  Go Back
                 </button>
               )}
             </div>

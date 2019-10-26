@@ -1,11 +1,46 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
+import axios from "axios";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import config from "../firebase";
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+
+const auth = firebase.auth();
 
 const title = {
-    'margin-top': '3em'
-  };
-  
+  "margin-top": "3em"
+};
+
 class ParentDashboard extends Component {
+  componentDidMount() {
+    this.checkIfSignedIn();
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.user);
+  }
+
+  checkIfSignedIn = () => {
+    auth.onAuthStateChanged(fbUser => {
+      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/");
+    });
+  };
+
+  getUserInfo(userEmail) {
+    axios
+      .get("/api/user/email/" + userEmail)
+      .then(res => {
+        // this.setState({ user: res.email });
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   render() {
     return (
       <div>
@@ -13,7 +48,9 @@ class ParentDashboard extends Component {
         {/* TODO: Update this page to show relevant content. Supporting components for parent view should be added to this page. */}
         <div className="features-5">
           <div className="col-md-8 ml-auto mr-auto text-center">
-            <h2 className="title" style={title}>Your life will be much easier</h2>
+            <h2 className="title" style={title}>
+              Your life will be much easier
+            </h2>
           </div>
           <div className="container">
             <div className="row">
