@@ -6,6 +6,8 @@ import COPPA from "./pages/COPPA";
 import ParentDashboard from "./pages/ParentDashboard";
 import ChildDashboard from "./pages/ChildDashboard";
 import MathGame from "./pages/MathGame/src/MathGame";
+import About from "./components/pages/About";
+import Philosophy from "./components/Menu/Philosophy";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/parent" component={ParentDashboard} />
         <Route exact path="/child" component={ChildDashboard} />
+        <Route exact path="/about/us" component={About} />
+        <Route exact path="/about/philosophy" component={Philosophy} />
         <Route exact path="/" component={Landing} />
       </Switch>
     </Router>
