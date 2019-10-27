@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/mathGame" component={MathGame} />
+        <Route exact path="/:id/mathGame" component={MathGame} />
         <Route exact path="/COPPA" component={COPPA} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/parent" component={ParentDashboard} />

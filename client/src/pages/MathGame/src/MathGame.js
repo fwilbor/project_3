@@ -23,19 +23,12 @@ class MathGame extends Component {
     displayQuestions: [true]
   };
 
-  componentDidUpdate() {
-    // console.log("Answer was clicked " + this.state.correctClicked);
-    // console.log("Was this question disabled: " + this.state.disabled);
-  }
-
   componentDidMount() {
     this.startClicked();
-    console.log(math);
     this.mappingDisplayQuestions();
   }
 
   startClicked() {
-    console.log("Page was loaded up");
     math.sort(function(a, b) {
       return 0.5 - Math.random();
     });
@@ -61,9 +54,6 @@ class MathGame extends Component {
       this.setState({ disabled: true });
     }
     this.changeDisplayedQuestion();
-    if (totalGuesses === 5) {
-      this.sendHighScore();
-    }
   };
 
   changeDisplayedQuestion = () => {
@@ -89,7 +79,6 @@ class MathGame extends Component {
     for (let i = 1; i < math.length; i++) {
       this.state.displayQuestions.push(false);
     }
-    console.log(this.state.displayQuestions);
   };
 
   sendHighScore() {
@@ -98,8 +87,30 @@ class MathGame extends Component {
         date: new Date(Date.now()),
         score: this.state.usersHighScore
       })
-      .then(res => {
-        console.log(res);
+      .then(histRes => {
+        this.updateHistory(histRes.data._id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  updateHistory(id) {
+    axios
+      .get(`/api/user/${this.props.match.params.id}`)
+      .then(preData => {
+        let updateArr = preData.data.history;
+        updateArr.push(id);
+        axios
+          .put(`/api/user/${this.props.match.params.id}`, {
+            history: updateArr
+          })
+          .then(postData => {
+            console.log(postData);
+          })
+          .catch(err => {
+            console.log(err);
+          });
       })
       .catch(err => {
         console.log(err);

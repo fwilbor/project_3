@@ -3,13 +3,13 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.History.find(req.query)
-      // .populate("user")
-      // .populate("game")
+      .populate("game")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.History.findById(req.params.id)
+      .populate("game")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

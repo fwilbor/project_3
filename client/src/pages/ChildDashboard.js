@@ -85,7 +85,10 @@ class ChildDashboard extends Component {
                       ></li>
                     </ol>
                     <div className="carousel-inner">
-                      <Link to="/mathGame" className="carousel-item active">
+                      <Link
+                        to={`${this.state.user._id}/mathGame`}
+                        className="carousel-item active"
+                      >
                         <img
                           src="../assets/img/bg.jpg"
                           className="carouselImg"
