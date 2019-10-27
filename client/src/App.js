@@ -6,7 +6,7 @@ import COPPA from "./pages/COPPA";
 import ParentDashboard from "./pages/ParentDashboard";
 import ChildDashboard from "./pages/ChildDashboard";
 import MathGame from "./pages/MathGame/src/MathGame";
-import About from "./components/pages/About";
+import About from "./components/Menu/About";
 import Philosophy from "./components/Menu/Philosophy";
 
 function App() {

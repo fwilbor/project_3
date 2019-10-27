@@ -24,11 +24,9 @@ class SignUp extends Component {
     isLoggingIn: false,
     canSubmit: false
   };
-
   componentDidMount() {
     this.checkIfSignedIn();
   }
-
   optionSelect = option => {
     if (option === "signUp") {
       this.setState({ isSigningUp: true, isLoggingIn: false });
@@ -39,66 +37,59 @@ class SignUp extends Component {
       });
     }
   };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  
-    if((this.state.email.length > 3) && (this.state.password.length > 3)){
-      this.setState({canSubmit: true});
+
+    if (this.state.email.length > 3 && this.state.password.length > 3) {
+      this.setState({ canSubmit: true });
     } else {
-      this.setState({canSubmit: false});
+      this.setState({ canSubmit: false });
     }
   };
-
   handleInputSignUp = event => {
     event.preventDefault();
     console.log("sign up");
-
-    if(!this.state.email || !this.state.password){
+    if (!this.state.email || !this.state.password) {
       alert(`You must enter a valid email and password`);
     } else {
-        this.setState({canSubmit: true});
-
-        auth
-          .createUserWithEmailAndPassword(this.state.email, this.state.password)
-          .then(result => {
-            axios
-              .post("/api/user", this.state)
-              .then(res => {
-                console.log(res);
-              })
-              .catch(err => {
-                console.log(err);
-              });
-          })
-          .catch(e => {
-            console.log(e.message);
-          });
-      }
+      this.setState({ canSubmit: true });
+      auth
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(result => {
+          axios
+            .post("/api/user", this.state)
+            .then(res => {
+              console.log(res);
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(e => {
+          console.log(e.message);
+        });
+    }
   };
-
   handleInputSignIn = event => {
     event.preventDefault();
     console.log("sign in");
-
-    if(!this.state.email || !this.state.password){
+    if (!this.state.email || !this.state.password) {
       alert(`You must enter a valid email and password`);
     } else {
-        this.setState({canSubmit: true});
-    auth
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(result => {
-        console.log("Successfully Logged In");
-      })
-      .catch(e => {
-        console.log(e.message);
-      });
+      this.setState({ canSubmit: true });
+      auth
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(result => {
+          console.log("Successfully Logged In");
+        })
+        .catch(e => {
+          console.log(e.message);
+        });
     }
   };
-
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
@@ -106,7 +97,6 @@ class SignUp extends Component {
         : console.log("You are not signed in");
     });
   };
-
   render() {
     return (
       <>
@@ -130,7 +120,7 @@ class SignUp extends Component {
                     className="btn btn-link"
                     onClick={() => this.optionSelect("signIn")}
                   >
-                    Sign In 
+                    Sign In
                   </button>
                 </div>
               )}
@@ -179,5 +169,4 @@ class SignUp extends Component {
     );
   }
 }
-
 export default SignUp;
