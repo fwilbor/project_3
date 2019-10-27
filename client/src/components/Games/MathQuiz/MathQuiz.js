@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import math from "./jsonfiles/math.json";
-import "./MathGame.css";
+import "./MathQuiz.css";
 import axios from "axios";
 
 let correctGuesses = 0;
 let usersHighScore = 0;
 let totalGuesses = 0;
 
-class MathGame extends Component {
+class MathQuiz extends Component {
   state = {
     game: false,
     math,
@@ -124,6 +125,7 @@ class MathGame extends Component {
   render() {
     return (
       <Wrapper>
+        <NavBar />
         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
           <h3 className="cardHeader" id="mathcardHeader">
@@ -165,4 +167,4 @@ class MathGame extends Component {
   }
 }
 
-export default MathGame;
+export default MathQuiz;

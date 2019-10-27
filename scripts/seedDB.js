@@ -11,21 +11,21 @@ const userSeeds = [
   {
     username: "Nate Cutlip",
     email: "tcutlip08@gmail.com",
-    password: "wizkik101"
+    password: "gigadygoo"
   },
   {
     username: "Jesse McKinney",
-    email: "SolidSomething@gmail.com",
+    email: "jessman51386@gmail.com",
     password: "fireball"
   },
   {
     username: "Franklin Wilborn",
-    email: "fwilborn@gmail.com",
-    password: "tbaPlease"
+    email: "franklin.cfg@gmail.com",
+    password: "Dramatiks"
   },
   {
     username: "Rainbo Jackson",
-    email: "rJackson@gmail.com",
+    email: "raintest01@yopmail.com",
     password: "tbaPleaseee"
   }
 ];
