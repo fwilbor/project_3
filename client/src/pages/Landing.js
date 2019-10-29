@@ -17,10 +17,6 @@ class Landing extends Component {
     this.checkIfSignedIn();
   }
 
-  componentDidUpdate() {
-    console.log(this.state.user);
-  }
-
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser

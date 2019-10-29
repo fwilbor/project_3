@@ -22,7 +22,9 @@ class NavBar extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      fbUser ? this.setState({isSignedIn: true}) : this.setState({isSignedIn: false});
+      fbUser
+        ? this.setState({ isSignedIn: true })
+        : this.setState({ isSignedIn: false });
     });
   };
 
@@ -59,69 +61,74 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown nav-item">
-                <Link 
+                <Link
                   to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
-                  {/* TODO: Update Icons and Links*/}
                   <i className="material-icons">apps</i> About
                 </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <Link to="/" className="dropdown-item">
-                    <i className="material-icons">emoji_objects</i> Our Philosophy
+                  <Link to="/about/philosophy" className="dropdown-item">
+                    <i className="material-icons">emoji_objects</i> Our
+                    Philosophy
                   </Link>
                   <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
                     Documentation
                   </Link>
-                  <Link to="/" className="dropdown-item">
+                  <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
-                  
                 </div>
               </li>
 
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Parents
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <Link to="./parent" className="dropdown-item">
+                  <Link to="/parent" className="dropdown-item">
                     <i className="material-icons">dns</i> Parent Dashboard
                   </Link>
                 </div>
               </li>
               <li className="dropdown nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
                   <i className="material-icons">view_day</i> Kids
-                </a>
+                </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="/child" className="dropdown-item">
                     <i className="material-icons">dns</i> Kids Dashboard
                   </Link>
                 </div>
               </li>
-              
+
               <li className="button-container nav-item iframe-extern">
-              {
-                this.state.isSignedIn ? 
-                <Link className="btn btn-gray btn-round btn-block"
-                      to="/sign-up"
-                      onClick={this.signOut}>
-                  Sign Out </Link> : 
-                <Link className="btn btn-rose btn-round btn-block"
-                      to="/sign-up">
-                  Sign Up/Sign In</Link>
-              }
+                {this.state.isSignedIn ? (
+                  <Link
+                    className="btn btn-gray btn-round btn-block"
+                    to="/"
+                    onClick={this.signOut}
+                  >
+                    Sign Out{" "}
+                  </Link>
+                ) : (
+                  <Link
+                    className="btn btn-rose btn-round btn-block"
+                    to="/sign-up"
+                  >
+                    Sign Up/Sign In
+                  </Link>
+                )}
               </li>
             </ul>
           </div>

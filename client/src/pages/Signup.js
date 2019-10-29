@@ -24,11 +24,9 @@ class SignUp extends Component {
     isLoggingIn: false,
     canSubmit: false
   };
-
   componentDidMount() {
     this.checkIfSignedIn();
   }
-
   optionSelect = option => {
     if (option === "signUp") {
       this.setState({ isSigningUp: true, isLoggingIn: false });
@@ -39,29 +37,37 @@ class SignUp extends Component {
       });
     }
   };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
 
+<<<<<<< HEAD
     if ((this.state.email.length > 3) && (this.state.password.length > 3)) {
+=======
+    if (this.state.email.length > 3 && this.state.password.length > 3) {
+>>>>>>> f6d948ba2a82bb103f81b63ea4eae7e0d4e955f2
       this.setState({ canSubmit: true });
     } else {
       this.setState({ canSubmit: false });
     }
   };
-
   handleInputSignUp = event => {
     event.preventDefault();
     console.log("sign up");
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6d948ba2a82bb103f81b63ea4eae7e0d4e955f2
     if (!this.state.email || !this.state.password) {
       alert(`You must enter a valid email and password`);
     } else {
       this.setState({ canSubmit: true });
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6d948ba2a82bb103f81b63ea4eae7e0d4e955f2
       auth
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(result => {
@@ -79,11 +85,13 @@ class SignUp extends Component {
         });
     }
   };
-
   handleInputSignIn = event => {
     event.preventDefault();
     console.log("sign in");
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6d948ba2a82bb103f81b63ea4eae7e0d4e955f2
     if (!this.state.email || !this.state.password) {
       alert(`You must enter a valid email and password`);
     } else {
@@ -98,7 +106,6 @@ class SignUp extends Component {
         });
     }
   };
-
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
@@ -106,7 +113,6 @@ class SignUp extends Component {
         : console.log("You are not signed in");
     });
   };
-
   render() {
     return (
       <>
@@ -179,5 +185,4 @@ class SignUp extends Component {
     );
   }
 }
-
 export default SignUp;

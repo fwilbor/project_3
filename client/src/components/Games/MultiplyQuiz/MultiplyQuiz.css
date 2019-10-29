@@ -1,0 +1,21 @@
+#multiplyjumbotron {
+  width: 100%;
+}
+
+#multiplyHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#multiplycardHeader {
+  text-align: center;
+}
+
+#multiplyrow {
+  width: 100%;
+}

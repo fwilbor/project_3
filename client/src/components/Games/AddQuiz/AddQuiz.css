@@ -1,0 +1,21 @@
+#addjumbotron {
+  width: 100%;
+}
+
+#addHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#addcardHeader {
+  text-align: center;
+}
+
+#addrow {
+  width: 100%;
+}
