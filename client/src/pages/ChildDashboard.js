@@ -58,7 +58,7 @@ class ChildDashboard extends Component {
             </div>
             <div className="col-md-8">
               <div className="row">
-                <h3>Pick A Game!</h3>
+                <h3 className="child-header">Pick A Game!</h3>
                 <div className="bd-example">
                   <div
                     id="carouselExampleCaptions"
@@ -87,10 +87,10 @@ class ChildDashboard extends Component {
                     <div className="carousel-inner">
                       <Link
                         to={`${this.state.user._id}/mathQuiz`}
-                        className="carousel-item active"
+                        className="carousel-item active high-contrast"
                       >
                         <img
-                          src="../assets/img/bg.jpg"
+                          src={require('../assets/img/mathGame.jpg')}
                           className="carouselImg"
                           alt="game"
                         />
@@ -177,7 +177,7 @@ class ChildDashboard extends Component {
                     </div>
                     <div className="description">
                       <h4 className="info-title">Stats</h4>
-                      <p>Check your gaming history and stats.</p>
+                      <p className="child-text">Check your gaming history and stats.</p>
                     </div>
                   </div>
                 </div>
