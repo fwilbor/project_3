@@ -22,7 +22,9 @@ class NavBar extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      fbUser ? this.setState({isSignedIn: true}) : this.setState({isSignedIn: false});
+      fbUser
+        ? this.setState({ isSignedIn: true })
+        : this.setState({ isSignedIn: false });
     });
   };
 
@@ -59,7 +61,7 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown nav-item">
-                <Link 
+                <Link
                   to="/"
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
@@ -68,7 +70,8 @@ class NavBar extends Component {
                 </Link>
                 <div className="dropdown-menu dropdown-with-icons">
                   <Link to="/about/philosophy" className="dropdown-item">
-                    <i className="material-icons">emoji_objects</i> Our Philosophy
+                    <i className="material-icons">emoji_objects</i> Our
+                    Philosophy
                   </Link>
                   <Link to="/COPPA" className="dropdown-item">
                     <i className="material-icons">content_paste</i> COPPA
@@ -77,7 +80,6 @@ class NavBar extends Component {
                   <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
-                  
                 </div>
               </li>
 
@@ -90,7 +92,7 @@ class NavBar extends Component {
                   <i className="material-icons">view_day</i> Parents
                 </Link>
                 <div className="dropdown-menu dropdown-with-icons">
-                  <Link to="./parent" className="dropdown-item">
+                  <Link to="/parent" className="dropdown-item">
                     <i className="material-icons">dns</i> Parent Dashboard
                   </Link>
                 </div>
@@ -109,18 +111,24 @@ class NavBar extends Component {
                   </Link>
                 </div>
               </li>
-              
+
               <li className="button-container nav-item iframe-extern">
-              {
-                this.state.isSignedIn ? 
-                <Link className="btn btn-gray btn-round btn-block"
-                      to="/sign-up"
-                      onClick={this.signOut}>
-                  Sign Out </Link> : 
-                <Link className="btn btn-rose btn-round btn-block"
-                      to="/sign-up">
-                  Sign Up/Sign In</Link>
-              }
+                {this.state.isSignedIn ? (
+                  <Link
+                    className="btn btn-gray btn-round btn-block"
+                    to="/"
+                    onClick={this.signOut}
+                  >
+                    Sign Out{" "}
+                  </Link>
+                ) : (
+                  <Link
+                    className="btn btn-rose btn-round btn-block"
+                    to="/sign-up"
+                  >
+                    Sign Up/Sign In
+                  </Link>
+                )}
               </li>
             </ul>
           </div>

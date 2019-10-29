@@ -6,6 +6,10 @@ import COPPA from "./pages/COPPA";
 import ParentDashboard from "./pages/ParentDashboard";
 import ChildDashboard from "./pages/ChildDashboard";
 import MathQuiz from "./components/Games/MathQuiz/MathQuiz";
+import AddQuiz from "./components/Games/MathQuiz/AddQuiz";
+import SubQuiz from "./components/Games/MathQuiz/SubractQuiz";
+import MultiQuiz from "./components/Games/MathQuiz/MultiplyQuiz";
+import DivQuiz from "./components/Games/MathQuiz/DivideQuiz";
 import About from "./components/Menu/About";
 import Philosophy from "./components/Menu/Philosophy";
 
@@ -20,6 +24,10 @@ function App() {
         <Route exact path="/about/us" component={About} />
         <Route exact path="/about/philosophy" component={Philosophy} />
         <Route exact path="/:id/mathQuiz" component={MathQuiz} />
+        <Route exact path="/:id/addQuiz" component={AddQuiz} />
+        <Route exact path="/:id/subQuiz" component={SubQuiz} />
+        <Route exact path="/:id/multiQuiz" component={MultiQuiz} />
+        <Route exact path="/:id/divQuiz" component={DivQuiz} />
         <Route exact path="/" component={Landing} />
       </Switch>
     </Router>
