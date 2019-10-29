@@ -1,0 +1,21 @@
+#subtractjumbotron {
+  width: 100%;
+}
+
+#subtractHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#subtractcardHeader {
+  text-align: center;
+}
+
+#subtractrow {
+  width: 100%;
+}

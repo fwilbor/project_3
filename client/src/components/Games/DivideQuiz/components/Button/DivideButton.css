@@ -1,0 +1,9 @@
+#dividegamebuttons {
+    width: 26%;
+    height: 70px;
+    margin: 40px;
+    margin-bottom: 10px;
+    background-color: dodgerblue;
+    font-size: 2.2rem;
+    font-style: oblique;
+}
