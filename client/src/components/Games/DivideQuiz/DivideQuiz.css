@@ -1,0 +1,21 @@
+#dividejumbotron {
+  width: 100%;
+}
+
+#divideHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.scoreSummary {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#dividecardHeader {
+  text-align: center;
+}
+
+#dividerow {
+  width: 100%;
+}
