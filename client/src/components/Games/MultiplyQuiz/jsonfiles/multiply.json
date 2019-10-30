@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "question": "1 x 1",
+        "question": "1 x 1 =",
         "answers": [
             1,
             2,
@@ -13,7 +13,7 @@
     },
     {
         "id": 2,
-        "question": "1 x 2",
+        "question": "1 x 2 =",
         "answers": [
             2,
             3,
@@ -25,7 +25,7 @@
     },
     {
         "id": 3,
-        "question": "1 x 3",
+        "question": "1 x 3 =",
         "answers": [
             2,
             3,
@@ -37,7 +37,7 @@
     },
     {
         "id": 4,
-        "question": "1 x 4",
+        "question": "1 x 4 =",
         "answers": [
             2,
             3,
@@ -49,7 +49,7 @@
     },
     {
         "id": 5,
-        "question": "1 x 5",
+        "question": "1 x 5 =",
         "answers": [
             2,
             3,
@@ -61,7 +61,7 @@
     },
     {
         "id": 6,
-        "question": "2 x 2",
+        "question": "2 x 2 =",
         "answers": [
             2,
             3,
@@ -73,7 +73,7 @@
     },
     {
         "id": 7,
-        "question": "2 x 3",
+        "question": "2 x 3 =",
         "answers": [
             2,
             4,
@@ -85,7 +85,7 @@
     },
     {
         "id": 8,
-        "question": "2 x 4",
+        "question": "2 x 4 =",
         "answers": [
             2,
             4,
@@ -97,7 +97,7 @@
     },
     {
         "id": 9,
-        "question": "2 x 5",
+        "question": "2 x 5 =",
         "answers": [
             6,
             8,
@@ -109,7 +109,7 @@
     },
     {
         "id": 10,
-        "question": "3 x 3",
+        "question": "3 x 3 =",
         "answers": [
             5,
             7,
@@ -121,7 +121,7 @@
     },
     {
         "id": 11,
-        "question": "3 x 4",
+        "question": "3 x 4 =",
         "answers": [
             12,
             15,
@@ -133,7 +133,7 @@
     },
     {
         "id": 12,
-        "question": "3 x 5",
+        "question": "3 x 5 =",
         "answers": [
             12,
             15,
@@ -145,7 +145,7 @@
     },
     {
         "id": 13,
-        "question": "4 x 4",
+        "question": "4 x 4 =",
         "answers": [
             12,
             14,
@@ -157,7 +157,7 @@
     },
     {
         "id": 14,
-        "question": "4 x 5",
+        "question": "4 x 5 =",
         "answers": [
             15,
             20,
@@ -169,7 +169,7 @@
     },
     {
         "id": 15,
-        "question": "5 x 5",
+        "question": "5 x 5 =",
         "answers": [
             20,
             25,

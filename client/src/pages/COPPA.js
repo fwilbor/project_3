@@ -17,13 +17,13 @@ const COPPA = () => {
                   <h2 className="title">Privacy Policy</h2>
                   <div className="description">
                     <ul className="pull-left">
-                      <h3>
+                      <h5>
                         Your privacy is important to J-BOT so we’ve developed a
                         Privacy Policy that covers how we collect, use,
                         disclose, transfer, and store your personal information.
-                      </h3>
+                      </h5>
 
-                      <h3>
+                      <h5>
                         Collection and Use of Personal Information: You may be
                         asked to provide your personal information anytime you
                         are in contact with J-BOT or a J-BOT affiliated company.
@@ -36,7 +36,7 @@ const COPPA = () => {
                         requested, but, if you chose not to do so, in many cases
                         we will not be able to provide you with our products or
                         services or respond to any queries you may have.
-                      </h3>
+                      </h5>
 
                       <h3>What personal information we collect:</h3>
                       <ul>

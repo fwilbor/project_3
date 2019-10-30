@@ -10,9 +10,9 @@ const Philosophy = () => {
                 <p>
                 
 
-                The only way we can truly pour into our children, is to invest in them. You have to put time, effort, and care into your Kids in order for them to flourish.  J-BOT is dedicated to providing Parents and Guardians a Monitored - Online - Learning - Environment for their Kids in this fast paced digital world.  We Invite You to Join the J-BOT Community. 
+                The only way we can truly pour into our children is to invest in them. You have to put time, effort, and care into your kids in order for them to flourish.  J-BOT is dedicated to providing parents and guardians a Monitored - Online - Learning - Environment for their kids in this fast paced digital world.  We invite you to join the J-BOT community. 
                 
-                Plant Good Seeds, Watch them Grow 
+                "Plant Good Seeds, Watch Them Grow"
                 
                 From the J-Bot Team
                 </p>
