@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Now UI Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 // ##############################
 // // // Function that converts a hex color number to a RGB color number
 // #############################
@@ -181,6 +164,7 @@ const dashboardPanelChart = {
           backgroundColor: gradientFill,
           borderWidth: 2,
           data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
+            //  data: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77]
         }
       ]
     };
@@ -288,6 +272,7 @@ const dashboardShippedProductsChart = {
           backgroundColor: gradientFill,
           borderWidth: 2,
           data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
+          //  data: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77]
         }
       ]
     };
@@ -324,6 +309,7 @@ const dashboardAllProductsChart = {
           backgroundColor: gradientFill,
           borderWidth: 2,
           data: [40, 500, 650, 700, 1200, 1250, 1300, 1900]
+          //  data: [77, 77, 77, 77, 77, 77, 77, 77]
         }
       ]
     };
@@ -370,6 +356,7 @@ const dashboard24HoursPerformanceChart = {
           fill: true,
           borderWidth: 1,
           data: [80, 99, 86, 96, 123, 85, 100, 75, 88, 90, 123, 155]
+          //  data: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77]
         }
       ]
     };
