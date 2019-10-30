@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+var gameSchema = new Schema({
+  name: { type: String, required: true },
+  category: { type: String, required: true }
+});
+
 const historySchema = new Schema({
   date: { type: String, required: true },
   score: { type: Number, required: true },
-  game: {
-    type: Schema.Types.ObjectId,
-    ref: "Game"
-  }
+  game: gameSchema
 });
 
 const History = mongoose.model("History", historySchema);

@@ -14,8 +14,18 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.History.create(req.body)
-      .then(dbModel => res.json(dbModel))
+    console.log(req.body);
+    db.History.create({
+      date: req.body.date,
+      score: req.body.score,
+      game: {
+        name: req.body.name,
+        category: req.body.category
+      }
+    })
+      .then(dbModel => {
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
@@ -28,5 +38,46 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  seeds: function(req, res) {
+    db.Game.find()
+      .then(games => {
+        db.History.create([
+          {
+            date: new Date(Date.now()),
+            score: Math.floor(Math.random() * 10 + 1),
+            game: games[0]._id
+          },
+          {
+            date: new Date(Date.now()),
+            score: Math.floor(Math.random() * 10 + 1),
+            game: games[1]._id
+          },
+          {
+            date: new Date(Date.now()),
+            score: Math.floor(Math.random() * 10 + 1),
+            game: games[2]._id
+          },
+          {
+            date: new Date(Date.now()),
+            score: Math.floor(Math.random() * 10 + 1),
+            game: games[3]._id
+          },
+          {
+            date: new Date(Date.now()),
+            score: Math.floor(Math.random() * 10 + 1),
+            game: games[4]._id
+          }
+        ])
+          .then(hist => {
+            res.json(hist);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };

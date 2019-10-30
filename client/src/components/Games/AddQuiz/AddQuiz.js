@@ -21,12 +21,26 @@ class AddQuiz extends Component {
     correctClicked: false,
     disabled: false,
     display: false,
-    displayQuestions: [true]
+    displayQuestions: [true],
+    gameInfo: ""
   };
 
   componentDidMount() {
     this.startClicked();
     this.mappingDisplayQuestions();
+    this.getGameInfo();
+  }
+
+  getGameInfo() {
+    axios
+      .get("/api/game/name/Add Quiz")
+      .then(res => {
+        console.log(res.data);
+        this.setState({ gameInfo: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   startClicked() {
@@ -86,7 +100,11 @@ class AddQuiz extends Component {
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
-        score: this.state.usersHighScore
+        score: this.state.usersHighScore,
+        game: {
+          name: this.state.gameInfo.name,
+          category: this.state.gameInfo.category
+        }
       })
       .then(histRes => {
         this.updateHistory(histRes.data._id);

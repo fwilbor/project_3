@@ -29,7 +29,7 @@ function App() {
         <Route exact path="/:id/multiQuiz" component={MultiQuiz} />
         <Route exact path="/:id/divQuiz" component={DivQuiz} />
         <Route exact path="/" component={Landing} />
-        <Route exact path="*" component={Error404} />
+        {/* <Route exact path="*" component={Error404} /> */}
       </Switch>
     </Router>
   );
