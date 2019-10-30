@@ -15,8 +15,7 @@ const COPPA = () => {
               <div className="row">
                 <div className="col-md-8 ml-auto mr-auto">
                   <h2 className="title">Privacy Policy</h2>
-                  <h5 className="description">
-                    <p className="pull-left"></p>
+                  <div className="description">
                     <ul className="pull-left">
                       <h3>
                         Your privacy is important to J-BOT so we’ve developed a
@@ -125,7 +124,7 @@ const COPPA = () => {
                         </li>
                       </ul>
                     </ul>
-                  </h5>
+                  </div>
                 </div>
               </div>
             </div>
