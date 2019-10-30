@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -63,18 +64,22 @@ class ParentDashboard extends Component {
                   <p>Manage your account and add children to your profile.</p>
                 </div>
               </div>
+
               <div className="col-sm-4">
                 <div className="info">
                   <div className="icon">
                     <i className="material-icons">format_paint</i>
                   </div>
+                  <Link to="ProgressCharts">
                   <h4 className="info-title">Reports</h4>
+                  </Link>
                   <p>
                     See what games your child has played. Track their time and
                     progress.
                   </p>
                 </div>
               </div>
+
               <div className="col-sm-4">
                 <div className="info">
                   <div className="icon">
