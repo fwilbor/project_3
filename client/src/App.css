@@ -5,6 +5,10 @@
   height: 45vh !important;
 }
 
+.under-nav {
+  margin-top: 5em;
+}
+
 ul > li {
   text-align: left;
 }
@@ -14,7 +18,6 @@ ul > li {
 }
 
 .features-3 {
-  /* background-color: rgba(241, 164, 158, 0.5); */
   background-color: rgba(255, 215, 0, .75);
 }
 .phone-container {
@@ -93,10 +96,14 @@ ul > li {
   font-weight: 500;
 }
 
-.info-title {
+.features-3 .info-title {
   color: #ff0051 !important;
   font-family: 'Poppins', sans-serif !important;
 }
-.icon {
+.features-3 .icon {
   color: #00a2ff !important;
+}
+
+.game-list {
+  font-size: 1rem;
 }

@@ -49,7 +49,7 @@ class ChildDashboard extends Component {
       <>
         <NavBar />
         <div className="features-3 mt-2">
-          <div className="row">
+          <div className="row under-nav">
             <div className="col-md-4">
               <div className="phone-container">
                 <div>Placeholder Image</div>
@@ -116,34 +116,38 @@ class ChildDashboard extends Component {
                           </p>
                         </div>
                       </Link>
-                      <div className="carousel-item">
+                      <Link 
+                        to={`${this.state.user._id}/subQuiz`}
+                        className="carousel-item">
                         <img
                           src="../assets/img/dg2.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
+                          <h5>Subtractify</h5>
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit.
                           </p>
                         </div>
-                      </div>
-                      <div className="carousel-item">
+                      </Link>
+                      <Link 
+                        to={`${this.state.user._id}/multiQuiz`}
+                        className="carousel-item">
                         <img
                           src="../assets/img/dg6.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
+                          <h5>Multiples of Fun</h5>
                           <p>
                             Praesent commodo cursus magna, vel scelerisque nisl
                             consectetur.
                           </p>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                     <a
                       className="carousel-control-prev"
@@ -173,6 +177,48 @@ class ChildDashboard extends Component {
                 </div>
               </div>
               <div className="row">
+                  <div className="col-md-4">
+              <div className="row">
+                  <div className="info info-horizontal">
+                    <div className="icon">
+                      <i className="material-icons">videogame_asset</i>
+                    </div>
+                    <div className="description">
+                      <h4 className="info-title">All Games</h4>
+                    </div>
+                    <div className="game-list">
+                        <ul>
+                            <li>
+                            <Link to={`${this.state.user._id}/mathQuiz`}>
+                                Math Game
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/addQuiz`}>
+                                Add-tastic!
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/subQuiz`}>
+                                Subtractify
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/multiQuiz`}>
+                                Multiples of Fun
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/DivQuiz`}>
+                                Divide and Conquer
+                            </Link>
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div className="col-md-8">
                 <div className="row">
                   <div className="info info-horizontal">
                     <div className="icon">
@@ -184,6 +230,8 @@ class ChildDashboard extends Component {
                     </div>
                   </div>
                 </div>
+                </div>
+
               </div>
             </div>
           </div>
