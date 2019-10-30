@@ -80,6 +80,7 @@ class NavBar extends Component {
                   <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
+
                 </div>
               </li>
 
