@@ -49,11 +49,12 @@ class ChildDashboard extends Component {
       <>
         <NavBar />
         <div className="features-3 mt-2">
-          <div className="row">
+          <div className="row under-nav">
             <div className="col-md-4">
               <div className="phone-container">
                 <div>Placeholder Image</div>
                 <img src="./assets/img/sections/iphone.png" alt="placeholder" />
+                {/* <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" /> */}
               </div>
             </div>
             <div className="col-md-8">
@@ -99,48 +100,54 @@ class ChildDashboard extends Component {
                           <p>Are you an arithmetic boss?</p>
                         </div>
                       </Link>
-                      <div className="carousel-item ">
+                      <Link 
+                        to={`${this.state.user._id}/addQuiz`}
+                        className="carousel-item ">
                         <img
                           src="../assets/img/bg0.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
+                          <h5>Add-tastic!</h5>
                           <p>
                             Nulla vitae elit libero, a pharetra augue mollis
                             interdum.
                           </p>
                         </div>
-                      </div>
-                      <div className="carousel-item">
+                      </Link>
+                      <Link 
+                        to={`${this.state.user._id}/subQuiz`}
+                        className="carousel-item">
                         <img
                           src="../assets/img/dg2.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
+                          <h5>Subtractify</h5>
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit.
                           </p>
                         </div>
-                      </div>
-                      <div className="carousel-item">
+                      </Link>
+                      <Link 
+                        to={`${this.state.user._id}/multiQuiz`}
+                        className="carousel-item">
                         <img
                           src="../assets/img/dg6.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
+                          <h5>Multiples of Fun</h5>
                           <p>
                             Praesent commodo cursus magna, vel scelerisque nisl
                             consectetur.
                           </p>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                     <a
                       className="carousel-control-prev"
@@ -170,9 +177,51 @@ class ChildDashboard extends Component {
                 </div>
               </div>
               <div className="row">
+                  <div className="col-md-4">
+              <div className="row">
+                  <div className="info info-horizontal">
+                    <div className="icon">
+                      <i className="material-icons">videogame_asset</i>
+                    </div>
+                    <div className="description">
+                      <h4 className="info-title">All Games</h4>
+                    </div>
+                    <div className="game-list">
+                        <ul>
+                            <li>
+                            <Link to={`${this.state.user._id}/mathQuiz`}>
+                                Math Game
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/addQuiz`}>
+                                Add-tastic!
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/subQuiz`}>
+                                Subtractify
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/multiQuiz`}>
+                                Multiples of Fun
+                            </Link>
+                            </li>
+                            <li>
+                            <Link to={`${this.state.user._id}/DivQuiz`}>
+                                Divide and Conquer
+                            </Link>
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div className="col-md-8">
                 <div className="row">
                   <div className="info info-horizontal">
-                    <div className="icon icon-primary">
+                    <div className="icon">
                       <i className="material-icons">poll</i>
                     </div>
                     <div className="description">
@@ -181,6 +230,8 @@ class ChildDashboard extends Component {
                     </div>
                   </div>
                 </div>
+                </div>
+
               </div>
             </div>
           </div>

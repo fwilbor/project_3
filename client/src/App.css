@@ -1,8 +1,26 @@
 .page-header {
   background-image: url('./assets/img/children.jpg');
 }
+.landing-page .container {
+  top: 100px;
+}
+.landing-page .main-raised {
+  top: -250px !important;
+}
 .coppa-page {
   height: 45vh !important;
+}
+
+.navbar a.dropdown-item:hover{
+  
+    background-color: rgba(233, 30, 99, 0.85);
+}
+.under-nav {
+  margin-top: 5em;
+}
+
+.about-pages {
+  top: -600px;
 }
 
 ul > li {
@@ -14,10 +32,18 @@ ul > li {
 }
 
 .features-3 {
-  background-color: rgba(241, 164, 158, 0.5);
+  background-color: rgba(255, 215, 0, .75);
+}
+.phone-container {
+  position: relative;
+  top: 2em;
+}
+.phone-container img {
+  height: 450px;
+  width: auto !important;
 }
 .child-header {
-  color: rgb(13, 181, 187);
+  color: #ff0051;
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 500;
@@ -25,7 +51,7 @@ ul > li {
   text-shadow: 1px 1px 2px #fff;
 }
 .child-text {
-  color: rgb(13, 181, 187) !important;
+  color: #ff0051 !important;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }
@@ -47,7 +73,7 @@ ul > li {
 .bd-example {
   width: 95%;
   height: 70%;
-  border: white 6px solid;
+  border: #00a2ff 6px solid;
 }
 
 .carouselImg {
@@ -67,10 +93,31 @@ ul > li {
   font-size: 1.25rem;
   font-weight: 400;
 }
+.carousel .carousel-indicators li {
+  background: #ff0051 !important;
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0051' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0051' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
 
 .high-contrast img {
   opacity: 0.65;
 }
 .high-contrast p {
   font-weight: 500;
+}
+
+.features-3 .info-title {
+  color: #ff0051 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.features-3 .icon {
+  color: #00a2ff !important;
+}
+
+.game-list {
+  font-size: 1rem;
 }

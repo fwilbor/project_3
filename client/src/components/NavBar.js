@@ -11,6 +11,14 @@ if (!firebase.apps.length) {
 
 const auth = firebase.auth();
 
+const navBarStyle = {
+  "a:hover" : "background-color: yellow"
+}
+// const divStyle = {
+//   color: 'blue',
+//   backgroundImage: 'url(' + imgUrl + ')',
+// };
+
 class NavBar extends Component {
   state = {
     isSignedIn: false
@@ -38,6 +46,7 @@ class NavBar extends Component {
         className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg "
         color-on-scroll="100"
         id="sectionsNav"
+        style={navBarStyle}
       >
         <div className="container">
           <div className="navbar-translate">
@@ -80,6 +89,7 @@ class NavBar extends Component {
                   <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
+
                 </div>
               </li>
 

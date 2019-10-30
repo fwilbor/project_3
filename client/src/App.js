@@ -12,11 +12,13 @@ import MultiQuiz from "./components/Games/MultiplyQuiz/MultiplyQuiz";
 import DivQuiz from "./components/Games/DivideQuiz/DivideQuiz";
 import About from "./components/Menu/About";
 import Philosophy from "./components/Menu/Philosophy";
+import ProgressCharts from "./components/Charts/ProgressCharts";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/ProgressCharts" component={ProgressCharts} />
         <Route exact path="/COPPA" component={COPPA} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/parent" component={ParentDashboard} />
