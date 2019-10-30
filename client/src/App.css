@@ -1,12 +1,26 @@
 .page-header {
   background-image: url('./assets/img/children.jpg');
 }
+.landing-page .container {
+  top: 100px;
+}
+.landing-page .main-raised {
+  top: -250px !important;
+}
 .coppa-page {
   height: 45vh !important;
 }
 
+.navbar a.dropdown-item:hover{
+  
+    background-color: rgba(233, 30, 99, 0.85);
+}
 .under-nav {
   margin-top: 5em;
+}
+
+.about-pages {
+  top: -600px;
 }
 
 ul > li {
