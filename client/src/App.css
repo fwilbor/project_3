@@ -9,6 +9,10 @@
   margin-top: 5em;
 }
 
+.about-pages {
+  top: -600px;
+}
+
 ul > li {
   text-align: left;
 }

@@ -9,7 +9,7 @@ function About() {
       <NavBar />
       <div className="coppa-page page-header header-filter" data-parallax="true"></div>
 
-      <div className="main main-raised">
+      <div className="main main-raised about-pages">
           <div className="container">
             <div className="section text-center">
               <div className="row">
