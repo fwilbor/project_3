@@ -5,7 +5,7 @@ import "../../assets/css/material-kit.min.css";
 
 function About() {
   return (
-    <>
+    <> 
       <NavBar />
       <div className="coppa-page page-header header-filter" data-parallax="true"></div>
 

@@ -30,7 +30,7 @@ class Landing extends Component {
         <NavBar />
         <div className="landing-page sidebar-collapse">
           <div className="page-header header-filter" data-parallax="true">
-            <div className="container">
+            <div className="container under-nav">
               <div className="row">
                 <div className="col-md-6">
                   <h1 className="title">JBot</h1>
