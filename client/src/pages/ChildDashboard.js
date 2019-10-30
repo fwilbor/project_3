@@ -54,6 +54,7 @@ class ChildDashboard extends Component {
               <div className="phone-container">
                 <div>Placeholder Image</div>
                 <img src="./assets/img/sections/iphone.png" alt="placeholder" />
+                {/* <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" /> */}
               </div>
             </div>
             <div className="col-md-8">
@@ -99,20 +100,22 @@ class ChildDashboard extends Component {
                           <p>Are you an arithmetic boss?</p>
                         </div>
                       </Link>
-                      <div className="carousel-item ">
+                      <Link 
+                        to={`${this.state.user._id}/addQuiz`}
+                        className="carousel-item ">
                         <img
                           src="../assets/img/bg0.jpg"
                           className="carouselImg"
                           alt="game"
                         />
                         <div className="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
+                          <h5>Add-tastic!</h5>
                           <p>
                             Nulla vitae elit libero, a pharetra augue mollis
                             interdum.
                           </p>
                         </div>
-                      </div>
+                      </Link>
                       <div className="carousel-item">
                         <img
                           src="../assets/img/dg2.jpg"
@@ -172,7 +175,7 @@ class ChildDashboard extends Component {
               <div className="row">
                 <div className="row">
                   <div className="info info-horizontal">
-                    <div className="icon icon-primary">
+                    <div className="icon">
                       <i className="material-icons">poll</i>
                     </div>
                     <div className="description">
