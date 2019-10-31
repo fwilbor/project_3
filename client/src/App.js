@@ -21,7 +21,7 @@ function App() {
       <Switch>
         <Route exact path="/ProgressCharts" component={ProgressCharts} />
         <Route exact path="/COPPA" component={COPPA} />
-        <Route exact path="/sign-up" component={SignUp} />
+        <Route path="/(sign-up|sign-in)" component={SignUp} />
         <Route exact path="/choose-experience" component={ChooseExperience} />
         <Route exact path="/parent" component={ParentDashboard} />
         <Route exact path="/child" component={ChildDashboard} />

@@ -46,7 +46,7 @@ function SigninForm(props) {
               disabled={(!props.canSubmit)}
               onClick={props.handleInputSignIn}
             >
-              Let's Go
+              Let&#39;s Go
             </button>
           </div>
         </div>

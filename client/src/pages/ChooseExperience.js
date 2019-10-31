@@ -14,17 +14,17 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 class ChooseExperience extends Component {
-//   componentDidMount() {
-//     this.checkIfSignedIn();
-//   }
+  componentDidMount() {
+    this.checkIfSignedIn();
+  }
 
-//   checkIfSignedIn = () => {
-//     auth.onAuthStateChanged(fbUser => {
-//       fbUser
-//         ? this.props.history.push("/choose-experience")
-//         : console.log("You are not signed in");
-//     });
-//   };
+  checkIfSignedIn = () => {
+    auth.onAuthStateChanged(fbUser => {
+      fbUser
+        ? console.log("You are signed in") 
+        : this.props.history.push("/sign-in");
+    });
+  };
   render() {
     return (
       <>
