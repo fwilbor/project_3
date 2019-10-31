@@ -27,7 +27,7 @@ class ParentDashboard extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/");
+      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/sign-in");
     });
   };
 

@@ -29,7 +29,7 @@ class ChildDashboard extends Component {
     auth.onAuthStateChanged(fbUser => {
       fbUser
         ? this.getUserInfo(fbUser.email)
-        : this.props.history.push("/sign-up");
+        : this.props.history.push("/sign-in");
     });
   };
 
@@ -46,13 +46,14 @@ class ChildDashboard extends Component {
 
   render() {
     return (
-      <>
+      <div className="child-dash">
         <NavBar />
         <div className="features-3 mt-2">
+        <div className="container">
           <div className="row under-nav">
             <div className="col-md-4">
               <div className="mascot-container">
-                <div>Placeholder Image</div>
+                <div className="contrast-test" contentEditable role='textbox' aria-multiline='true'>Placeholder Image</div>
                 <img src="./assets/img/sections/iphone.png" alt="placeholder" />
                 {/* <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" /> */}
               </div>
@@ -236,7 +237,8 @@ class ChildDashboard extends Component {
             </div>
           </div>
         </div>
-      </>
+        </div>
+      </div>
     );
   }
 }

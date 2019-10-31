@@ -73,7 +73,7 @@ ul > li {
 .carouselImg {
   display: block;
   width: 100%;
-  max-height: 437px;
+  height: 437px;
 }
 .carousel-caption {
   color: #323232 !important;
@@ -187,4 +187,19 @@ ul > li {
   .experience-page .main{
     top: -650px;
   }
+}
+
+.contrast-test {
+  /* font-size: 2em;
+  font-weight: 500; */
+  color: white;
+  mix-blend-mode: difference;
+  filter: drop-shadow(.05em .05em orange);
+}
+
+.child-dash .navbar {
+  mix-blend-mode: difference;
+}
+.child-dash .btn {
+  background-color: #000033;
 }
