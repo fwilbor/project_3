@@ -103,7 +103,7 @@ class SignUp extends Component {
         <NavBar />
         <div className="experience-page sidebar-collapse">
           <div className="page-header header-filter">
-          <div className="container">
+            <div className="container">
               <div className="row under-nav">
                 <div className="col m-auto center">
                   <h1 className="title">We're glad you're here</h1>
@@ -114,68 +114,74 @@ class SignUp extends Component {
           </div>
           <div className="main main-raised">
             <div className="container">
-            <div className="section text-center">
-               <div className="container">
-                {!this.state.isLoggingIn && !this.state.isSigningUp && (
-                  <>
-                  <h2 className="title">Choose an option:</h2>
-                  <div className="options">
+              <div className="section text-center">
+                <div className="container">
+                  {!this.state.isLoggingIn && !this.state.isSigningUp && (
+                    <>
+                      <h2 className="title">Choose an option:</h2>
+                      <div className="options">
+                        <button
+                          className="btn btn-link"
+                          onClick={() => this.optionSelect("signUp")}
+                        >
+                          Sign Up
+                        </button>
+                        <span> Or </span>
+                        <button
+                          className="btn btn-link"
+                          onClick={() => this.optionSelect("signIn")}
+                        >
+                          Sign In
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <div className="row">
+                  {this.state.isSigningUp && (
+                    <SignupForm
+                      handleInputSignUp={this.handleInputSignUp}
+                      handleInputChange={this.handleInputChange}
+                      canSubmit={this.state.canSubmit}
+                    />
+                  )}
+                  {this.state.isLoggingIn && (
+                    <SigninForm
+                      handleInputSignIn={this.handleInputSignIn}
+                      handleInputChange={this.handleInputChange}
+                      canSubmit={this.state.canSubmit}
+                    />
+                  )}
+                </div>
+                <div className="row">
+                  {this.state.isLoggingIn && (
                     <button
-                      className="btn btn-link"
-                      onClick={() => this.optionSelect("signUp")}
+                      className="btn btn-gray m-auto"
+                      onClick={() => {
+                        this.setState({
+                          isLoggingIn: false,
+                          isSigningUp: true
+                        });
+                      }}
                     >
-                      Sign Up
+                      Or Sign Up
                     </button>
-                    <span> Or </span>
+                  )}
+                  {this.state.isSigningUp && (
                     <button
-                      className="btn btn-link"
-                      onClick={() => this.optionSelect("signIn")}
+                      className="btn btn-gray m-auto"
+                      onClick={() => {
+                        this.setState({
+                          isLoggingIn: true,
+                          isSigningUp: false
+                        });
+                      }}
                     >
-                      Sign In
+                      Or Sign In
                     </button>
-                  </div>
-                  </>
-                )}
+                  )}
+                </div>
               </div>
-              <div className="row">
-                {this.state.isSigningUp && (
-                  <SignupForm
-                    handleInputSignUp={this.handleInputSignUp}
-                    handleInputChange={this.handleInputChange}
-                    canSubmit={this.state.canSubmit}
-                  />
-                )}
-                {this.state.isLoggingIn && (
-                  <SigninForm
-                    handleInputSignIn={this.handleInputSignIn}
-                    handleInputChange={this.handleInputChange}
-                    canSubmit={this.state.canSubmit}
-                  />
-                )}
-              </div>
-              <div className="row">
-                {this.state.isLoggingIn && (
-                  <button
-                    className="btn btn-gray m-auto"
-                    onClick={() => {
-                      this.setState({ isLoggingIn: false, isSigningUp: true });
-                    }}
-                  >
-                    Or Sign Up
-                  </button>
-                )}
-                {this.state.isSigningUp && (
-                  <button
-                    className="btn btn-gray m-auto"
-                    onClick={() => {
-                      this.setState({ isLoggingIn: true, isSigningUp: false });
-                    }}
-                  >
-                    Or Sign In
-                  </button>
-                )}
-              </div>
-            </div> 
             </div>
           </div>
         </div>
