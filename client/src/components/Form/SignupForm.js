@@ -8,8 +8,17 @@ class SignupForm extends Component {
 
   toggleAccepted = () => {
     let accept = !this.state.accepted;
-    this.setState({ accepted: accept });
+    this.setState({ accepted: accept }, () => {
+      console.log("accepted: " + this.state.accepted);
+    });
   };
+
+  shouldButtonBeDisabled = () => {
+    if(this.state.accepted && this.props.canSubmit){
+      return false;
+    }
+    return true;
+  }
 
   render() {
   return (
@@ -86,14 +95,14 @@ class SignupForm extends Component {
           <div className="card-footer justify-content-center">
             <button
               className="btn btn-rose btn-link btn-lg"
-              disabled={(!this.state.accepted && !this.props.canSubmit)}
+              disabled={this.shouldButtonBeDisabled()}
               onClick={this.props.handleInputSignUp}
             >
               Let&#39;s Go
             </button>
           </div>
         </div>
-      </form>
+      </form> 
     </div>
   );
 }

@@ -124,7 +124,7 @@ ul > li {
   max-height: 100vh;
 }
 .experience-page .main{
-  top: -700px;
+  top: -450px;
 }
 
 .col-1of2:hover {
@@ -185,7 +185,7 @@ ul > li {
 
 @media screen and (max-width: 767px) { 
   .experience-page .main{
-    top: -650px;
+    top: -350px;
   }
 }
 
