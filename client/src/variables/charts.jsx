@@ -1,3 +1,4 @@
+
 // ##############################
 // // // Function that converts a hex color number to a RGB color number
 // #############################
@@ -5,7 +6,7 @@ function hexToRGB(hex, alpha) {
   var r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16);
-
+    // console.log("Hello World")
   if (alpha) {
     return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
   } else {
@@ -132,6 +133,7 @@ const dashboardPanelChart = {
     var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.14)");
+    // console.log(canvas)
 
     return {
       labels: [
@@ -165,10 +167,11 @@ const dashboardPanelChart = {
           borderWidth: 2,
           data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
             //  data: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77]
-        }
-      ]
-    };
-  },
+            // (console.log(this.data sets[0]))
+          }
+        ]
+      };
+    },
   options: {
     layout: {
       padding: {
@@ -229,6 +232,8 @@ const dashboardPanelChart = {
     }
   }
 };
+
+// console.log(dashboardPanelChart.data);
 
 // ##############################
 // // // Dashboard view - Shipped Products - Card
