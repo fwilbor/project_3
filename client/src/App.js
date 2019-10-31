@@ -13,6 +13,7 @@ import DivQuiz from "./components/Games/DivideQuiz/DivideQuiz";
 import About from "./components/Menu/About";
 import Philosophy from "./components/Menu/Philosophy";
 import ProgressCharts from "./components/Charts/ProgressCharts";
+import ChooseExperience from "./pages/ChooseExperience";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/ProgressCharts" component={ProgressCharts} />
         <Route exact path="/COPPA" component={COPPA} />
         <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/choose-experience" component={ChooseExperience} />
         <Route exact path="/parent" component={ParentDashboard} />
         <Route exact path="/child" component={ChildDashboard} />
         <Route exact path="/about/us" component={About} />
