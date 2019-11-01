@@ -14,10 +14,6 @@ const auth = firebase.auth();
 const navBarStyle = {
   "a:hover" : "background-color: yellow"
 }
-// const divStyle = {
-//   color: 'blue',
-//   backgroundImage: 'url(' + imgUrl + ')',
-// };
 
 class NavBar extends Component {
   state = {

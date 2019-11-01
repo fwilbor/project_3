@@ -13,10 +13,14 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 const title = {
-  "marginTop": "3em"
+  marginTop: "3em"
 };
 
 class ParentDashboard extends Component {
+  state = {
+    user: ""
+  };
+  
   componentDidMount() {
     this.checkIfSignedIn();
   }
@@ -27,7 +31,9 @@ class ParentDashboard extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      fbUser ? this.getUserInfo(fbUser.email) : this.props.history.push("/");
+      fbUser
+        ? this.getUserInfo(fbUser.email)
+        : this.props.history.push("/sign-in");
     });
   };
 
@@ -71,7 +77,7 @@ class ParentDashboard extends Component {
                     <i className="material-icons">format_paint</i>
                   </div>
                   <Link to="ProgressCharts">
-                  <h4 className="info-title">Reports</h4>
+                    <h4 className="info-title">Reports</h4>
                   </Link>
                   <p>
                     See what games your child has played. Track their time and

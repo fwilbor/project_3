@@ -20,7 +20,7 @@ class Landing extends Component {
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
-        ? this.props.history.push("/child")
+        ? this.props.history.push("/choose-experience")
         : console.log("You are not signed in");
     });
   };
@@ -35,7 +35,7 @@ class Landing extends Component {
                 <div className="col-md-6">
                   <h1 className="title">JBot</h1>
                   <h3 className="subtitle ml-5">
-                    <em>A monitored educational gaming experience</em>
+                    <em>A Monitored - Online - Learning - Environment</em>
                   </h3>
                   <br />
                 </div>
@@ -48,40 +48,29 @@ class Landing extends Component {
                 <div className="row">
                   <div className="col-md-8 ml-auto mr-auto">
                     <h2 className="title">
-                      Once you’ve talked to your kids about expectations, it’s
-                      time to put some safeguards in place to help prevent
-                      overages before they occur.
+                      J-BOT is a Safe, Fun, COPPA (Child Online Privacy Protection Act) compliant Learning Application for kids under the age of 16. Designed for Parents to Monitor their child's online learning, J-BOT gives parents the ease of mind to track their daily time online and their progress.
                     </h2>
                     <h5 className="description">
                       <p className="pull-left">JBot allows you to: </p>
                       <ul className="pull-left">
                         <li>
-                          <p> Set up notifications for data usage.</p>
+                          <p> Supervise, manage, and protect your child’s learning in a Monitored Online Learning Environment (M.O.L.E)
+                          </p>
                           <p>
-                            Some plans let you set a notification for when
-                            you’re approaching your data limit but still have
-                            enough data left for basic use. If you can do this
-                            on a per person basis, even better. It’s a good
-                            reminder to your child to be more mindful about his
-                            or her mobile use.
+                            J-Bot gives parents the ability to schedule the total number of internet hours per day, in addition to blocking off specific usage times each day. This flexible screen time management tool makes it easy for parents to keep time spent online structured and monitored.
                           </p>
                         </li>
                         <li>
                           <p>Set limits.</p>
                           <p>
-                            Some J-Bot plans let you turn off data access for a
-                            specific line once it has hit a specified limit.
-                            This option prevents the rest of the family from
-                            being penalized for someone else’s usage.
+                            J-Bot lets you turn off data access for a
+                            specific game once it has hit a specified limit.
                           </p>
                         </li>
                         <li>
-                          <p>See how your child’s data is being used.</p>
+                          <p>Meaningful, up-to-date tracking on your child's progress.</p>
                           <p>
-                            You can see how your child is spending his or her
-                            time on the internet, such as browsing the web or
-                            streaming videos. This information can help you
-                            discuss safe internet usage with your child.
+                            Stay connected with your child’s progress with J-Bot's real time up to date progress reports in your Parental Dashboard.  Get instant notifications on progress improvement, skill completions, and time logged in all in one place.
                           </p>
                         </li>
                       </ul>

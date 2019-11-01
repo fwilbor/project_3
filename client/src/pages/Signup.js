@@ -48,6 +48,8 @@ class SignUp extends Component {
     } else {
       this.setState({ canSubmit: false });
     }
+
+    // console.log("From SignUp page: " + this.state.canSubmit);
   };
   handleInputSignUp = event => {
     event.preventDefault();

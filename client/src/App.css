@@ -2,16 +2,26 @@
   background-image: url('./assets/img/children.jpg');
 }
 
-.landing-page .container {
-  top: 100px;
+.experience-page, .landing-page {
+  height: 100vh;
 }
-.landing-page .main-raised {
-  top: -250px !important;
+.main{
+  bottom: 50%;
+}
+
+.landing-page .container {
+  top: 10%;
+}
+.landing-page .main {
+  bottom: 40%;
 }
 
 .navbar a.dropdown-item:hover{
   
     background-color: rgba(233, 30, 99, 0.85);
+}
+.navbar .collapse {
+  display: block !important;
 }
 .under-nav {
   margin-top: 5em;
@@ -73,7 +83,7 @@ ul > li {
 .carouselImg {
   display: block;
   width: 100%;
-  max-height: 437px;
+  height: 437px;
 }
 .carousel-caption {
   color: #323232 !important;
@@ -118,13 +128,6 @@ ul > li {
 
 .center {
   text-align: center;
-}
-
-.experience-page {
-  max-height: 100vh;
-}
-.experience-page .main{
-  top: -700px;
 }
 
 .col-1of2:hover {
@@ -185,6 +188,21 @@ ul > li {
 
 @media screen and (max-width: 767px) { 
   .experience-page .main{
-    top: -650px;
+    /* top: -350px; */
   }
+}
+
+.contrast-test {
+  /* font-size: 2em;
+  font-weight: 500; */
+  color: white;
+  mix-blend-mode: difference;
+  filter: drop-shadow(.05em .05em orange);
+}
+
+.child-dash .navbar {
+  mix-blend-mode: difference;
+}
+.child-dash .btn {
+  background-color: #000033;
 }
