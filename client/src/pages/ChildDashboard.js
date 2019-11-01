@@ -22,7 +22,8 @@ class ChildDashboard extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.user);
+    // console.log(this.state.user);
+    this.checkIfSignedIn();
   }
 
   checkIfSignedIn = () => {
