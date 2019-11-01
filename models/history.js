@@ -5,8 +5,9 @@ const historySchema = new Schema({
   date: { type: String, required: true },
   score: { type: Number, required: true },
   game: {
-    type: Schema.Types.ObjectId,
-    ref: "Game"
+    _id: { type: String, required: true },
+    name: { type: String, required: true },
+    category: { type: String, required: true }
   }
 });
 
