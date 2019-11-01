@@ -21,12 +21,25 @@ class DivideQuiz extends Component {
     correctClicked: false,
     disabled: false,
     display: false,
-    displayQuestions: [true]
+    displayQuestions: [true],
+    gameInfo: ""
   };
 
   componentDidMount() {
     this.startClicked();
     this.mappingDisplayQuestions();
+    this.getGameInfo();
+  }
+
+  getGameInfo() {
+    axios
+      .get("/api/game/name/Divide Quiz")
+      .then(res => {
+        this.setState({ gameInfo: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   startClicked() {
@@ -83,6 +96,7 @@ class DivideQuiz extends Component {
   };
 
   sendHighScore() {
+    console.log(this.state.gameInfo);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
