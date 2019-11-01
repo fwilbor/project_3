@@ -41,12 +41,24 @@ db.User.remove({})
 
 const gameSeeds = [
   {
-    name: "Tic-Tac-Toe",
-    category: "Fun"
+    name: "Math Quiz",
+    category: "Math"
   },
   {
-    name: "Some fun math game",
-    category: "Fun"
+    name: "Add Quiz",
+    category: "Math"
+  },
+  {
+    name: "Subtract Quiz",
+    category: "Math"
+  },
+  {
+    name: "Multiply Quiz",
+    category: "Math"
+  },
+  {
+    name: "Divide Quiz",
+    category: "Math"
   }
 ];
 
