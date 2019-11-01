@@ -22,8 +22,8 @@ class ChildDashboard extends Component {
   }
 
   componentDidUpdate() {
-    // console.log(this.state.user);
-    this.checkIfSignedIn();
+    console.log(this.state.user);
+    // this.checkIfSignedIn();
   }
 
   checkIfSignedIn = () => {
@@ -38,6 +38,7 @@ class ChildDashboard extends Component {
     axios
       .get("/api/user/email/" + userEmail)
       .then(res => {
+        console.log(res)
         this.setState({ user: res.data });
       })
       .catch(err => {
