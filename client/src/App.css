@@ -2,16 +2,26 @@
   background-image: url('./assets/img/children.jpg');
 }
 
-.landing-page .container {
-  top: 100px;
+.experience-page, .landing-page {
+  height: 100vh;
 }
-.landing-page .main-raised {
-  top: -250px !important;
+.main{
+  bottom: 50%;
+}
+
+.landing-page .container {
+  top: 10%;
+}
+.landing-page .main {
+  bottom: 40%;
 }
 
 .navbar a.dropdown-item:hover{
   
     background-color: rgba(233, 30, 99, 0.85);
+}
+.navbar .collapse {
+  display: block !important;
 }
 .under-nav {
   margin-top: 5em;
@@ -120,13 +130,6 @@ ul > li {
   text-align: center;
 }
 
-.experience-page {
-  max-height: 100vh;
-}
-.experience-page .main{
-  top: -450px;
-}
-
 .col-1of2:hover {
   background-image: url('./assets/img/parent.jpg');
 }
@@ -185,7 +188,7 @@ ul > li {
 
 @media screen and (max-width: 767px) { 
   .experience-page .main{
-    top: -350px;
+    /* top: -350px; */
   }
 }
 
