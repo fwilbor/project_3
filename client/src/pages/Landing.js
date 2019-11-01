@@ -20,7 +20,7 @@ class Landing extends Component {
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
-        ? this.props.history.push("/child")
+        ? this.props.history.push("/choose-experience")
         : console.log("You are not signed in");
     });
   };

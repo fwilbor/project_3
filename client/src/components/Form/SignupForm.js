@@ -8,8 +8,17 @@ class SignupForm extends Component {
 
   toggleAccepted = () => {
     let accept = !this.state.accepted;
-    this.setState({ accepted: accept });
+    this.setState({ accepted: accept }, () => {
+      console.log("accepted: " + this.state.accepted);
+    });
   };
+
+  shouldButtonBeDisabled = () => {
+    if(this.state.accepted && this.props.canSubmit){
+      return false;
+    }
+    return true;
+  }
 
   render() {
   return (
@@ -69,29 +78,31 @@ class SignupForm extends Component {
             <span className="bmd-form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <span className="input-group-text">
-                  <input  id="coppa" 
+                  <span className="input-group">
+                    <span>
+                      <input id="coppa" 
                           type="checkbox" 
                           aria-label="Checkbox for accepting terms"
                           onChange={this.toggleAccepted}
                           />
+                    </span>
+                    <span htmlFor="coppa">&nbsp; Check here to accept the <Link to="/COPPA"> Terms</Link></span>
                   </span>
                 </div>
-                  <span htmlFor="coppa">Check here to accept the <Link to="/COPPA"> Terms</Link></span>
               </div>
             </span>
           </div>
           <div className="card-footer justify-content-center">
             <button
               className="btn btn-rose btn-link btn-lg"
-              disabled={(!this.state.accepted && !this.props.canSubmit)}
+              disabled={this.shouldButtonBeDisabled()}
               onClick={this.props.handleInputSignUp}
             >
-              Lets Go
+              Let&#39;s Go
             </button>
           </div>
         </div>
-      </form>
+      </form> 
     </div>
   );
 }

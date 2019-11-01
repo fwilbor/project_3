@@ -1698,12 +1698,6 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     margin: 0 auto;
     border-radius: 50%;
     border: 1px solid transparent; }
-  .navbar .navbar-brand {
-    text-transform: uppercase;
-    font-size: 0.8571em;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    line-height: 1.625rem; }
   .navbar .navbar-toggler {
     width: 37px;
     height: 27px;

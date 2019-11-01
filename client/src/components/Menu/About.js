@@ -7,9 +7,10 @@ function About() {
   return (
     <> 
       <NavBar />
+      <div className="experience-page sidebar-collapse">
       <div className="coppa-page page-header header-filter" data-parallax="true"></div>
 
-      <div className="main main-raised about-pages">
+      <div className="main main-raised">
           <div className="container">
             <div className="section text-center">
               <div className="row">
@@ -26,6 +27,7 @@ function About() {
               </div>
             </div>
           </div>
+        </div>
         </div>
     </>
   );
