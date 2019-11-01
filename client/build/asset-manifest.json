@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0e1a00b7.chunk.css",
+    "main.js": "/static/js/main.baf9dc0a.chunk.js",
+    "main.js.map": "/static/js/main.baf9dc0a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.df977b4e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.df977b4e.js.map",
+    "static/css/2.545c6387.chunk.css": "/static/css/2.545c6387.chunk.css",
+    "static/js/2.cc7a661d.chunk.js": "/static/js/2.cc7a661d.chunk.js",
+    "static/js/2.cc7a661d.chunk.js.map": "/static/js/2.cc7a661d.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.988906d45d32ae90bcd37a4729dd0be3.js": "/precache-manifest.988906d45d32ae90bcd37a4729dd0be3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.545c6387.chunk.css.map": "/static/css/2.545c6387.chunk.css.map",
+    "static/css/main.0e1a00b7.chunk.css.map": "/static/css/main.0e1a00b7.chunk.css.map",
+    "static/media/material-kit.min.css": "/static/media/arrow-right.ef69e791.cur",
+    "static/media/App.css": "/static/media/parent.8e827875.jpg",
+    "static/media/mathGame.jpg": "/static/media/mathGame.7abe45d1.jpg",
+    "static/media/now-ui-dashboard.scss?v1.2.0": "/static/media/nucleo-outline.8ebec31f.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df977b4e.js",
+    "static/css/2.545c6387.chunk.css",
+    "static/js/2.cc7a661d.chunk.js",
+    "static/css/main.0e1a00b7.chunk.css",
+    "static/js/main.baf9dc0a.chunk.js"
+  ]
+}

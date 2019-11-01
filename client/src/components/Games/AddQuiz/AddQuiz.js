@@ -35,7 +35,6 @@ class AddQuiz extends Component {
     axios
       .get("/api/game/name/Add Quiz")
       .then(res => {
-        console.log(res.data);
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
@@ -97,14 +96,12 @@ class AddQuiz extends Component {
   };
 
   sendHighScore() {
+    console.log(this.state.gameInfo);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
         score: this.state.usersHighScore,
-        game: {
-          name: this.state.gameInfo.name,
-          category: this.state.gameInfo.category
-        }
+        game: this.state.gameInfo
       })
       .then(histRes => {
         this.updateHistory(histRes.data._id);
@@ -125,7 +122,7 @@ class AddQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData);
+            console.log(postData.data);
           })
           .catch(err => {
             console.log(err);
