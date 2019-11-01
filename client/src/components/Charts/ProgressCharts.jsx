@@ -149,40 +149,40 @@ class ProgressCharts extends React.Component {
           ///////// X-axis
           // labels are days of the month //below
           labels: [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
+            "Day 1",
+            "Day 2",
+            "Day 3",
+            "Day 4",
+            "Day 5",
+            "Day 6",
+            "Day 7",
+            "Day 8",
+            "Day 9",
+            "Day 10",
+            "Day 11",
+            "Day 12",
+            "Day 13",
+            "Day 14",
+            "Day 16",
+            "Day 17",
+            "Day 18",
+            "Day 19",
+            "Day 20",
+            "Day 21",
+            "Day 22",
+            "Day 23",
+            "Day 24",
+            "Day 25",
+            "Day 26",
+            "Day 27",
+            "Day 28",
+            "Day 29",
+            "Day 30",
           ],
           datasets: [
             {
               //Data time in minutes logged in total //below
-              label: "Data",
+              label: "Minutes",
               borderColor: chartColor,
               pointBorderColor: chartColor,
               pointBackgroundColor: "#2c2c2c",
@@ -196,7 +196,7 @@ class ProgressCharts extends React.Component {
               backgroundColor: gradientFill,
               borderWidth: 2,
               ////// Y-axis //below
-              data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77 ,77, 77, 77]
+              data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95, 50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95, 150, 160, 120, 140, 190, 95]
             }
           ]
         };
@@ -287,7 +287,7 @@ class ProgressCharts extends React.Component {
           ],
           datasets: [
             {
-              label: "Active Users",
+              label: "Minutes Per Day",
               borderColor: "#f96332",
               pointBorderColor: "#FFF",
               pointBackgroundColor: "#f96332",
@@ -326,7 +326,7 @@ class ProgressCharts extends React.Component {
           labels: ["12am", "6pm", "9pm", "11:59pm"],
           datasets: [
             {
-              label: "Email Stats",
+              label: "Total Time Online",
               borderColor: "#18ce0f",
               pointBorderColor: "#FFF",
               pointBackgroundColor: "#18ce0f",
@@ -337,7 +337,7 @@ class ProgressCharts extends React.Component {
               fill: true,
               backgroundColor: gradientFill,
               borderWidth: 2,
-              data: [0, 10, 990, 1000]
+              data: [0, 0, 1000, 1000]
             }
           ]
         };
@@ -363,7 +363,7 @@ class ProgressCharts extends React.Component {
           ],
           datasets: [
             {
-              label: "Active Countries",
+              label: "HighScores",
               backgroundColor: gradientFill,
               borderColor: "#2CA8FF",
               pointBorderColor: "#FFF",
@@ -374,7 +374,9 @@ class ProgressCharts extends React.Component {
               pointRadius: 4,
               fill: true,
               borderWidth: 1,
-              data: [20, 40, 60, 80, 100]
+              //user high score for each game
+              //   Math/ Add/ Sub/ Multi/ Div
+              data: [2,   4,   6,   16,   20]
             }
           ]
         };
@@ -382,7 +384,7 @@ class ProgressCharts extends React.Component {
       options: {
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: true
         },
         tooltips: {
           bodySpacing: 4,
@@ -443,8 +445,8 @@ class ProgressCharts extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Global Sales</h5>
-                  <CardTitle tag="h4">Shipped Products</CardTitle>
+                  <h5 className="card-category">Total Time Logged</h5>
+                  <CardTitle tag="h4">Minutes Per Day</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
@@ -456,8 +458,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons arrows-1_refresh-69" /> Just
-                    Updated
+                    <i className="now-ui-icons ui-2_time-alarm" /> Minutes Per Day
                   </div>
                 </CardFooter>
               </Card>
@@ -465,8 +466,8 @@ class ProgressCharts extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">2018 Sales</h5>
-                  <CardTitle tag="h4">All products</CardTitle>
+                  <h5 className="card-category">Logged Time</h5>
+                  <CardTitle tag="h4">Log-in/Log-out Times</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
@@ -478,7 +479,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons arrows-1_refresh-69" /> Just
+                    <i className="now-ui-icons ui-2_time-alarm" /> Just
                     Updated
                   </div>
                 </CardFooter>
@@ -487,8 +488,8 @@ class ProgressCharts extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Email Statistics</h5>
-                  <CardTitle tag="h4">24 Hours Performance</CardTitle>
+                  <h5 className="card-category">High Scores</h5>
+                  <CardTitle tag="h4">High Scores Per Game</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
@@ -500,7 +501,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons ui-2_time-alarm" /> Last 7 days
+                    <i className="now-ui-icons objects_spaceship" /> High Score Board
                   </div>
                 </CardFooter>
               </Card>
