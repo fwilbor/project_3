@@ -166,8 +166,7 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
-        <NavBar />
-        <div className="jumbotron" id="mathjumbotron">
+         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">

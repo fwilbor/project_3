@@ -5,6 +5,7 @@ import axios from "axios";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "../firebase";
+import MathQuiz from "../components/Games/MathQuiz/MathQuiz";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -14,7 +15,8 @@ const auth = firebase.auth();
 
 class ChildDashboard extends Component {
   state = {
-    user: ""
+    user: "",
+    game: ""
   };
 
   componentDidMount() {
@@ -46,7 +48,16 @@ class ChildDashboard extends Component {
       });
   }
 
+  setGame = (gameName) => {
+    this.setState({game: gameName}, () => {
+      console.log("game: ", this.state.game);
+    });
+    // const Game = gameName;
+    
+  }
+
   render() {
+    const Game = this.state.game;
     return (
       <div className="child-dash">
         <NavBar />
@@ -56,8 +67,8 @@ class ChildDashboard extends Component {
             <div className="col-md-4">
               <div className="mascot-container">
                 <div className="contrast-test" role='textbox' aria-multiline='true'>Placeholder Image</div>
-                <img src="./assets/img/sections/iphone.png" alt="placeholder" />
-                {/* <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" /> */}
+                {/* <img src="./assets/img/sections/iphone.png" alt="placeholder" /> */}
+                <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" />
               </div>
             </div>
             <div className="col-md-8">
@@ -103,6 +114,22 @@ class ChildDashboard extends Component {
                           <p>Are you an arithmetic boss?</p>
                         </div>
                       </Link>
+
+                      <button
+                        onClick={() => this.setGame(MathQuiz)}
+                        className="carousel-item high-contrast"
+                      >
+                        <img
+                          src={require('../assets/img/mathGame.jpg')}
+                          className="carouselImg"
+                          alt="game"
+                        />
+                        <div className="carousel-caption d-none d-md-block">
+                          <h5>Math Game</h5>
+                          <p>Hope this works</p>
+                        </div>
+                      </button>
+
                       <Link 
                         to={`${this.state.user._id}/addQuiz`}
                         className="carousel-item ">
@@ -178,6 +205,15 @@ class ChildDashboard extends Component {
                     </a>
                   </div>
                 </div>
+
+                {this.state.game && (
+                <div className="bd-example">
+                  <div className="playingField">
+                    <Game/>
+                  </div>
+                </div>
+                )}
+
               </div>
               <div className="row">
                   <div className="col-md-4">

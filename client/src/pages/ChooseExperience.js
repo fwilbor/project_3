@@ -6,6 +6,7 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "../firebase";
 import Link from "react-router-dom/Link";
+import SignupModal from "../components/Modals/SignupModal";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -14,6 +15,12 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 class ChooseExperience extends Component {
+  state = {
+    openModal: false,
+    handleInputChange: this.props.handleInputChange,
+    additionalPW: false
+  };
+
   componentDidMount() {
     this.checkIfSignedIn();
   }
@@ -25,6 +32,12 @@ class ChooseExperience extends Component {
         : this.props.history.push("/sign-in");
     });
   };
+
+  openModal = () => {
+    this.setState({additionalPW: !this.state.additionalPW});
+    this.setState({openModal: !this.state.openModal});
+  };
+
   render() {
     return (
       <>
@@ -41,14 +54,16 @@ class ChooseExperience extends Component {
           </div>
           <div className="main main-raised">
             <div className="row">
-                
                     <div className="col-lg-6 col-1of2">
                         <div className="col-inner">
-                            <Link to="/parent">
+                            {/* <Link to="/parent">
                             <button type="button" className="btn btn-outline-white">
                                 I am a parent
                             </button>
-                            </Link>
+                            </Link> */}
+                            <button type="button" className="btn btn-outline-white" onClick={this.openModal}>
+                                I am a parent
+                            </button>
                         </div>
                     </div>
                     <div className="col-lg-6 col-2of2">
@@ -65,6 +80,15 @@ class ChooseExperience extends Component {
               </div>
           </div>
         </div>
+        {this.state.additionalPW && (
+          <SignupModal 
+              title = "Additional Info Needed"
+              message = "Please enter your guardian password."
+              fx = {this.openModal}
+              handleInputChange = {this.state.handleInputChange}
+              btnText = "Enter"
+          />
+        )}
       </>
     );
   }
