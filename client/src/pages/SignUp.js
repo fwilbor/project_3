@@ -21,6 +21,7 @@ class SignUp extends Component {
     username: "",
     email: "",
     password: "",
+    guardian: "",
     isSigningUp: false,
     isLoggingIn: false,
     canSubmit: false,
@@ -46,7 +47,7 @@ class SignUp extends Component {
       [name]: value
     });
 
-    if (this.state.email.length > 3 && this.state.password.length > 3) {
+    if (this.state.email.length > 3 && this.state.password.length > 3 && this.state.guardian.length > 3) {
       this.setState({ canSubmit: true });
     } else {
       this.setState({ canSubmit: false });
