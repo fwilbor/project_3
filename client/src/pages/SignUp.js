@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import "../assets/css/material-kit.min.css";
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -25,11 +24,16 @@ class SignUp extends Component {
     isSigningUp: false,
     isLoggingIn: false,
     canSubmit: false,
-    openModal: false, 
+    openModal: false,
+    modalTitle: "", 
     modalMsg: ""
   };
   componentDidMount() {
     this.checkIfSignedIn();
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
   }
   optionSelect = option => {
     if (option === "signUp") {
@@ -58,8 +62,8 @@ class SignUp extends Component {
     console.log("sign up");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
-      this.setState({openModal: true});
-      this.setState({modalMsg: "You must enter a valid email and password"});
+      this.setState({ openModal: true });
+      this.setState({ modalMsg: "You must enter a valid email and password" });
     } else {
       this.setState({ canSubmit: true });
       auth
@@ -77,8 +81,8 @@ class SignUp extends Component {
         .catch(e => {
           console.log(e.message);
           this.setState({openModal: true});
+          this.setState({modalTitle: "Uh Oh..."});
           this.setState({modalMsg: e.message});
-          
         });
     }
   };
@@ -87,8 +91,8 @@ class SignUp extends Component {
     console.log("sign in");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
-      this.setState({openModal: true});
-      this.setState({modalMsg: "You must enter a valid email and password"});
+      this.setState({ openModal: true });
+      this.setState({ modalMsg: "You must enter a valid email and password" });
     } else {
       this.setState({ canSubmit: true });
       auth
@@ -99,13 +103,14 @@ class SignUp extends Component {
         .catch(e => {
           console.log(e.message);
           this.setState({openModal: true});
+          this.setState({modalTitle: "Uh Oh..."});
           this.setState({modalMsg: e.message});
         });
     }
   };
 
   openErrorModal = () => {
-    this.setState({openModal: !this.state.openModal});
+    this.setState({ openModal: !this.state.openModal });
   };
 
   checkIfSignedIn = () => {
@@ -119,7 +124,7 @@ class SignUp extends Component {
     return (
       <>
         <NavBar />
-       
+
         <div className="experience-page sidebar-collapse">
           <div className="page-header header-filter">
             <div className="container">
@@ -207,11 +212,11 @@ class SignUp extends Component {
         </div>
         {this.state.openModal && (
         <SignupModal 
+            title = {this.state.modalTitle}
             message = {this.state.modalMsg}
             fx = {this.openErrorModal}
         />
         )}
-        
       </>
     );
   }

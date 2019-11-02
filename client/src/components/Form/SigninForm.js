@@ -42,7 +42,7 @@ function SigninForm(props) {
           </div>
           <div className="card-footer justify-content-center">
             <button
-              className="btn btn-rose btn-link btn-lg"
+              className="yep btn btn-rose btn-link btn-lg"
               disabled={(!props.canSubmit)}
               onClick={props.handleInputSignIn}
             >
