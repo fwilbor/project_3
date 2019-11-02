@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import NavBar from "../NavBar";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
@@ -14,18 +15,29 @@ import {
 } from "reactstrap";
 // core components
 import PanelHeader from "../PanelHeader/PanelHeader";
-import axios from "axios";
 
 class ProgressCharts extends React.Component {
   state = {
-    person: []
-  }
+    user: ""
+  };
+
   componentDidMount() {
-    axios.get("/api/user").then(res => {
-      const persons = res.data;
-      this.setState({ persons });
-    })
-    console.log(this.state.person)
+    this.getUserInfo();
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.user);
+  }
+
+  getUserInfo() {
+    axios
+      .get(`/api/user/${this.props.match.params.id}`)
+      .then(user => {
+        this.setState({ user: user.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   render() {
     // ##############################
@@ -189,7 +201,7 @@ class ProgressCharts extends React.Component {
             "Day 27",
             "Day 28",
             "Day 29",
-            "Day 30",
+            "Day 30"
           ],
           datasets: [
             {
@@ -208,7 +220,38 @@ class ProgressCharts extends React.Component {
               backgroundColor: gradientFill,
               borderWidth: 2,
               ////// Y-axis //below
-              data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95, 50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95, 150, 160, 120, 140, 190, 95]
+              data: [
+                50,
+                150,
+                100,
+                190,
+                130,
+                90,
+                150,
+                160,
+                120,
+                140,
+                190,
+                95,
+                50,
+                150,
+                100,
+                190,
+                130,
+                90,
+                150,
+                160,
+                120,
+                140,
+                190,
+                95,
+                150,
+                160,
+                120,
+                140,
+                190,
+                95
+              ]
             }
           ]
         };
@@ -388,7 +431,7 @@ class ProgressCharts extends React.Component {
               borderWidth: 1,
               //user high score for each game
               //   Math/ Add/ Sub/ Multi/ Div
-              data: [2,   4,   6,   16,   20]
+              data: [2, 4, 6, 16, 20]
             }
           ]
         };
@@ -491,8 +534,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons" /> Just
-                    Updated
+                    <i className="now-ui-icons" /> Just Updated
                   </div>
                 </CardFooter>
               </Card>

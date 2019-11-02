@@ -19,10 +19,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/ProgressCharts" component={ProgressCharts} />
+        {/* <Route exact path="/ProgressCharts" component={ProgressCharts} /> */}
         <Route exact path="/COPPA" component={COPPA} />
         <Route path="/(sign-up|sign-in)" component={SignUp} />
         <Route exact path="/choose-experience" component={ChooseExperience} />
+        <Route exact path="/parent/:id" component={ProgressCharts} />
         <Route exact path="/parent" component={ParentDashboard} />
         <Route exact path="/child" component={ChildDashboard} />
         <Route exact path="/about/us" component={About} />
