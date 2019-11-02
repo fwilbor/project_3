@@ -14,9 +14,19 @@ import {
 } from "reactstrap";
 // core components
 import PanelHeader from "../PanelHeader/PanelHeader";
-// import axios from "axios";
+import axios from "axios";
 
 class ProgressCharts extends React.Component {
+  state = {
+    person: []
+  }
+  componentDidMount() {
+    axios.get("/api/user").then(res => {
+      const persons = res.data;
+      this.setState({ persons });
+    })
+    console.log(this.state.person)
+  }
   render() {
     // ##############################
     // // // Function that converts a hex color number to a RGB color number
