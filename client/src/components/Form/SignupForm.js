@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 class SignupForm extends Component {
   state = {
     accepted: false,
-    ofAge: false
+    ofAge: false,
+    additionalPW: false
   }
 
   toggleAccepted = () => {
@@ -18,6 +19,11 @@ class SignupForm extends Component {
     let age = !this.state.ofAge;
     this.setState({ ofAge: age }, () => {
       console.log("ofAge: " + this.state.ofAge);
+      if (this.state.ofAge) {
+        this.setState({additionalPW: true});
+      } else {
+        this.setState({additionalPW: false});
+      }
     });
   };
 
@@ -77,12 +83,28 @@ class SignupForm extends Component {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Password..."
+                  placeholder="General Password..."
                   name="password"
                   onChange={this.props.handleInputChange}
                 />
               </div>
             </span>
+            <span className="bmd-form-group">
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">
+                      <i className="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Guardian Password..."
+                    name="guardian"
+                    onChange={this.props.handleInputChange}
+                  />
+                </div>
+              </span>
             <span className="bmd-form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
