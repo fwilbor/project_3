@@ -4,12 +4,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, min: [8, "Not strong enough"] },
-  parentPass: {
-    type: String,
-    required: false,
-    min: [8, "Not strong enough"]
-  },
+  password: { type: String, required: true },
+  parentPass: { type: String, required: false },
   history: [
     {
       // Store ObjectIds in the array

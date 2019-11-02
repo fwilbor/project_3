@@ -85,8 +85,13 @@ module.exports = {
                     history: updateArr
                   }
                 )
+                  .populate("history")
                   .then(postData => {
-                    console.log(postData);
+                    res.json({
+                      message: "Successfully added seeds",
+                      error: false,
+                      data: postData
+                    });
                   })
                   .catch(err => {
                     console.log(err);
@@ -95,7 +100,6 @@ module.exports = {
               .catch(err => {
                 console.log(err);
               });
-            res.json({ message: "FUCK THIS" });
           })
           .catch(err => {
             console.log(err);

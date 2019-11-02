@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import math from "./jsonfiles/math.json";
+import Timer from "../../Timer/Timer";
 import "./MathQuiz.css";
 import axios from "axios";
 
@@ -29,6 +30,10 @@ class MathQuiz extends Component {
     this.startClicked();
     this.mappingDisplayQuestions();
     this.getGameInfo();
+  }
+
+  componentDidUpdate() {
+    console.log("fuck");
   }
 
   getGameInfo() {
@@ -144,11 +149,11 @@ class MathQuiz extends Component {
         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
           <h3 className="cardHeader" id="mathcardHeader">
-            Correct Guesses: {correctGuesses}
+            Correct Guesses: {correctGuesses}&nbsp;| Total Guesses:{" "}
+            {totalGuesses}
             <br />
-            Total Guesses: {totalGuesses}
-            <br />
-            High Score: {usersHighScore}
+            High Score: {usersHighScore}&nbsp;| Timer:{" "}
+            <Timer time={this.state.time} />
           </h3>
           {totalGuesses === math.length ? (
             this.endGame()

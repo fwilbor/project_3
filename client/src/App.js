@@ -11,6 +11,7 @@ import SubQuiz from "./components/Games/SubtractQuiz/SubtractQuiz";
 import MultiQuiz from "./components/Games/MultiplyQuiz/MultiplyQuiz";
 import DivQuiz from "./components/Games/DivideQuiz/DivideQuiz";
 import About from "./components/Menu/About";
+import Timer from "./components/Timer/Timer";
 import Philosophy from "./components/Menu/Philosophy";
 import ProgressCharts from "./components/Charts/ProgressCharts";
 import ChooseExperience from "./pages/ChooseExperience";
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/:id/subQuiz" component={SubQuiz} />
         <Route exact path="/:id/multiQuiz" component={MultiQuiz} />
         <Route exact path="/:id/divQuiz" component={DivQuiz} />
+        <Route exact path="/test/timer" component={Timer} />
         <Route exact path="/" component={Landing} />
         {/* <Route exact path="*" component={Error404} /> */}
       </Switch>
