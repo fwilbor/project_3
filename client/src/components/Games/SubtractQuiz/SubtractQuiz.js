@@ -4,32 +4,49 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
+import ResetButton from "./components/ResetButton";
 import subtract from "./jsonfiles/subtract.json";
 import "./SubtractQuiz.css";
 import axios from "axios";
 
-let correctGuesses = 0;
-let usersHighScore = 0;
-let totalGuesses = 0;
-
 class SubtractQuiz extends Component {
-  state = {
-    game: false,
-    subtract,
-    correctGuesses,
-    usersHighScore,
-    correctClicked: false,
-    disabled: false,
-    display: false,
-    displayQuestions: [true],
-    gameInfo: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      game: false,
+      subtract,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true],
+      gameInfo: ""
+    };
+  }
 
   componentDidMount() {
-    this.startClicked();
-    this.mappingDisplayQuestions();
     this.getGameInfo();
   }
+
+  componentDidUpdate() {
+    console.log(this.state.displayQuestions);
+  }
+
+  resetGame = () => {
+    this.setState({
+      game: false,
+      subtract,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true]
+    });
+  };
 
   getGameInfo() {
     axios
@@ -42,30 +59,36 @@ class SubtractQuiz extends Component {
       });
   }
 
-  startClicked() {
+  shuffle() {
     subtract.sort(function(a, b) {
       return 0.5 - Math.random();
     });
   }
 
   startGame = () => {
+    this.shuffle();
+    this.mappingDisplayQuestions();
     this.setState({ game: true });
   };
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
-      correctGuesses++;
-      totalGuesses++;
-      this.setCorrectClicked(true);
-      this.setState({ disabled: true });
-      if (correctGuesses > usersHighScore) {
-        usersHighScore = correctGuesses;
-        this.setState({ usersHighScore });
+      let newState = this.state;
+      newState.correctGuesses++;
+      newState.totalGuesses++;
+      newState.correctClicked = true;
+      newState.disabled = true;
+
+      if (newState.correctGuesses > newState.usersHighScore) {
+        newState.usersHighScore = newState.correctGuesses;
       }
+      this.setState(newState);
     } else if (clicked !== answer) {
-      totalGuesses++;
-      this.setCorrectClicked(false);
-      this.setState({ disabled: true });
+      let newState = this.state;
+      newState.totalGuesses++;
+      newState.correctClicked = false;
+      newState.disabled = true;
+      this.setState(newState);
     }
     this.changeDisplayedQuestion();
   };
@@ -90,13 +113,16 @@ class SubtractQuiz extends Component {
   };
 
   mappingDisplayQuestions = () => {
+    // if (this.state.displayQuestions.length < 20) {
     for (let i = 1; i < subtract.length; i++) {
       this.state.displayQuestions.push(false);
     }
+    // }
   };
 
   sendHighScore() {
     console.log(this.state.gameInfo);
+    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
@@ -122,7 +148,7 @@ class SubtractQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData);
+            console.log(postData.data);
           })
           .catch(err => {
             console.log(err);
@@ -143,14 +169,15 @@ class SubtractQuiz extends Component {
         <NavBar />
         <div className="jumbotron" id="subtractjumbotron">
           <Header id="subtractHeader">J-BOT Subtraction!</Header>
+          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="subtractcardHeader">
-            Correct Guesses: {correctGuesses}
+            Correct Guesses: {this.state.correctGuesses}
             <br />
-            Total Guesses: {totalGuesses}
+            Total Guesses: {this.state.totalGuesses}
             <br />
-            High Score: {usersHighScore}
+            High Score: {this.state.usersHighScore}
           </h3>
-          {totalGuesses === subtract.length ? (
+          {this.state.totalGuesses === subtract.length ? (
             this.endGame()
           ) : !this.state.game ? (
             <StartButton startClick={this.startGame} />
@@ -159,6 +186,7 @@ class SubtractQuiz extends Component {
               <div className="row" id="subtractrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
+                    console.log(subtract[i].id);
                     return (
                       <Card
                         id={subtract[i].id}
