@@ -18,7 +18,8 @@ import PanelHeader from "../PanelHeader/PanelHeader";
 
 class ProgressCharts extends React.Component {
   state = {
-    user: ""
+    user: "",
+    gamesArray: ""
   };
 
   componentDidMount() {
@@ -26,7 +27,7 @@ class ProgressCharts extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.user);
+    console.log(this.state.gamesArray);
   }
 
   getUserInfo() {
@@ -34,10 +35,45 @@ class ProgressCharts extends React.Component {
       .get(`/api/user/${this.props.match.params.id}`)
       .then(user => {
         this.setState({ user: user.data });
+        this.organizeGamesByName(user.data.history);
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  organizeGamesByName(data) {
+    let math = [];
+    let add = [];
+    let sub = [];
+    let multi = [];
+    let div = [];
+    let unknowGame = [];
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].game.name === "Math Quiz") {
+        math.push(data[i]);
+      } else if (data[i].game.name === "Add Quiz") {
+        add.push(data[i]);
+      } else if (data[i].game.name === "Subtract Quiz") {
+        sub.push(data[i]);
+      } else if (data[i].game.name === "Multiply Quiz") {
+        multi.push(data[i]);
+      } else if (data[i].game.name === "Divide Quiz") {
+        div.push(data[i]);
+      } else {
+        unknowGame.push(data[i]);
+      }
+    }
+    this.setState({
+      gamesArray: {
+        math: math,
+        add: add,
+        sub: sub,
+        multi: multi,
+        div: div,
+        unknow: unknowGame
+      }
+    });
   }
   render() {
     // ##############################
