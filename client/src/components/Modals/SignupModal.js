@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const SignupModal = (props) => {
   const {
-    open,
     message,
     fx
   } = props;
 
-  const [modal, setModal] = useState(false);
-  
-  useEffect(() => {
-    toggle();
-  }, [open]); 
+  const [modal, setModal] = useState(true);
 
   const toggle = () => {
     setModal(!modal);
