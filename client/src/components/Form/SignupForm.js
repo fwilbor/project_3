@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 class SignupForm extends Component {
   state = {
     accepted: false,
-    ofAge: false,
-    additionalPW: false
+    ofAge: false
   }
 
   toggleAccepted = () => {
@@ -133,7 +132,7 @@ class SignupForm extends Component {
           </div>
           <div className="card-footer justify-content-center">
             <button
-              className="btn btn-rose btn-link btn-lg"
+              className="yep btn btn-rose btn-link btn-lg"
               disabled={this.shouldButtonBeDisabled()}
               onClick={this.props.handleInputSignUp}
             >

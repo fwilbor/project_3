@@ -205,7 +205,6 @@ ul > li {
   /* background-color: #000033; */
 }
 
-/* .btn .btn-rose .btn-link:hover { */
-.btn .btn-rose .btn-link .btn-lg {
-  font-size: 2em !important;
+.yep:disabled {
+  color: gray !important;
 }
