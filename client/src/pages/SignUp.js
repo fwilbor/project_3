@@ -8,6 +8,7 @@ import axios from "axios";
 import SignupForm from "../components/Form/SignupForm";
 import SigninForm from "../components/Form/SigninForm";
 import NavBar from "../components/NavBar";
+import SignupModal from "../components/Modals/SignupModal";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -22,7 +23,9 @@ class SignUp extends Component {
     password: "",
     isSigningUp: false,
     isLoggingIn: false,
-    canSubmit: false
+    canSubmit: false,
+    openModal: false, 
+    modalMsg: ""
   };
   componentDidMount() {
     this.checkIfSignedIn();
@@ -48,13 +51,12 @@ class SignUp extends Component {
     } else {
       this.setState({ canSubmit: false });
     }
-
-    // console.log("From SignUp page: " + this.state.canSubmit);
   };
   handleInputSignUp = event => {
     event.preventDefault();
     console.log("sign up");
     if (!this.state.email || !this.state.password) {
+        // Update to use modal
       alert(`You must enter a valid email and password`);
     } else {
       this.setState({ canSubmit: true });
@@ -72,6 +74,9 @@ class SignUp extends Component {
         })
         .catch(e => {
           console.log(e.message);
+          this.setState({openModal: true});
+          this.setState({modalMsg: e.message});
+          
         });
     }
   };
@@ -89,9 +94,16 @@ class SignUp extends Component {
         })
         .catch(e => {
           console.log(e.message);
+          this.setState({openModal: true});
+          this.setState({modalMsg: e.message});
         });
     }
   };
+
+  openErrorModal = () => {
+    this.setState({openModal: !this.state.openModal});
+  };
+
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
@@ -103,6 +115,7 @@ class SignUp extends Component {
     return (
       <>
         <NavBar />
+       
         <div className="experience-page sidebar-collapse">
           <div className="page-header header-filter">
             <div className="container">
@@ -187,6 +200,14 @@ class SignUp extends Component {
             </div>
           </div>
         </div>
+        {this.state.openModal && (
+        <SignupModal 
+            open = {this.state.openModal}
+            message = {this.state.modalMsg}
+            fx = {this.openErrorModal}
+        />
+        )}
+        
       </>
     );
   }
