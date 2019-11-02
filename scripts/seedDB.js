@@ -94,7 +94,7 @@ db.Game.remove({})
 //     game: games[0]._id
 //   }
 // ];
-// db.History.remove({})
+db.History.remove({}).then(() => console.log("Deleted History Collection"));
 //   .then(() => db.History.collection.insertMany(historySeeds))
 //   .then(data => {
 //     console.log("Data: " + data);
