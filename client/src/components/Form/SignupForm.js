@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 class SignupForm extends Component {
   state = {
-    accepted: false
+    accepted: false,
+    ofAge: false
   }
 
   toggleAccepted = () => {
@@ -13,8 +14,15 @@ class SignupForm extends Component {
     });
   };
 
+  toggleAge = () => {
+    let age = !this.state.ofAge;
+    this.setState({ ofAge: age }, () => {
+      console.log("ofAge: " + this.state.ofAge);
+    });
+  };
+
   shouldButtonBeDisabled = () => {
-    if(this.state.accepted && this.props.canSubmit){
+    if(this.state.accepted && this.state.ofAge && this.props.canSubmit){
       return false;
     }
     return true;
@@ -87,6 +95,18 @@ class SignupForm extends Component {
                           />
                     </span>
                     <span htmlFor="coppa">&nbsp; Check here to accept the <Link to="/COPPA"> Terms</Link></span>
+                  </span>
+                </div>
+                <div className="input-group-prepend">
+                  <span className="input-group">
+                    <span>
+                      <input id="age" 
+                          type="checkbox" 
+                          aria-label="Checkbox for declaring to be of age"
+                          onChange={this.toggleAge}
+                          />
+                    </span>
+                    <span htmlFor="age">&nbsp; I am over 13 years old</span>
                   </span>
                 </div>
               </div>
