@@ -17,11 +17,13 @@
 }
 
 .navbar a.dropdown-item:hover{
-  
-    background-color: rgba(233, 30, 99, 0.85);
+  background-color: rgba(233, 30, 99, 0.85);
 }
 .navbar .collapse {
   display: block !important;
+}
+.navbar-brand {
+  color: inherit !important;
 }
 .under-nav {
   margin-top: 5em;
@@ -186,11 +188,6 @@ ul > li {
   font-size: 2rem;
 }
 
-@media screen and (max-width: 767px) { 
-  .experience-page .main{
-    /* top: -350px; */
-  }
-}
 
 .contrast-test {
   /* font-size: 2em;
@@ -201,8 +198,9 @@ ul > li {
 }
 
 .child-dash .navbar {
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
+  color: rgb(65, 95, 219) !important;
 }
-.child-dash .btn {
-  background-color: #000033;
+.child-dash .navbar .btn {
+  /* background-color: #000033; */
 }
