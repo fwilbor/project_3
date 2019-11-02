@@ -56,8 +56,9 @@ class SignUp extends Component {
     event.preventDefault();
     console.log("sign up");
     if (!this.state.email || !this.state.password) {
-        // Update to use modal
-      alert(`You must enter a valid email and password`);
+      // Just in case the first catch misses bad data
+      this.setState({openModal: true});
+      this.setState({modalMsg: "You must enter a valid email and password"});
     } else {
       this.setState({ canSubmit: true });
       auth
@@ -84,7 +85,9 @@ class SignUp extends Component {
     event.preventDefault();
     console.log("sign in");
     if (!this.state.email || !this.state.password) {
-      alert(`You must enter a valid email and password`);
+      // Just in case the first catch misses bad data
+      this.setState({openModal: true});
+      this.setState({modalMsg: "You must enter a valid email and password"});
     } else {
       this.setState({ canSubmit: true });
       auth
