@@ -31,6 +31,10 @@ class SignUp extends Component {
   componentDidMount() {
     this.checkIfSignedIn();
   }
+
+  componentDidUpdate() {
+    console.log(this.state);
+  }
   optionSelect = option => {
     if (option === "signUp") {
       this.setState({ isSigningUp: true, isLoggingIn: false });
@@ -58,8 +62,8 @@ class SignUp extends Component {
     console.log("sign up");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
-      this.setState({openModal: true});
-      this.setState({modalMsg: "You must enter a valid email and password"});
+      this.setState({ openModal: true });
+      this.setState({ modalMsg: "You must enter a valid email and password" });
     } else {
       this.setState({ canSubmit: true });
       auth
@@ -79,7 +83,6 @@ class SignUp extends Component {
           this.setState({openModal: true});
           this.setState({modalTitle: "Uh Oh..."});
           this.setState({modalMsg: e.message});
-          
         });
     }
   };
@@ -88,8 +91,8 @@ class SignUp extends Component {
     console.log("sign in");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
-      this.setState({openModal: true});
-      this.setState({modalMsg: "You must enter a valid email and password"});
+      this.setState({ openModal: true });
+      this.setState({ modalMsg: "You must enter a valid email and password" });
     } else {
       this.setState({ canSubmit: true });
       auth
@@ -107,7 +110,7 @@ class SignUp extends Component {
   };
 
   openErrorModal = () => {
-    this.setState({openModal: !this.state.openModal});
+    this.setState({ openModal: !this.state.openModal });
   };
 
   checkIfSignedIn = () => {
@@ -121,7 +124,7 @@ class SignUp extends Component {
     return (
       <>
         <NavBar />
-       
+
         <div className="experience-page sidebar-collapse">
           <div className="page-header header-filter">
             <div className="container">
@@ -214,7 +217,6 @@ class SignUp extends Component {
             fx = {this.openErrorModal}
         />
         )}
-        
       </>
     );
   }

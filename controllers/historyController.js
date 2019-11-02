@@ -67,36 +67,52 @@ module.exports = {
           }
         ])
           .then(hist => {
-            db.User.findOne({ email: "jessman51386@gmail.com" })
+            db.User.findOne({ email: "tcutlip08@gmail.com" })
               .then(preData => {
                 let updateArr = preData.history;
                 for (let i = 0; i < hist.length; i++) {
                   updateArr.push(hist[i]._id);
                 }
                 db.User.findOneAndUpdate(
-                  { email: "jessman51386@gmail.com" },
+                  { email: "tcutlip08@gmail.com" },
                   {
                     history: updateArr
                   }
                 )
+                  .populate("history")
                   .then(postData => {
-                    console.log(postData);
+                    res.json({
+                      message: "Successfully added seeds",
+                      error: false,
+                      data: postData
+                    });
                   })
                   .catch(err => {
-                    console.log(err);
+                    res.json({
+                      message: err.message,
+                      error: true
+                    });
                   });
               })
               .catch(err => {
-                console.log(err);
+                res.json({
+                  message: err.message,
+                  error: true
+                });
               });
-            res.json({ message: "Astro-Boy" });
           })
           .catch(err => {
-            console.log(err);
+            res.json({
+              message: err.message,
+              error: true
+            });
           });
       })
       .catch(err => {
-        console.log(err);
+        res.json({
+          message: err.message,
+          error: true
+        });
       });
   }
 };
