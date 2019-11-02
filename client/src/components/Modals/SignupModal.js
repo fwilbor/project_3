@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const SignupModal = (props) => {
   const {
+    title,
     message,
     fx
   } = props;
@@ -16,7 +17,7 @@ const SignupModal = (props) => {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle} >
-        <ModalHeader toggle={toggle}>Uh Oh...</ModalHeader>
+        <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>
           {message}
         </ModalBody>
