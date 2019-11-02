@@ -18,7 +18,9 @@ import PanelHeader from "../PanelHeader/PanelHeader";
 
 class ProgressCharts extends React.Component {
   state = {
-    user: ""
+    user: "",
+    gameName: "",
+    userScore: ""
   };
 
   componentDidMount() {
@@ -26,14 +28,15 @@ class ProgressCharts extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.user);
+    console.log(this.state);
   }
 
   getUserInfo() {
     axios
       .get(`/api/user/${this.props.match.params.id}`)
       .then(user => {
-        this.setState({ user: user.data });
+        console.log(user)
+        this.setState({ user: user.data, gameName: user.data.history[0].game.name, userScore: user.data.history });
       })
       .catch(err => {
         console.log(err);
