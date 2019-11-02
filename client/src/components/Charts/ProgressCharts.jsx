@@ -106,7 +106,7 @@ class ProgressCharts extends React.Component {
     const gradientChartOptionsConfiguration = {
       maintainAspectRatio: false,
       legend: {
-        display: false
+        display: true
       },
       tooltips: {
         bodySpacing: 4,
@@ -150,14 +150,14 @@ class ProgressCharts extends React.Component {
         ]
       },
       layout: {
-        padding: { left: 0, right: 0, top: 15, bottom: 15 }
+        padding: { left: 20, right: 0, top: 15, bottom: 15 }
       }
     };
 
     var gradientChartOptionsConfigurationWithNumbersAndGrid = {
       maintainAspectRatio: false,
       legend: {
-        display: false
+        display: true
       },
       tooltips: {
         bodySpacing: 4,
@@ -197,7 +197,7 @@ class ProgressCharts extends React.Component {
         ]
       },
       layout: {
-        padding: { left: 0, right: 0, top: 15, bottom: 15 }
+        padding: { left: 20, right: 0, top: 15, bottom: 15 }
       }
     };
     // ##############################
@@ -530,7 +530,7 @@ class ProgressCharts extends React.Component {
           ]
         },
         layout: {
-          padding: { left: 0, right: 0, top: 15, bottom: 15 }
+          padding: { left: 20, right: 0, top: 15, bottom: 15 }
         }
       }
     };
@@ -593,8 +593,8 @@ class ProgressCharts extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">High Scores</h5>
-                  <CardTitle tag="h4">High Scores Per Game</CardTitle>
+                  <h5 className="card-category">Last Scores</h5>
+                  <CardTitle tag="h4">Last Scores Per Game</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
