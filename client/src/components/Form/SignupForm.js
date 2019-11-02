@@ -19,16 +19,11 @@ class SignupForm extends Component {
     let age = !this.state.ofAge;
     this.setState({ ofAge: age }, () => {
       console.log("ofAge: " + this.state.ofAge);
-      if (this.state.ofAge) {
-        this.setState({additionalPW: true});
-      } else {
-        this.setState({additionalPW: false});
-      }
     });
   };
 
   shouldButtonBeDisabled = () => {
-    if(this.state.accepted && this.state.ofAge && this.props.canSubmit){
+    if(this.state.accepted && this.state.ofAge && this.props.canSubmit && (this.props.guardian.length > 5)){
       return false;
     }
     return true;
@@ -38,6 +33,8 @@ class SignupForm extends Component {
   return (
     <div className="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
       <h3>Create An Account</h3>
+      <p>Parents, create an account using your email and set a password that both you and your child will use. 
+        Then create a second guardian password that you alone will use to access the Parent Dashboard.</p>
       <form className="form" method="" action="">
         <div className="card card-login card-hidden">
           <div className="card-body ">
