@@ -11,22 +11,26 @@ const userSeeds = [
   {
     username: "Nate Cutlip",
     email: "tcutlip08@gmail.com",
-    password: "gigadygoo"
+    password: "gigadygoo",
+    parentPass: "iIsBeParent"
   },
   {
     username: "Jesse McKinney",
     email: "jessman51386@gmail.com",
-    password: "fireball"
+    password: "fireball",
+    parentPass: "iIsBeParent"
   },
   {
     username: "Franklin Wilborn",
     email: "franklin.cfg@gmail.com",
-    password: "Dramatiks"
+    password: "Dramatiks",
+    parentPass: "iIsBeParent"
   },
   {
     username: "Rainbo Jackson",
     email: "raintest01@yopmail.com",
-    password: "tbaPleaseee"
+    password: "tbaPleaseee",
+    parentPass: "iIsBeParent"
   }
 ];
 
