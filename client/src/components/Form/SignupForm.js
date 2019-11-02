@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 class SignupForm extends Component {
   state = {
     accepted: false,
-    ofAge: false,
-    additionalPW: false
-  };
+    ofAge: false
+  }
 
   toggleAccepted = () => {
     let accept = !this.state.accepted;
@@ -142,17 +141,17 @@ class SignupForm extends Component {
                     </span>
                   </div>
                 </div>
-              </span>
-            </div>
-            <div className="card-footer justify-content-center">
-              <button
-                className="btn btn-rose btn-link btn-lg"
-                disabled={this.shouldButtonBeDisabled()}
-                onClick={this.props.handleInputSignUp}
-              >
-                Let&#39;s Go
-              </button>
-            </div>
+              </div>
+            </span>
+          </div>
+          <div className="card-footer justify-content-center">
+            <button
+              className="yep btn btn-rose btn-link btn-lg"
+              disabled={this.shouldButtonBeDisabled()}
+              onClick={this.props.handleInputSignUp}
+            >
+              Let&#39;s Go
+            </button>
           </div>
         </form>
       </div>

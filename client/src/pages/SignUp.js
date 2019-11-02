@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import "../assets/css/material-kit.min.css";
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -26,6 +25,7 @@ class SignUp extends Component {
     isLoggingIn: false,
     canSubmit: false,
     openModal: false,
+    modalTitle: "", 
     modalMsg: ""
   };
   componentDidMount() {
@@ -80,8 +80,9 @@ class SignUp extends Component {
         })
         .catch(e => {
           console.log(e.message);
-          this.setState({ openModal: true });
-          this.setState({ modalMsg: e.message });
+          this.setState({openModal: true});
+          this.setState({modalTitle: "Uh Oh..."});
+          this.setState({modalMsg: e.message});
         });
     }
   };
@@ -101,8 +102,9 @@ class SignUp extends Component {
         })
         .catch(e => {
           console.log(e.message);
-          this.setState({ openModal: true });
-          this.setState({ modalMsg: e.message });
+          this.setState({openModal: true});
+          this.setState({modalTitle: "Uh Oh..."});
+          this.setState({modalMsg: e.message});
         });
     }
   };
@@ -209,7 +211,11 @@ class SignUp extends Component {
           </div>
         </div>
         {this.state.openModal && (
-          <SignupModal message={this.state.modalMsg} fx={this.openErrorModal} />
+        <SignupModal 
+            title = {this.state.modalTitle}
+            message = {this.state.modalMsg}
+            fx = {this.openErrorModal}
+        />
         )}
       </>
     );
