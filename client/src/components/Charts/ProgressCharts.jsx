@@ -19,7 +19,14 @@ import PanelHeader from "../PanelHeader/PanelHeader";
 class ProgressCharts extends React.Component {
   state = {
     user: "",
-    gamesArray: ""
+    gamesArray: {
+      math: [0],
+      add: [0],
+      sub: [0],
+      multi: [0],
+      div: [0],
+      unknowGame: [0]
+    }
   };
 
   componentDidMount() {
@@ -27,7 +34,7 @@ class ProgressCharts extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.gamesArray);
+    // console.log(this.state.gamesArray.math[0]);
   }
 
   getUserInfo() {
@@ -51,28 +58,30 @@ class ProgressCharts extends React.Component {
     let unknowGame = [];
     for (let i = 0; i < data.length; i++) {
       if (data[i].game.name === "Math Quiz") {
-        math.push(data[i]);
+        math.unshift(data[i]);
       } else if (data[i].game.name === "Add Quiz") {
-        add.push(data[i]);
+        add.unshift(data[i]);
       } else if (data[i].game.name === "Subtract Quiz") {
-        sub.push(data[i]);
+        sub.unshift(data[i]);
       } else if (data[i].game.name === "Multiply Quiz") {
-        multi.push(data[i]);
+        multi.unshift(data[i]);
       } else if (data[i].game.name === "Divide Quiz") {
-        div.push(data[i]);
+        div.unshift(data[i]);
       } else {
-        unknowGame.push(data[i]);
+        unknowGame.unshift(data[i]);
       }
     }
     this.setState({
       gamesArray: {
-        math: math,
-        add: add,
-        sub: sub,
-        multi: multi,
-        div: div,
-        unknow: unknowGame
+        math,
+        add,
+        sub,
+        multi,
+        div,
+        unknowGame
       }
+    }, () => {
+      console.log(this.state.gamesArray.math[0].score);
     });
   }
   render() {
@@ -454,7 +463,7 @@ class ProgressCharts extends React.Component {
           ],
           datasets: [
             {
-              label: "HighScores",
+              label: "Last Score",
               backgroundColor: gradientFill,
               borderColor: "#2CA8FF",
               pointBorderColor: "#FFF",
@@ -467,7 +476,13 @@ class ProgressCharts extends React.Component {
               borderWidth: 1,
               //user high score for each game
               //   Math/ Add/ Sub/ Multi/ Div
-              data: [2, 4, 6, 16, 20]
+              data: [this.state.gamesArray.math[0].score, 
+              this.state.gamesArray.add[0].score, 
+              this.state.gamesArray.sub[0].score, 
+              this.state.gamesArray.multi[0].score,
+              this.state.gamesArray.div[0].score
+            ]
+              
             }
           ]
         };

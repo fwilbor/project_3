@@ -18,7 +18,7 @@ const auth = firebase.auth();
 
 class SignUp extends Component {
   state = {
-    name: "",
+    username: "",
     email: "",
     password: "",
     guardian: "",
@@ -209,11 +209,7 @@ class SignUp extends Component {
           </div>
         </div>
         {this.state.openModal && (
-          <SignupModal
-            open={this.state.openModal}
-            message={this.state.modalMsg}
-            fx={this.openErrorModal}
-          />
+          <SignupModal message={this.state.modalMsg} fx={this.openErrorModal} />
         )}
       </>
     );
