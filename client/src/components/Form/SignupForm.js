@@ -5,7 +5,7 @@ class SignupForm extends Component {
   state = {
     accepted: false,
     ofAge: false
-  }
+  };
 
   toggleAccepted = () => {
     let accept = !this.state.accepted;
@@ -141,8 +141,8 @@ class SignupForm extends Component {
                     </span>
                   </div>
                 </div>
-              </div>
-            </span>
+              </span>
+            </div>
           </div>
           <div className="card-footer justify-content-center">
             <button
