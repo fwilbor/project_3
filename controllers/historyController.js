@@ -68,9 +68,6 @@ module.exports = {
         ])
           .then(hist => {
             db.User.findOne({ email: "tcutlip08@gmail.com" })
-              // db.User.findOne({ email: "franklin.cfg@gmail.com" })
-              // db.User.findOne({ email: "jessman51386@gmail.com" })
-              // db.User.findOne({ email: "raintest01@yopmail.com" })
               .then(preData => {
                 let updateArr = preData.history;
                 for (let i = 0; i < hist.length; i++) {
@@ -78,9 +75,6 @@ module.exports = {
                 }
                 db.User.findOneAndUpdate(
                   { email: "tcutlip08@gmail.com" },
-                  //{ email: "franklin.cfg@gmail.com" },
-                  //{ email: "jessman51386@gmail.com" },
-                  //{ email: "raintest01@yopmail.com" },
                   {
                     history: updateArr
                   }
@@ -94,19 +88,31 @@ module.exports = {
                     });
                   })
                   .catch(err => {
-                    console.log(err);
+                    res.json({
+                      message: err.message,
+                      error: true
+                    });
                   });
               })
               .catch(err => {
-                console.log(err);
+                res.json({
+                  message: err.message,
+                  error: true
+                });
               });
           })
           .catch(err => {
-            console.log(err);
+            res.json({
+              message: err.message,
+              error: true
+            });
           });
       })
       .catch(err => {
-        console.log(err);
+        res.json({
+          message: err.message,
+          error: true
+        });
       });
   }
 };

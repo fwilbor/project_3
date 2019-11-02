@@ -4,32 +4,49 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
+import ResetButton from "./components/ResetButton";
 import divide from "./jsonfiles/divide.json";
 import "./DivideQuiz.css";
 import axios from "axios";
 
-let correctGuesses = 0;
-let usersHighScore = 0;
-let totalGuesses = 0;
-
 class DivideQuiz extends Component {
-  state = {
-    game: false,
-    divide,
-    correctGuesses,
-    usersHighScore,
-    correctClicked: false,
-    disabled: false,
-    display: false,
-    displayQuestions: [true],
-    gameInfo: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      game: false,
+      divide,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true],
+      gameInfo: ""
+    };
+  }
 
   componentDidMount() {
-    this.startClicked();
-    this.mappingDisplayQuestions();
     this.getGameInfo();
   }
+
+  componentDidUpdate() {
+    console.log(this.state.displayQuestions);
+  }
+
+  resetGame = () => {
+    this.setState({
+      game: false,
+      divide,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true]
+    });
+  };
 
   getGameInfo() {
     axios
@@ -42,30 +59,36 @@ class DivideQuiz extends Component {
       });
   }
 
-  startClicked() {
+  shuffle() {
     divide.sort(function(a, b) {
       return 0.5 - Math.random();
     });
   }
 
   startGame = () => {
+    this.shuffle();
+    this.mappingDisplayQuestions();
     this.setState({ game: true });
   };
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
-      correctGuesses++;
-      totalGuesses++;
-      this.setCorrectClicked(true);
-      this.setState({ disabled: true });
-      if (correctGuesses > usersHighScore) {
-        usersHighScore = correctGuesses;
-        this.setState({ usersHighScore });
+      let newState = this.state;
+      newState.correctGuesses++;
+      newState.totalGuesses++;
+      newState.correctClicked = true;
+      newState.disabled = true;
+
+      if (newState.correctGuesses > newState.usersHighScore) {
+        newState.usersHighScore = newState.correctGuesses;
       }
+      this.setState(newState);
     } else if (clicked !== answer) {
-      totalGuesses++;
-      this.setCorrectClicked(false);
-      this.setState({ disabled: true });
+      let newState = this.state;
+      newState.totalGuesses++;
+      newState.correctClicked = false;
+      newState.disabled = true;
+      this.setState(newState);
     }
     this.changeDisplayedQuestion();
   };
@@ -90,17 +113,21 @@ class DivideQuiz extends Component {
   };
 
   mappingDisplayQuestions = () => {
+    // if (this.state.displayQuestions.length < 20) {
     for (let i = 1; i < divide.length; i++) {
       this.state.displayQuestions.push(false);
     }
+    // }
   };
 
   sendHighScore() {
     console.log(this.state.gameInfo);
+    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
-        score: this.state.usersHighScore
+        score: this.state.usersHighScore,
+        game: this.state.gameInfo
       })
       .then(histRes => {
         this.updateHistory(histRes.data._id);
@@ -121,7 +148,7 @@ class DivideQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData);
+            console.log(postData.data);
           })
           .catch(err => {
             console.log(err);
@@ -141,15 +168,16 @@ class DivideQuiz extends Component {
       <Wrapper>
         <NavBar />
         <div className="jumbotron" id="dividejumbotron">
-          <Header id="divideHeader">J-BOT Division!</Header>
+          <Header id="divideHeader">J-BOT division!</Header>
+          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="dividecardHeader">
-            Correct Guesses: {correctGuesses}
+            Correct Guesses: {this.state.correctGuesses}
             <br />
-            Total Guesses: {totalGuesses}
+            Total Guesses: {this.state.totalGuesses}
             <br />
-            High Score: {usersHighScore}
+            High Score: {this.state.usersHighScore}
           </h3>
-          {totalGuesses === divide.length ? (
+          {this.state.totalGuesses === divide.length ? (
             this.endGame()
           ) : !this.state.game ? (
             <StartButton startClick={this.startGame} />
@@ -158,6 +186,7 @@ class DivideQuiz extends Component {
               <div className="row" id="dividerow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
+                    console.log(divide[i].id);
                     return (
                       <Card
                         id={divide[i].id}

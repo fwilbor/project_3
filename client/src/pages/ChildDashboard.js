@@ -28,7 +28,7 @@ class ChildDashboard extends Component {
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      // console.log(fbUser.email);
+      console.log(fbUser.email);
       fbUser
         ? this.getUserInfo(fbUser.email)
         : this.props.history.push("/sign-in");
