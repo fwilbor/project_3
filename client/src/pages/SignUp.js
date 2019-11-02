@@ -21,6 +21,7 @@ class SignUp extends Component {
     username: "",
     email: "",
     password: "",
+    guardian: "",
     isSigningUp: false,
     isLoggingIn: false,
     canSubmit: false,
@@ -160,6 +161,7 @@ class SignUp extends Component {
                     <SignupForm
                       handleInputSignUp={this.handleInputSignUp}
                       handleInputChange={this.handleInputChange}
+                      guardian={this.state.guardian}
                       canSubmit={this.state.canSubmit}
                     />
                   )}
