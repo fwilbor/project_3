@@ -1,3 +1,24 @@
+## J-BOT Games
+
+### `About This App`
+
+Full Stack Application designed to supervise, manage, and protect a child’s learning in a Monitored Online Learning Environment (M.O.L.E), thru interactive games.
+
+J-Bot App is a COPPA (Child Online Privacy Protection Act)compliant Learning application for kids under the age of 16.
+
+## Technologies Used
+
+React - JavaScript Library designed for building User Interfaces
+Mongoose – Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+Express – Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+Node.js – Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.
+Request - Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
+ThreeJS – an API that creates and displays animated 3D computer graphics in a web browser 
+Material Kit – Material Kit is a premium Bootstrap 4 UI Kit that was built using Google's Material Design principles
+Chart.js - Chart.js is an easy way to include animated, interactive graphs on your website
+
+## Get Started
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,33 +58,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## DEMO
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A demo of this program can be accessed at this deployed link: (Include Heroku Link)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # project_3
