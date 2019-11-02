@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import subtract from "./jsonfiles/subtract.json";
+import Timer from "../../Timer/Timer";
 import "./SubtractQuiz.css";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ class SubtractQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       subtract,
@@ -171,11 +173,11 @@ class SubtractQuiz extends Component {
           <Header id="subtractHeader">J-BOT Subtraction!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="subtractcardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
-            <br />
-            High Score: {this.state.usersHighScore}
+          Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+          {this.state.totalGuesses}
+          <br />
+          High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
+          <Timer time={this.state.time} />
           </h3>
           {this.state.totalGuesses === subtract.length ? (
             this.endGame()

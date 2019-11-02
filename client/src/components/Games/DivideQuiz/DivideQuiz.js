@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import divide from "./jsonfiles/divide.json";
+import Timer from "../../Timer/Timer";
 import "./DivideQuiz.css";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ class DivideQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       divide,
@@ -171,11 +173,11 @@ class DivideQuiz extends Component {
           <Header id="divideHeader">J-BOT division!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="dividecardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
-            <br />
-            High Score: {this.state.usersHighScore}
+          Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+          {this.state.totalGuesses}
+          <br />
+          High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
+          <Timer time={this.state.time} />
           </h3>
           {this.state.totalGuesses === divide.length ? (
             this.endGame()

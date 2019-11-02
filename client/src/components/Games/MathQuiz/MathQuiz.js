@@ -36,7 +36,7 @@ class MathQuiz extends Component {
   }
 
   resetGame = () => {
-    console.log(document.getElementById("timer").getAttribute("value"));
+    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       math,
@@ -188,7 +188,7 @@ class MathQuiz extends Component {
               <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(math[i].id);
+                    // console.log(math[i].id);
                     return (
                       <Card
                         id={math[i].id}

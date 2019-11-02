@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import multiply from "./jsonfiles/multiply.json";
+import Timer from "../../Timer/Timer";
 import "./MultiplyQuiz.css";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ class MultiplyQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       multiply,
@@ -171,11 +173,11 @@ class MultiplyQuiz extends Component {
           <Header id="multiplyHeader">J-BOT Multiplication!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="multiplycardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
-            <br />
-            High Score: {this.state.usersHighScore}
+          Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+          {this.state.totalGuesses}
+          <br />
+          High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
+          <Timer time={this.state.time} />
           </h3>
           {this.state.totalGuesses === multiply.length ? (
             this.endGame()
