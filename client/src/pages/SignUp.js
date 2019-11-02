@@ -207,7 +207,6 @@ class SignUp extends Component {
         </div>
         {this.state.openModal && (
         <SignupModal 
-            open = {this.state.openModal}
             message = {this.state.modalMsg}
             fx = {this.openErrorModal}
         />
