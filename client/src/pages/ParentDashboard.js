@@ -20,7 +20,7 @@ class ParentDashboard extends Component {
   state = {
     user: ""
   };
-  
+
   componentDidMount() {
     this.checkIfSignedIn();
   }
@@ -40,9 +40,8 @@ class ParentDashboard extends Component {
   getUserInfo(userEmail) {
     axios
       .get("/api/user/email/" + userEmail)
-      .then(res => {
-        // this.setState({ user: res.email });
-        console.log(res);
+      .then(userInfo => {
+        this.setState({ user: userInfo.data });
       })
       .catch(err => {
         console.log(err);
@@ -76,7 +75,7 @@ class ParentDashboard extends Component {
                   <div className="icon">
                     <i className="material-icons">format_paint</i>
                   </div>
-                  <Link to="ProgressCharts">
+                  <Link to={`/parent/${this.state.user._id}`}>
                     <h4 className="info-title">Reports</h4>
                   </Link>
                   <p>
