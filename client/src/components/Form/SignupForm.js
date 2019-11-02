@@ -19,16 +19,13 @@ class SignupForm extends Component {
     let age = !this.state.ofAge;
     this.setState({ ofAge: age }, () => {
       console.log("ofAge: " + this.state.ofAge);
-      if (this.state.ofAge) {
-        this.setState({additionalPW: true});
-      } else {
-        this.setState({additionalPW: false});
-      }
+      // console.log("this.props.guardian.length:", this.props.guardian.length);
+      console.log(this.props.guardian.length);
     });
   };
 
   shouldButtonBeDisabled = () => {
-    if(this.state.accepted && this.state.ofAge && this.props.canSubmit){
+    if(this.state.accepted && this.state.ofAge && this.props.canSubmit && (this.props.guardian.length > 5)){
       return false;
     }
     return true;
