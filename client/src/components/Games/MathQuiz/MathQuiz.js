@@ -4,32 +4,49 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
+import ResetButton from "./components/ResetButton";
 import math from "./jsonfiles/math.json";
 import "./MathQuiz.css";
 import axios from "axios";
 
-let correctGuesses = 0;
-let usersHighScore = 0;
-let totalGuesses = 0;
-
 class MathQuiz extends Component {
-  state = {
-    game: false,
-    math,
-    correctGuesses,
-    usersHighScore,
-    correctClicked: false,
-    disabled: false,
-    display: false,
-    displayQuestions: [true],
-    gameInfo: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      game: false,
+      math,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true],
+      gameInfo: ""
+    };
+  }
 
   componentDidMount() {
-    this.startClicked();
-    this.mappingDisplayQuestions();
     this.getGameInfo();
   }
+
+  componentDidUpdate() {
+    console.log(this.state.displayQuestions);
+  }
+
+  resetGame = () => {
+    this.setState({
+      game: false,
+      math,
+      correctGuesses: 0,
+      usersHighScore: 0,
+      totalGuesses: 0,
+      correctClicked: false,
+      disabled: false,
+      display: false,
+      displayQuestions: [true]
+    });
+  };
 
   getGameInfo() {
     axios
@@ -42,30 +59,36 @@ class MathQuiz extends Component {
       });
   }
 
-  startClicked() {
+  shuffle() {
     math.sort(function(a, b) {
       return 0.5 - Math.random();
     });
   }
 
   startGame = () => {
+    this.shuffle();
+    this.mappingDisplayQuestions();
     this.setState({ game: true });
   };
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
-      correctGuesses++;
-      totalGuesses++;
-      this.setCorrectClicked(true);
-      this.setState({ disabled: true });
-      if (correctGuesses > usersHighScore) {
-        usersHighScore = correctGuesses;
-        this.setState({ usersHighScore });
+      let newState = this.state;
+      newState.correctGuesses++;
+      newState.totalGuesses++;
+      newState.correctClicked = true;
+      newState.disabled = true;
+
+      if (newState.correctGuesses > newState.usersHighScore) {
+        newState.usersHighScore = newState.correctGuesses;
       }
+      this.setState(newState);
     } else if (clicked !== answer) {
-      totalGuesses++;
-      this.setCorrectClicked(false);
-      this.setState({ disabled: true });
+      let newState = this.state;
+      newState.totalGuesses++;
+      newState.correctClicked = false;
+      newState.disabled = true;
+      this.setState(newState);
     }
     this.changeDisplayedQuestion();
   };
@@ -90,13 +113,16 @@ class MathQuiz extends Component {
   };
 
   mappingDisplayQuestions = () => {
+    // if (this.state.displayQuestions.length < 20) {
     for (let i = 1; i < math.length; i++) {
       this.state.displayQuestions.push(false);
     }
+    // }
   };
 
   sendHighScore() {
     console.log(this.state.gameInfo);
+    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
@@ -122,7 +148,7 @@ class MathQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData);
+            console.log(postData.data);
           })
           .catch(err => {
             console.log(err);
@@ -143,14 +169,15 @@ class MathQuiz extends Component {
         <NavBar />
         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
+          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
-            Correct Guesses: {correctGuesses}
+            Correct Guesses: {this.state.correctGuesses}
             <br />
-            Total Guesses: {totalGuesses}
+            Total Guesses: {this.state.totalGuesses}
             <br />
-            High Score: {usersHighScore}
+            High Score: {this.state.usersHighScore}
           </h3>
-          {totalGuesses === math.length ? (
+          {this.state.totalGuesses === math.length ? (
             this.endGame()
           ) : !this.state.game ? (
             <StartButton startClick={this.startGame} />
@@ -159,6 +186,7 @@ class MathQuiz extends Component {
               <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
+                    console.log(math[i].id);
                     return (
                       <Card
                         id={math[i].id}
