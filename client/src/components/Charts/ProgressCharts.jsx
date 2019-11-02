@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 // core components
 import PanelHeader from "../PanelHeader/PanelHeader";
+// import axios from "axios";
 class ProgressCharts extends React.Component {
   render() {
     // ##############################
@@ -458,7 +459,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons ui-2_time-alarm" /> Minutes Per Day
+                    <i className="now-ui-icons" /> Minutes Per Day
                   </div>
                 </CardFooter>
               </Card>
@@ -479,7 +480,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons ui-2_time-alarm" /> Just
+                    <i className="now-ui-icons" /> Just
                     Updated
                   </div>
                 </CardFooter>
@@ -501,7 +502,7 @@ class ProgressCharts extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons objects_spaceship" /> High Score Board
+                    <i className="now-ui-icons" /> High Score Board
                   </div>
                 </CardFooter>
               </Card>
