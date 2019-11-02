@@ -36,6 +36,7 @@ class MathQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log(document.getElementById("timer").getAttribute("value"));
     this.setState({
       game: false,
       math,

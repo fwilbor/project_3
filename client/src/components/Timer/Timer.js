@@ -43,7 +43,11 @@ class Timer extends Component {
   }
 
   render() {
-    return <span className="timer">{`${this.state.time}`}s</span>;
+    return (
+      <span id="timer" value={`${this.state.time}`}>
+        {`${this.state.time}`}s
+      </span>
+    );
   }
 }
 
