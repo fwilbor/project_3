@@ -25,7 +25,6 @@ class SignUp extends Component {
     isLoggingIn: false,
     canSubmit: false,
     openModal: false,
-    modalTitle: "", 
     modalMsg: ""
   };
   componentDidMount() {
@@ -56,6 +55,7 @@ class SignUp extends Component {
     } else {
       this.setState({ canSubmit: false });
     }
+    console.log(name + ": " + value);
   };
   handleInputSignUp = event => {
     event.preventDefault();
@@ -81,7 +81,6 @@ class SignUp extends Component {
         .catch(e => {
           console.log(e.message);
           this.setState({openModal: true});
-          this.setState({modalTitle: "Uh Oh..."});
           this.setState({modalMsg: e.message});
         });
     }
@@ -103,7 +102,6 @@ class SignUp extends Component {
         .catch(e => {
           console.log(e.message);
           this.setState({openModal: true});
-          this.setState({modalTitle: "Uh Oh..."});
           this.setState({modalMsg: e.message});
         });
     }
@@ -150,7 +148,7 @@ class SignUp extends Component {
                         >
                           Sign Up
                         </button>
-                        <span> Or </span>
+                        <div> Or </div>
                         <button
                           className="btn btn-link"
                           onClick={() => this.optionSelect("signIn")}
@@ -212,9 +210,10 @@ class SignUp extends Component {
         </div>
         {this.state.openModal && (
         <SignupModal 
-            title = {this.state.modalTitle}
+            title = "Uh Oh..."
             message = {this.state.modalMsg}
             fx = {this.openErrorModal}
+            btnText = "Ok"
         />
         )}
       </>
