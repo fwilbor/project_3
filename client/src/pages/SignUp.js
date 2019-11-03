@@ -148,7 +148,7 @@ class SignUp extends Component {
                         >
                           Sign Up
                         </button>
-                        <span> Or </span>
+                        <div> Or </div>
                         <button
                           className="btn btn-link"
                           onClick={() => this.optionSelect("signIn")}
