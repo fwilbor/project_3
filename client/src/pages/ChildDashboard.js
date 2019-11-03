@@ -66,10 +66,9 @@ class ChildDashboard extends Component {
         <div className="container">
           <div className="row under-nav">
             <div className="col-md-4">
-              <div className="mascot-container">
-                <div className="contrast-test" role='textbox' aria-multiline='true'>Placeholder Image</div>
+              <div className="mascot-container mt-5">
                 {/* <img src="./assets/img/sections/iphone.png" alt="placeholder" /> */}
-                <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" />
+                <img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" />
               </div>
             </div>
             

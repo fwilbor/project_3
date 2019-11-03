@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import math from "./jsonfiles/math.json";

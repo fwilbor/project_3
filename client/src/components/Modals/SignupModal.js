@@ -8,7 +8,8 @@ const SignupModal = (props) => {
     input,
     btnText,
     fx,
-    handleInputChange
+    handleInputChange, 
+    submit
   } = props;
 
   const [modal, setModal] = useState(true);
@@ -23,6 +24,7 @@ const SignupModal = (props) => {
         <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>
           <div>{message}</div>
+          {input && (
           <div className="mt-3">
             <input
               type="password"
@@ -32,9 +34,12 @@ const SignupModal = (props) => {
               onChange={handleInputChange}
             />
           </div>
+          )}
+
         </ModalBody>
         <ModalFooter>
-          <Button className="btn-rose" onClick={fx}>{btnText}</Button>
+          <Button className="btn-rose" onClick={submit}>{btnText}</Button>
+          <Button className="btn-gray" onClick={fx}>Close</Button>
         </ModalFooter>
       </Modal>
     </div>
