@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import math from "./jsonfiles/math.json";
+import Timer from "../../Timer/Timer";
 import "./MathQuiz.css";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ class MathQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log(document.getElementById("timer").getAttribute("value"));
     this.setState({
       game: false,
       math,
@@ -170,11 +172,11 @@ class MathQuiz extends Component {
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
-            Correct Guesses: {this.state.correctGuesses}
+            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+            {this.state.totalGuesses}
             <br />
-            Total Guesses: {this.state.totalGuesses}
-            <br />
-            High Score: {this.state.usersHighScore}
+            High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
+            <Timer time={this.state.time} />
           </h3>
           {this.state.totalGuesses === math.length ? (
             this.endGame()
