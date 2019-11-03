@@ -60,6 +60,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## DEMO
 
-A demo of this program can be accessed at this deployed link: (Include Heroku Link)
+A demo of this program can be accessed at this deployed link: https://awesome-project-3.herokuapp.com
 
 # project_3
