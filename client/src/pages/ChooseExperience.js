@@ -21,7 +21,7 @@ class ChooseExperience extends Component {
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
-        ? console.log("You are signed in") 
+        ? console.log("You are signed in")
         : this.props.history.push("/sign-in");
     });
   };
@@ -41,28 +41,25 @@ class ChooseExperience extends Component {
           </div>
           <div className="main main-raised">
             <div className="row">
-                
-                    <div className="col-lg-6 col-1of2">
-                        <div className="col-inner">
-                            <Link to="/parent">
-                            <button type="button" className="btn btn-outline-white">
-                                I am a parent
-                            </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 col-2of2">
-                        <div className="col-inner">
-                            <Link to="/child">
-                                <button type="button" className="btn btn-outline-white">
-                                    I am a child
-                                </button>
-                            </Link>
-                        </div>
-                        
-                    </div>
-        
+              <div className="col-lg-6 col-1of2">
+                <div className="col-inner">
+                  <Link to="/parent">
+                    <button type="button" className="btn btn-outline-white">
+                      I am a parent
+                    </button>
+                  </Link>
+                </div>
               </div>
+              <div className="col-lg-6 col-2of2">
+                <div className="col-inner">
+                  <Link to="/child">
+                    <button type="button" className="btn btn-outline-white">
+                      I am a child
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </>

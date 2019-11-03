@@ -54,6 +54,7 @@ class ChildDashboard extends Component {
         <div className="features-3 mt-2">
           <div className="container">
             <div className="row under-nav">
+
               <div className="col-md-4">
                 <div className="mascot-container">
                   <div
@@ -70,6 +71,7 @@ class ChildDashboard extends Component {
                   {/* <img src={require('../assets/img/JBOT4.jpg')} alt="placeholder" /> */}
                 </div>
               </div>
+
               <div className="col-md-8">
                 <div className="row">
                   <h3 className="child-header">Pick A Game!</h3>
@@ -165,6 +167,7 @@ class ChildDashboard extends Component {
                           </div>
                         </Link>
                       </div>
+
                       <a
                         className="carousel-control-prev"
                         href="#carouselExampleCaptions"
@@ -177,6 +180,7 @@ class ChildDashboard extends Component {
                         ></span>
                         <span className="sr-only">Previous</span>
                       </a>
+
                       <a
                         className="carousel-control-next"
                         href="#carouselExampleCaptions"
@@ -189,10 +193,13 @@ class ChildDashboard extends Component {
                         ></span>
                         <span className="sr-only">Next</span>
                       </a>
+
                     </div>
                   </div>
                 </div>
+
                 <div className="row">
+                
                   <div className="col-md-4">
                     <div className="row">
                       <div className="info info-horizontal">
@@ -234,6 +241,7 @@ class ChildDashboard extends Component {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-md-8">
                     <div className="row">
                       <div className="info info-horizontal">
@@ -249,8 +257,11 @@ class ChildDashboard extends Component {
                       </div>
                     </div>
                   </div>
+
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
