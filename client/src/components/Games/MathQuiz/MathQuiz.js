@@ -37,10 +37,6 @@ class MathQuiz extends Component {
   }
 
   resetGame = () => {
-<<<<<<< HEAD
-    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
-=======
->>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
     this.setState({
       game: false,
       math,
@@ -171,13 +167,8 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
-<<<<<<< HEAD
-      <NavBar />
-         <div className="jumbotron" id="mathjumbotron">
-=======
         <NavBar />
         <div className="jumbotron" id="mathjumbotron">
->>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
@@ -203,10 +194,6 @@ class MathQuiz extends Component {
               <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-<<<<<<< HEAD
-                    // console.log(math[i].id);
-=======
->>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
                     return (
                       <Card
                         id={math[i].id}

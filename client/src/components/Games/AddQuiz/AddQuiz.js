@@ -172,13 +172,6 @@ class AddQuiz extends Component {
           <Header id="addHeader">J-BOT Addition!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="addcardHeader">
-<<<<<<< HEAD
-          Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
-          {this.state.totalGuesses}
-          <br />
-          High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
-          <Timer time={this.state.time} />
-=======
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
@@ -191,7 +184,6 @@ class AddQuiz extends Component {
             ) : (
               ""
             )}
->>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
           </h3>
           {this.state.totalGuesses === add.length ? (
             this.endGame()
