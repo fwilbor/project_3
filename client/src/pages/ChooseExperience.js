@@ -33,8 +33,8 @@ class ChooseExperience extends Component {
   };
 
   openModal = () => {
-    this.setState({additionalPW: !this.state.additionalPW});
-    this.setState({openModal: !this.state.openModal});  
+    this.setState({ additionalPW: !this.state.additionalPW });
+    this.setState({ openModal: !this.state.openModal });
   };
 
   handleInputChange = event => {
@@ -67,17 +67,23 @@ class ChooseExperience extends Component {
           </div>
           <div className="main main-raised">
             <div className="row">
-<<<<<<< HEAD
-              <div className="col-lg-6 col-1of2">
+              <div className="col-md-6 col-1of2">
                 <div className="col-inner">
-                  <Link to="/parent">
-                    <button type="button" className="btn btn-outline-white">
-                      I am a parent
-                    </button>
-                  </Link>
+                  {/* <Link to="/parent">
+                            <button type="button" className="btn btn-outline-white">
+                                I am a parent
+                            </button>
+                            </Link> */}
+                  <button
+                    type="button"
+                    className="btn btn-outline-white"
+                    onClick={this.openModal}
+                  >
+                    I am a parent
+                  </button>
                 </div>
               </div>
-              <div className="col-lg-6 col-2of2">
+              <div className="col-md-6 col-2of2">
                 <div className="col-inner">
                   <Link to="/child">
                     <button type="button" className="btn btn-outline-white">
@@ -85,44 +91,19 @@ class ChooseExperience extends Component {
                     </button>
                   </Link>
                 </div>
-=======
-                    <div className="col-md-6 col-1of2">
-                        <div className="col-inner">
-                            {/* <Link to="/parent">
-                            <button type="button" className="btn btn-outline-white">
-                                I am a parent
-                            </button>
-                            </Link> */}
-                            <button type="button" className="btn btn-outline-white" onClick={this.openModal}>
-                                I am a parent
-                            </button>
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-2of2">
-                        <div className="col-inner">
-                            <Link to="/child">
-                                <button type="button" className="btn btn-outline-white">
-                                    I am a child
-                                </button>
-                            </Link>
-                        </div>
-                        
-                    </div>
-        
->>>>>>> bde9b87412ff21f5768ae1a7b89b1f829bcb1f1f
               </div>
             </div>
           </div>
         </div>
         {this.state.additionalPW && (
-          <SignupModal 
-              title = "Additional Info Needed"
-              message = "Please enter your guardian password."
-              fx = {this.openModal}
-              input = {!this.additionalPW}
-              handleInputChange = {this.handleInputChange}
-              btnText = "Enter"
-              submit = {this.handleInputSignIn}
+          <SignupModal
+            title="Additional Info Needed"
+            message="Please enter your guardian password."
+            fx={this.openModal}
+            input={!this.additionalPW}
+            handleInputChange={this.handleInputChange}
+            btnText="Enter"
+            submit={this.handleInputSignIn}
           />
         )}
       </>

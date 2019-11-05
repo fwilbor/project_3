@@ -50,12 +50,12 @@ class ProgressCharts extends React.Component {
   }
 
   organizeGamesByName(data) {
-    let math = [];
-    let add = [];
-    let sub = [];
-    let multi = [];
-    let div = [];
-    let unknowGame = [];
+    let math = [0];
+    let add = [0];
+    let sub = [0];
+    let multi = [0];
+    let div = [0];
+    let unknowGame = [0];
     for (let i = 0; i < data.length; i++) {
       if (data[i].game.name === "Math Quiz") {
         math.unshift(data[i]);

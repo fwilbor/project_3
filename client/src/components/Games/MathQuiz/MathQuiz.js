@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import math from "./jsonfiles/math.json";
@@ -167,6 +168,7 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
+      <NavBar />
          <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
