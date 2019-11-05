@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import multiply from "./jsonfiles/multiply.json";
+import Timer from "../../Timer/Timer";
 import "./MultiplyQuiz.css";
 import axios from "axios";
 
@@ -31,7 +32,7 @@ class MultiplyQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
@@ -121,11 +122,10 @@ class MultiplyQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -171,11 +171,18 @@ class MultiplyQuiz extends Component {
           <Header id="multiplyHeader">J-BOT Multiplication!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="multiplycardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
+            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+            {this.state.totalGuesses}
             <br />
             High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
           </h3>
           {this.state.totalGuesses === multiply.length ? (
             this.endGame()
@@ -186,7 +193,6 @@ class MultiplyQuiz extends Component {
               <div className="row" id="multiplyrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(multiply[i].id);
                     return (
                       <Card
                         id={multiply[i].id}

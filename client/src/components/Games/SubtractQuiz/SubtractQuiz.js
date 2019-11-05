@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import subtract from "./jsonfiles/subtract.json";
+import Timer from "../../Timer/Timer";
 import "./SubtractQuiz.css";
 import axios from "axios";
 
@@ -31,7 +32,7 @@ class SubtractQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
@@ -121,11 +122,10 @@ class SubtractQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -171,11 +171,18 @@ class SubtractQuiz extends Component {
           <Header id="subtractHeader">J-BOT Subtraction!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="subtractcardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
+            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+            {this.state.totalGuesses}
             <br />
             High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
           </h3>
           {this.state.totalGuesses === subtract.length ? (
             this.endGame()
@@ -186,7 +193,6 @@ class SubtractQuiz extends Component {
               <div className="row" id="subtractrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(subtract[i].id);
                     return (
                       <Card
                         id={subtract[i].id}
