@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NavBar from "../../NavBar";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -32,11 +33,14 @@ class MathQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
+<<<<<<< HEAD
     console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
+=======
+>>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
     this.setState({
       game: false,
       math,
@@ -123,11 +127,10 @@ class MathQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -168,16 +171,28 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
+<<<<<<< HEAD
       <NavBar />
          <div className="jumbotron" id="mathjumbotron">
+=======
+        <NavBar />
+        <div className="jumbotron" id="mathjumbotron">
+>>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
-            <Timer time={this.state.time} />
+            High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
           </h3>
           {this.state.totalGuesses === math.length ? (
             this.endGame()
@@ -188,7 +203,10 @@ class MathQuiz extends Component {
               <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
+<<<<<<< HEAD
                     // console.log(math[i].id);
+=======
+>>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
                     return (
                       <Card
                         id={math[i].id}

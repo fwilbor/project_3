@@ -32,7 +32,7 @@ class AddQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
@@ -123,11 +123,10 @@ class AddQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -173,11 +172,26 @@ class AddQuiz extends Component {
           <Header id="addHeader">J-BOT Addition!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="addcardHeader">
+<<<<<<< HEAD
           Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
           {this.state.totalGuesses}
           <br />
           High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
           <Timer time={this.state.time} />
+=======
+            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+            {this.state.totalGuesses}
+            <br />
+            High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
+>>>>>>> cf626f3b6e00404eed82642633cc71022d7bad70
           </h3>
           {this.state.totalGuesses === add.length ? (
             this.endGame()
@@ -188,7 +202,6 @@ class AddQuiz extends Component {
               <div className="row" id="addrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(add[i].id);
                     return (
                       <Card
                         id={add[i].id}
