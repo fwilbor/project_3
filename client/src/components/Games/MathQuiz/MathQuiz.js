@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NavBar from "../../NavBar";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -31,11 +32,10 @@ class MathQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
-    console.log(document.getElementById("timer").getAttribute("value"));
     this.setState({
       game: false,
       math,
@@ -122,11 +122,10 @@ class MathQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -167,15 +166,23 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
-         <div className="jumbotron" id="mathjumbotron">
+        <NavBar />
+        <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}&nbsp;| Timer:{" "}
-            <Timer time={this.state.time} />
+            High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
           </h3>
           {this.state.totalGuesses === math.length ? (
             this.endGame()
@@ -186,7 +193,6 @@ class MathQuiz extends Component {
               <div className="row" id="mathrow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(math[i].id);
                     return (
                       <Card
                         id={math[i].id}

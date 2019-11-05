@@ -6,6 +6,7 @@ import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import divide from "./jsonfiles/divide.json";
+import Timer from "../../Timer/Timer";
 import "./DivideQuiz.css";
 import axios from "axios";
 
@@ -31,7 +32,7 @@ class DivideQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
+    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
@@ -121,11 +122,10 @@ class DivideQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(this.state.gameInfo);
-    console.log(this.state.usersHighScore);
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
+        time: document.getElementById("timer").getAttribute("value"),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
@@ -171,11 +171,18 @@ class DivideQuiz extends Component {
           <Header id="divideHeader">J-BOT division!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="dividecardHeader">
-            Correct Guesses: {this.state.correctGuesses}
-            <br />
-            Total Guesses: {this.state.totalGuesses}
+            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+            {this.state.totalGuesses}
             <br />
             High Score: {this.state.usersHighScore}
+            {this.state.game ? (
+              <>
+                &nbsp;| Timer:&nbsp;
+                <Timer time={this.state.time} />
+              </>
+            ) : (
+              ""
+            )}
           </h3>
           {this.state.totalGuesses === divide.length ? (
             this.endGame()
@@ -186,7 +193,6 @@ class DivideQuiz extends Component {
               <div className="row" id="dividerow">
                 {this.state.displayQuestions.map((bool, i) => {
                   if (bool === true) {
-                    console.log(divide[i].id);
                     return (
                       <Card
                         id={divide[i].id}
