@@ -14,12 +14,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body);
-    db.History.create({
-      date: req.body.date,
-      score: req.body.score,
-      game: req.body.game
-    })
+    console.log(req.body.time);
+    db.History.create(req.body)
       .then(dbModel => {
         res.json(dbModel);
       })

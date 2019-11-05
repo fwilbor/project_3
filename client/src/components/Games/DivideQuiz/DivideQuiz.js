@@ -125,7 +125,7 @@ class DivideQuiz extends Component {
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
-        time: document.getElementById("timer").getAttribute("value"),
+        time: parseInt(document.getElementById("timer").getAttribute("value")),
         score: this.state.usersHighScore,
         game: this.state.gameInfo
       })
