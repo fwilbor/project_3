@@ -9,7 +9,7 @@ class CloseButton extends Component {
     render() {
         return (
             <button 
-                className="btn btn-round close-game"
+                className="btn btn-round close-game pull-right"
                  onClick={this.close}>
                      Close Game
             </button>
