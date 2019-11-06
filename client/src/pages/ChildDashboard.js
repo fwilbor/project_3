@@ -49,13 +49,12 @@ class ChildDashboard extends Component {
       });
   }
 
-  setGame = (gameName) => {
-    this.setState({game: gameName}, () => {
+  setGame = gameName => {
+    this.setState({ game: gameName }, () => {
       console.log("game: ", this.state.game);
     });
     // const Game = gameName;
-    
-  }
+  };
 
   render() {
     const Game = this.state.game;
@@ -63,15 +62,15 @@ class ChildDashboard extends Component {
       <div className="child-dash">
         <NavBar />
         <div className="features-3 mt-2">
-        <div className="container">
-          <div className="row under-nav">
-            <div className="col-md-4">
-              <div className="mascot-container mt-5">
-                {/* <img src="./assets/img/sections/iphone.png" alt="placeholder" /> */}
-                <img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" />
+          <div className="container">
+            <div className="row under-nav">
+              <div className="col-md-4">
+                <div className="mascot-container mt-5">
+                  <img src="./assets/img/sections/iphone.png" alt="placeholder" />
+                  {/*<img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" /> */}
+                </div>
               </div>
-            </div>
-            
+
               <div className="col-md-8">
                 <div className="row">
                   <h3 className="child-header">Pick A Game!</h3>
@@ -116,19 +115,19 @@ class ChildDashboard extends Component {
                           </div>
                         </Link>
                         <button
-                        onClick={() => this.setGame(MathQuiz)}
-                        className="carousel-item high-contrast"
-                      >
-                        <img
-                          src={require('../assets/img/mathGame.jpg')}
-                          className="carouselImg"
-                          alt="game"
-                        />
-                        <div className="carousel-caption d-none d-md-block">
-                          <h5>Math Game</h5>
-                          <p>Hope this works</p>
-                        </div>
-                      </button>
+                          onClick={() => this.setGame(MathQuiz)}
+                          className="carousel-item high-contrast"
+                        >
+                          <img
+                            src={require("../assets/img/mathGame.jpg")}
+                            className="carouselImg"
+                            alt="game"
+                          />
+                          <div className="carousel-caption d-none d-md-block">
+                            <h5>Math Game</h5>
+                            <p>Hope this works</p>
+                          </div>
+                        </button>
                         <Link
                           to={`${this.state.user._id}/addQuiz`}
                           className="carousel-item "
@@ -181,45 +180,43 @@ class ChildDashboard extends Component {
                           </div>
                         </Link>
                       </div>
+
                       <a
                         className="carousel-control-prev"
                         href="#carouselExampleCaptions"
                         role="button"
                         data-slide="prev"
                       >
-                      <span
-                        className="carousel-control-prev-icon"
-                        aria-hidden="true"
-                      ></span>
-                      <span className="sr-only">Previous</span>
-                    </a>
-                    <a
-                      className="carousel-control-next"
-                      href="#carouselExampleCaptions"
-                      role="button"
-                      data-slide="next"
-                    >
-                      <span
-                        className="carousel-control-next-icon"
-                        aria-hidden="true"
-                      ></span>
-                      <span className="sr-only">Next</span>
-                    </a>
+                        <span
+                          className="carousel-control-prev-icon"
+                          aria-hidden="true"
+                        ></span>
+                        <span className="sr-only">Previous</span>
+                      </a>
+                      <a
+                        className="carousel-control-next"
+                        href="#carouselExampleCaptions"
+                        role="button"
+                        data-slide="next"
+                      >
+                        <span
+                          className="carousel-control-next-icon"
+                          aria-hidden="true"
+                        ></span>
+                        <span className="sr-only">Next</span>
+                      </a>
                     </div>
                   </div>
-                
 
-                {this.state.game && (
-                <div className="bd-example">
-                  <div className="playingField">
-                    <Game/>
-                  </div>
+                  {this.state.game && (
+                    <div className="bd-example">
+                      <div className="playingField">
+                        <Game />
+                      </div>
+                    </div>
+                  )}
                 </div>
-                )}
-                
-        
-              </div>
-              <div className="row">
+                <div className="row">
                   <div className="col-md-4">
                     <div className="row">
                       <div className="info info-horizontal">
@@ -261,6 +258,7 @@ class ChildDashboard extends Component {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-md-8">
                     <div className="row">
                       <div className="info info-horizontal">
