@@ -33,9 +33,7 @@ class ProgressCharts extends React.Component {
     this.getUserInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.gamesArray.math[0]);
-  }
+  componentDidUpdate() {}
 
   getUserInfo() {
     axios
@@ -71,18 +69,21 @@ class ProgressCharts extends React.Component {
         unknowGame.unshift(data[i]);
       }
     }
-    this.setState({
-      gamesArray: {
-        math,
-        add,
-        sub,
-        multi,
-        div,
-        unknowGame
+    this.setState(
+      {
+        gamesArray: {
+          math,
+          add,
+          sub,
+          multi,
+          div,
+          unknowGame
+        }
+      },
+      () => {
+        console.log(this.state.gamesArray.math[0].score);
       }
-    }, () => {
-      console.log(this.state.gamesArray.math[0].score);
-    });
+    );
   }
   render() {
     // ##############################
@@ -476,13 +477,13 @@ class ProgressCharts extends React.Component {
               borderWidth: 1,
               //user high score for each game
               //   Math/ Add/ Sub/ Multi/ Div
-              data: [this.state.gamesArray.math[0].score, 
-              this.state.gamesArray.add[0].score, 
-              this.state.gamesArray.sub[0].score, 
-              this.state.gamesArray.multi[0].score,
-              this.state.gamesArray.div[0].score
-            ]
-              
+              data: [
+                this.state.gamesArray.math[0].score,
+                this.state.gamesArray.add[0].score,
+                this.state.gamesArray.sub[0].score,
+                this.state.gamesArray.multi[0].score,
+                this.state.gamesArray.div[0].score
+              ]
             }
           ]
         };

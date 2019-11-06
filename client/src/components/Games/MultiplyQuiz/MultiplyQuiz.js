@@ -11,21 +11,18 @@ import "./MultiplyQuiz.css";
 import axios from "axios";
 
 class MultiplyQuiz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: false,
-      multiply,
-      correctGuesses: 0,
-      usersHighScore: 0,
-      totalGuesses: 0,
-      correctClicked: false,
-      disabled: false,
-      display: false,
-      displayQuestions: [true],
-      gameInfo: ""
-    };
-  }
+  state = {
+    game: false,
+    multiply,
+    correctGuesses: 0,
+    usersHighScore: 0,
+    totalGuesses: 0,
+    correctClicked: false,
+    disabled: false,
+    display: false,
+    displayQuestions: [true],
+    gameInfo: ""
+  };
 
   componentDidMount() {
     this.getGameInfo();

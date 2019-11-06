@@ -11,28 +11,25 @@ import "./SubtractQuiz.css";
 import axios from "axios";
 
 class SubtractQuiz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: false,
-      subtract,
-      correctGuesses: 0,
-      usersHighScore: 0,
-      totalGuesses: 0,
-      correctClicked: false,
-      disabled: false,
-      display: false,
-      displayQuestions: [true],
-      gameInfo: ""
-    };
-  }
+  state = {
+    game: false,
+    subtract,
+    correctGuesses: 0,
+    usersHighScore: 0,
+    totalGuesses: 0,
+    correctClicked: false,
+    disabled: false,
+    display: false,
+    displayQuestions: [true],
+    gameInfo: ""
+  };
 
   componentDidMount() {
     this.getGameInfo();
   }
 
   componentDidUpdate() {
-    // console.log(this.state.displayQuestions);
+    console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
