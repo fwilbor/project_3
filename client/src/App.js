@@ -14,18 +14,21 @@ import About from "./components/Menu/About";
 import Timer from "./components/Timer/Timer";
 import Philosophy from "./components/Menu/Philosophy";
 import ProgressCharts from "./components/Charts/ProgressCharts";
+import KidsProgressCharts from "./components/Charts/KidsProgressCharts";
 import ChooseExperience from "./pages/ChooseExperience";
+import Error404 from "./pages/NoMatch";
 
 function App() {
   return (
     <Router>
       <Switch>
-        {/* <Route exact path="/ProgressCharts" component={ProgressCharts} /> */}
+        {/* <Route exact path="/child/:id" component={KidsProgressCharts} /> */}
         <Route exact path="/COPPA" component={COPPA} />
         <Route path="/(sign-up|sign-in)" component={SignUp} />
         <Route exact path="/choose-experience" component={ChooseExperience} />
         <Route exact path="/parent/:id" component={ProgressCharts} />
         <Route exact path="/parent" component={ParentDashboard} />
+        <Route exact path="/child/:id" component={KidsProgressCharts} />
         <Route exact path="/child" component={ChildDashboard} />
         <Route exact path="/about/us" component={About} />
         <Route exact path="/about/philosophy" component={Philosophy} />
@@ -36,7 +39,7 @@ function App() {
         <Route exact path="/:id/divQuiz" component={DivQuiz} />
         <Route exact path="/test/timer" component={Timer} />
         <Route exact path="/" component={Landing} />
-        {/* <Route exact path="*" component={Error404} /> */}
+        <Route exact path="*" component={Error404} />
       </Switch>
     </Router>
   );

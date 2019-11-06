@@ -33,7 +33,7 @@ class Landing extends Component {
             <div className="container under-nav">
               <div className="row">
                 <div className="col-md-6">
-                  <h1 className="title">JBot</h1>
+                  <h1 className="title">J-BOT</h1>
                   <h3 className="subtitle ml-5">
                     <em>A Monitored - Online - Learning - Environment</em>
                   </h3>
@@ -57,13 +57,13 @@ class Landing extends Component {
                           <p> Supervise, manage, and protect your child’s learning in a Monitored Online Learning Environment (M.O.L.E)
                           </p>
                           <p>
-                            J-Bot gives parents the ability to schedule the total number of internet hours per day, in addition to blocking off specific usage times each day. This flexible screen time management tool makes it easy for parents to keep time spent online structured and monitored.
+                            J-BOT gives parents the ability to schedule the total number of internet hours per day, in addition to blocking off specific usage times each day. This flexible screen time management tool makes it easy for parents to keep time spent online structured and monitored.
                           </p>
                         </li>
                         <li>
                           <p>Set limits.</p>
                           <p>
-                            J-Bot lets you turn off data access for a
+                            J-BOT lets you turn off data access for a
                             specific game once it has hit a specified limit.
                           </p>
                         </li>
