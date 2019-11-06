@@ -12,6 +12,8 @@ if (!firebase.apps.length) {
 
 const auth = firebase.auth();
 
+
+
 const title = {
   marginTop: "3em"
 };
@@ -65,8 +67,10 @@ class ParentDashboard extends Component {
                   <div className="icon">
                     <i className="material-icons">code</i>
                   </div>
-                  <h4 className="info-title">Account Settings</h4>
-                  <p>Manage your account and add children to your profile.</p>
+                  <Link to={`/parent/${this.state.user._id}`}>
+                  <h4 className="info-title">Clear Account Information</h4>
+                  </Link>
+                  <p>This will clear all of your account information.</p>
                 </div>
               </div>
 
