@@ -33,6 +33,7 @@ class AddQuiz extends Component {
   }
 
   resetGame = () => {
+    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       add,

@@ -48,12 +48,12 @@ class ProgressCharts extends React.Component {
   }
 
   organizeGamesByName(data) {
-    let math = [];
-    let add = [];
-    let sub = [];
-    let multi = [];
-    let div = [];
-    let unknowGame = [];
+    let math = [0];
+    let add = [0];
+    let sub = [0];
+    let multi = [0];
+    let div = [0];
+    let unknowGame = [0];
     for (let i = 0; i < data.length; i++) {
       if (data[i].game.name === "Math Quiz") {
         math.unshift(data[i]);
@@ -81,7 +81,7 @@ class ProgressCharts extends React.Component {
         }
       },
       () => {
-        console.log(this.state.gamesArray.math[0].score);
+        console.log(this.state.gamesArray.math[0].time);
       }
     );
   }
@@ -107,7 +107,7 @@ class ProgressCharts extends React.Component {
     const gradientChartOptionsConfiguration = {
       maintainAspectRatio: false,
       legend: {
-        display: false
+        display: true
       },
       tooltips: {
         bodySpacing: 4,
@@ -151,58 +151,11 @@ class ProgressCharts extends React.Component {
         ]
       },
       layout: {
-        padding: { left: 0, right: 0, top: 15, bottom: 15 }
-      }
-    };
-
-    var gradientChartOptionsConfigurationWithNumbersAndGrid = {
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-      tooltips: {
-        bodySpacing: 4,
-        mode: "nearest",
-        intersect: 0,
-        position: "nearest",
-        xPadding: 10,
-        yPadding: 10,
-        caretPadding: 10
-      },
-      responsive: 1,
-      scales: {
-        yAxes: [
-          {
-            gridLines: {
-              zeroLineColor: "transparent",
-              drawBorder: false
-            },
-            ticks: {
-              maxTicksLimit: 7
-            }
-          }
-        ],
-        xAxes: [
-          {
-            display: 0,
-            ticks: {
-              display: false
-            },
-            gridLines: {
-              zeroLineColor: "transparent",
-              drawTicks: false,
-              display: false,
-              drawBorder: false
-            }
-          }
-        ]
-      },
-      layout: {
-        padding: { left: 0, right: 0, top: 15, bottom: 15 }
+        padding: { left: 20, right: 0, top: 15, bottom: 15 }
       }
     };
     // ##############################
-    // // // Dashboard view - Panel chart
+    // // // Dashboard view - Panel chart Total times per day for the month
     // #############################
     const dashboardPanelChart = {
       data: canvas => {
@@ -363,9 +316,9 @@ class ProgressCharts extends React.Component {
       }
     };
     // ##############################
-    // // // Dashboard view - Shipped Products - Card
+    // // // Dashboard view - Total time logged in per day of the week
     // #############################
-    const dashboardShippedProductsChart = {
+    const dashboardTimePerDayForTheWeek = {
       data: canvas => {
         var ctx = canvas.getContext("2d");
         var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
@@ -409,51 +362,13 @@ class ProgressCharts extends React.Component {
     };
     // ##############################
     // // // Dashboard view - All Products - Card
-    // #############################
-    const dashboardAllProductsChart = {
-      data: canvas => {
-        var ctx = canvas.getContext("2d");
-        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-        gradientStroke.addColorStop(0, "#18ce0f");
-        gradientStroke.addColorStop(1, chartColor);
-        var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-        gradientFill.addColorStop(1, hexToRGB("#18ce0f", 0.4));
-        return {
-          // linear graph // one straight line// one point
-          //total amount of time total throughout the day
-          // the 2 outside numbers will not change, the 2 inside will
-          //              login    logout
-          labels: ["12am", "6pm", "9pm", "11:59pm"],
-          datasets: [
-            {
-              label: "Total Time Online",
-              borderColor: "#18ce0f",
-              pointBorderColor: "#FFF",
-              pointBackgroundColor: "#18ce0f",
-              pointBorderWidth: 2,
-              pointHoverRadius: 4,
-              pointHoverBorderWidth: 1,
-              pointRadius: 4,
-              fill: true,
-              backgroundColor: gradientFill,
-              borderWidth: 2,
-              data: [0, 0, 1000, 1000]
-            }
-          ]
-        };
-      },
-      options: gradientChartOptionsConfigurationWithNumbersAndGrid
-    };
-    // ##############################
-    // // // Dashboard view - Bar Chart - Card
-    // #############################
-    const dashboard24HoursPerformanceChart = {
+    // ############################################################################################################
+    const dashboardTimesPerGame = {
       data: canvas => {
         var ctx = canvas.getContext("2d");
         var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
         gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-        gradientFill.addColorStop(1, hexToRGB("#2CA8FF", 0.6));
+        gradientFill.addColorStop(1, hexToRGB("#008000", 0.6));
         return {
           labels: [
             "MathQuiz",
@@ -464,11 +379,37 @@ class ProgressCharts extends React.Component {
           ],
           datasets: [
             {
-              label: "Last Score",
-              backgroundColor: gradientFill,
-              borderColor: "#2CA8FF",
-              pointBorderColor: "#FFF",
-              pointBackgroundColor: "#2CA8FF",
+              label: "Seconds finished",
+              /////////////////////////////////////////////////////////////////
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBorderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBackgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              /////////////////////////////////////////////////////////////////
               pointBorderWidth: 2,
               pointHoverRadius: 4,
               pointHoverBorderWidth: 1,
@@ -478,11 +419,11 @@ class ProgressCharts extends React.Component {
               //user high score for each game
               //   Math/ Add/ Sub/ Multi/ Div
               data: [
-                this.state.gamesArray.math[0].score,
-                this.state.gamesArray.add[0].score,
-                this.state.gamesArray.sub[0].score,
-                this.state.gamesArray.multi[0].score,
-                this.state.gamesArray.div[0].score
+                this.state.gamesArray.math[0].time,
+                this.state.gamesArray.add[0].time,
+                this.state.gamesArray.sub[0].time,
+                this.state.gamesArray.multi[0].time,
+                this.state.gamesArray.div[0].time
               ]
             }
           ]
@@ -491,7 +432,7 @@ class ProgressCharts extends React.Component {
       options: {
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: false
         },
         tooltips: {
           bodySpacing: 4,
@@ -507,7 +448,7 @@ class ProgressCharts extends React.Component {
           yAxes: [
             {
               ticks: {
-                maxTicksLimit: 7
+                beginAtZero: true
               },
               gridLines: {
                 zeroLineColor: "transparent",
@@ -531,7 +472,123 @@ class ProgressCharts extends React.Component {
           ]
         },
         layout: {
-          padding: { left: 0, right: 0, top: 15, bottom: 15 }
+          padding: { left: 20, right: 0, top: 15, bottom: 15 }
+        }
+      }
+    };
+    // ######################################################################################################
+    // // // Dashboard view - Bar Chart - Card
+    // #############################
+    const dashboardLastScoresPerGame = {
+      data: canvas => {
+        var ctx = canvas.getContext("2d");
+        var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+        gradientFill.addColorStop(1, hexToRGB("#2CA8FF", 0.6));
+        return {
+          labels: [
+            "MathQuiz",
+            "Addition",
+            "Subtraction",
+            "Multiplication",
+            "Division"
+          ],
+          datasets: [
+            {
+              label: "Last Score",
+              //////////////////////////////////////////////////////
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBorderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBackgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              //////////////////////////////////////////////////////
+              pointBorderWidth: 2,
+              pointHoverRadius: 4,
+              pointHoverBorderWidth: 1,
+              pointRadius: 4,
+              fill: true,
+              borderWidth: 1,
+              //user high score for each game
+              //   Math/ Add/ Sub/ Multi/ Div
+              data: [
+                this.state.gamesArray.math[0].score,
+                this.state.gamesArray.add[0].score,
+                this.state.gamesArray.sub[0].score,
+                this.state.gamesArray.multi[0].score,
+                this.state.gamesArray.div[0].score
+              ]
+            }
+          ]
+        };
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        tooltips: {
+          bodySpacing: 4,
+          mode: "nearest",
+          intersect: 0,
+          position: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10
+        },
+        responsive: 1,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawBorder: false
+              }
+            }
+          ],
+          xAxes: [
+            {
+              display: 0,
+              ticks: {
+                display: false
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawTicks: false,
+                display: false,
+                drawBorder: false
+              }
+            }
+          ]
+        },
+        layout: {
+          padding: { left: 20, right: 0, top: 15, bottom: 15 }
         }
       }
     };
@@ -558,8 +615,8 @@ class ProgressCharts extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={dashboardShippedProductsChart.data}
-                      options={dashboardShippedProductsChart.options}
+                      data={dashboardTimePerDayForTheWeek.data}
+                      options={dashboardTimePerDayForTheWeek.options}
                     />
                   </div>
                 </CardBody>
@@ -570,44 +627,46 @@ class ProgressCharts extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
+
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Logged Time</h5>
-                  <CardTitle tag="h4">Log-in/Log-out Times</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <div className="chart-area">
-                    <Line
-                      data={dashboardAllProductsChart.data}
-                      options={dashboardAllProductsChart.options}
-                    />
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="stats">
-                    <i className="now-ui-icons" /> Just Updated
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col xs={12} md={4}>
-              <Card className="card-chart">
-                <CardHeader>
-                  <h5 className="card-category">High Scores</h5>
-                  <CardTitle tag="h4">High Scores Per Game</CardTitle>
+                  <h5 className="card-category">Finished Times</h5>
+                  <CardTitle tag="h4">Total Times Per Game</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Bar
-                      data={dashboard24HoursPerformanceChart.data}
-                      options={dashboard24HoursPerformanceChart.options}
+                      data={dashboardTimesPerGame.data}
+                      options={dashboardTimesPerGame.options}
                     />
                   </div>
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons" /> High Score Board
+                    <i className="now-ui-icons" /> Game Times
+                  </div>
+                </CardFooter>
+              </Card>
+            </Col>
+
+            <Col xs={12} md={4}>
+              <Card className="card-chart">
+                <CardHeader>
+                  <h5 className="card-category">Last Scores</h5>
+                  <CardTitle tag="h4">Last Scores Per Game</CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <div className="chart-area">
+                    <Bar
+                      data={dashboardLastScoresPerGame.data}
+                      options={dashboardLastScoresPerGame.options}
+                    />
+                  </div>
+                </CardBody>
+                <CardFooter>
+                  <div className="stats">
+                    <i className="now-ui-icons" /> Current Score Board
                   </div>
                 </CardFooter>
               </Card>
