@@ -6,6 +6,7 @@ import "firebase/auth";
 import config from "../firebase";
 import Link from "react-router-dom/Link";
 import SignupModal from "../components/Modals/SignupModal";
+import axios from "axios";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -16,6 +17,7 @@ const auth = firebase.auth();
 class ChooseExperience extends Component {
   state = {
     openModal: false,
+    user: "",
     additionalPW: false,
     guardian: ""
   };
@@ -24,13 +26,26 @@ class ChooseExperience extends Component {
     this.checkIfSignedIn();
   }
 
+  componentDidUpdate() {}
+
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
       fbUser
-        ? console.log("You are signed in")
+        ? this.getUserInfo(fbUser.email)
         : this.props.history.push("/sign-in");
     });
   };
+
+  getUserInfo(userEmail) {
+    axios
+      .get("/api/user/email/" + userEmail)
+      .then(res => {
+        this.setState({ user: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   openModal = () => {
     this.setState({ additionalPW: !this.state.additionalPW });
@@ -48,7 +63,15 @@ class ChooseExperience extends Component {
 
   handleInputSignIn = event => {
     event.preventDefault();
-    this.props.history.push("/parent");
+    if (this.state.user.guardian === this.state.guardian) {
+      this.props.history.push("/parent");
+    } else {
+      // User input wrong guardian password
+      console.log("None shall PAASSSSS!!!");
+      setTimeout(() => {
+        this.openModal();
+      }, 1000);
+    }
   };
 
   render() {

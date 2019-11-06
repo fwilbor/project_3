@@ -12,7 +12,7 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 const navBarStyle = {
-  "a:hover" : "background-color: yellow"
+  "a:hover": "background-color: yellow"
 }
 
 class NavBar extends Component {
@@ -47,7 +47,7 @@ class NavBar extends Component {
         <div className="container">
           <div className="navbar-translate">
             <Link className="navbar-brand" to="/">
-              <b>JBOT</b>
+              <b>J-BOT</b>
             </Link>
             <button
               className="navbar-toggler"
@@ -128,13 +128,13 @@ class NavBar extends Component {
                     Sign Out{" "}
                   </Link>
                 ) : (
-                  <Link
-                    className="btn btn-rose btn-round btn-block"
-                    to="/sign-up"
-                  >
-                    Sign Up/Sign In
+                    <Link
+                      className="btn btn-rose btn-round btn-block"
+                      to="/sign-up"
+                    >
+                      Sign Up/Sign In
                   </Link>
-                )}
+                  )}
               </li>
             </ul>
           </div>

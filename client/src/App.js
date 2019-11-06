@@ -16,6 +16,7 @@ import Philosophy from "./components/Menu/Philosophy";
 import ProgressCharts from "./components/Charts/ProgressCharts";
 import KidsProgressCharts from "./components/Charts/KidsProgressCharts";
 import ChooseExperience from "./pages/ChooseExperience";
+import Error404 from "./pages/NoMatch";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
         <Route exact path="/:id/divQuiz" component={DivQuiz} />
         <Route exact path="/test/timer" component={Timer} />
         <Route exact path="/" component={Landing} />
-        {/* <Route exact path="*" component={Error404} /> */}
+        <Route exact path="*" component={Error404} />
       </Switch>
     </Router>
   );
