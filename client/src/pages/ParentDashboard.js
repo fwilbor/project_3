@@ -98,47 +98,8 @@ class ParentDashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-sm-4">
-                <div className="info">
-                  <div className="icon">
-                    <i className="material-icons">view_carousel</i>
-                  </div>
-                  <h4 className="info-title">Example Pages Included</h4>
-                  <p>
-                    The moment you use Material Kit, you know you’ve never felt
-                    anything like it. With a single use, this powerfull UI Kit
-                    lets you do more than ever before.{" "}
-                  </p>
-                </div>
-              </div>
-              <div className="col-sm-4">
-                <div className="info">
-                  <div className="icon">
-                    <i className="material-icons">access_time</i>
-                  </div>
-                  <h4 className="info-title">Save Time</h4>
-                  <p>
-                    The moment you use Material Kit, you know you’ve never felt
-                    anything like it. With a single use, this powerfull UI Kit
-                    lets you do more than ever before.{" "}
-                  </p>
-                </div>
-              </div>
-              <div className="col-sm-4">
-                <div className="info">
-                  <div className="icon">
-                    <i className="material-icons">attach_money</i>
-                  </div>
-                  <h4 className="info-title">Save Money</h4>
-                  <p>
-                    The moment you use Material Kit, you know you’ve never felt
-                    anything like it. With a single use, this powerfull UI Kit
-                    lets you do more than ever before.{" "}
-                  </p>
-                </div>
-              </div>
-            </div>
+
+
           </div>
           {/* </div> */}
         </div>
