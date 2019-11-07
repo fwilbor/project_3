@@ -1,6 +1,7 @@
 #mathjumbotron {
   width: 100%;
-  /* background-image:  ; */
+  background-color: grey;
+  opacity: 0.92;
 }
 
 #mathHeader {

@@ -174,10 +174,9 @@ class MathQuiz extends Component {
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}
             {this.state.game ? (
               <>
-                &nbsp;| Timer:&nbsp;
+                &nbsp; Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (

@@ -32,7 +32,7 @@ class SignUp extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state);
+    // console.log(this.state);
   }
   optionSelect = option => {
     if (option === "signUp") {
@@ -55,11 +55,11 @@ class SignUp extends Component {
     } else {
       this.setState({ canSubmit: false });
     }
-    console.log(name + ": " + value);
+    // console.log(name + ": " + value);
   };
   handleInputSignUp = event => {
     event.preventDefault();
-    console.log("sign up");
+    // console.log("sign up");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
       this.setState({ openModal: true });
@@ -72,14 +72,14 @@ class SignUp extends Component {
           axios
             .post("/api/user", this.state)
             .then(res => {
-              console.log(res);
+              // console.log(res);
             })
             .catch(err => {
-              console.log(err);
+              // console.log(err);
             });
         })
         .catch(e => {
-          console.log(e.message);
+          // console.log(e.message);
           this.setState({openModal: true});
           this.setState({modalMsg: e.message});
         });
@@ -87,7 +87,7 @@ class SignUp extends Component {
   };
   handleInputSignIn = event => {
     event.preventDefault();
-    console.log("sign in");
+    // console.log("sign in");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
       this.setState({ openModal: true });
@@ -97,10 +97,10 @@ class SignUp extends Component {
       auth
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(result => {
-          console.log("Successfully Logged In");
+          // console.log("Successfully Logged In");
         })
         .catch(e => {
-          console.log(e.message);
+          // console.log(e.message);
           this.setState({openModal: true});
           this.setState({modalMsg: e.message});
         });

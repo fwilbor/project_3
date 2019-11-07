@@ -27,7 +27,8 @@ class ProgressCharts extends React.Component {
       div: [0],
       unknowGame: [0]
     },
-    highScoreArray: [0]
+    highScoreArray: [0],
+    allTimeScoreArray: [0]
   };
 
   componentDidMount() {
@@ -101,9 +102,27 @@ class ProgressCharts extends React.Component {
         let divHS = this.highScoresByGame(this.state.gamesArray.div);
 
         this.setState({highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]})
+        this.allTimeScore();
       }
     );
   }
+
+  allTimeScore() {
+    var mathAllTime = (this.state.gamesArray.math[0].score / this.state.gamesArray.math[0].time) * 100;
+    var addAllTime = (this.state.gamesArray.add[0].score / this.state.gamesArray.add[0].time) * 100;
+    var subAllTime = (this.state.gamesArray.sub[0].score / this.state.gamesArray.sub[0].time) * 100;
+    var multiAllTime = (this.state.gamesArray.multi[0].score / this.state.gamesArray.multi[0].time) * 100;
+    var divAllTime = (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) * 100;
+    var allScores = (mathAllTime+addAllTime+subAllTime+multiAllTime+divAllTime)
+    // console.log("Math Game Score: "+ mathAllTime)
+    // console.log("Add Game Score: "+ addAllTime)
+    // console.log("Sub Game Score: "+ subAllTime)
+    // console.log("Multi Game Score: "+ multiAllTime)
+    // console.log("Div Game Score: "+ divAllTime)
+    console.log("All Time High Score: " + allScores)
+    this.setState({allTimeScoreArray: [mathAllTime, addAllTime, subAllTime, multiAllTime, divAllTime]})
+  }
+
   render() {
     // ##############################
     // // // Function that converts a hex color number to a RGB color number
@@ -118,61 +137,6 @@ class ProgressCharts extends React.Component {
         return "rgb(" + r + ", " + g + ", " + b + ")";
       }
     }
-    // ##############################
-    // // // general variables for charts
-    // #############################
-    // const chartColor = "#FFFFFF";
-    // // General configuration for the charts with Line gradientStroke
-    // const gradientChartOptionsConfiguration = {
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     display: true
-    //   },
-    //   tooltips: {
-    //     bodySpacing: 4,
-    //     mode: "nearest",
-    //     intersect: 0,
-    //     position: "nearest",
-    //     xPadding: 10,
-    //     yPadding: 10,
-    //     caretPadding: 10
-    //   },
-    //   responsive: 1,
-    //   scales: {
-    //     yAxes: [
-    //       {
-    //         display: 0,
-    //         ticks: {
-    //           display: false,
-    //           maxTicksLimit: 7
-    //         },
-    //         gridLines: {
-    //           zeroLineColor: "transparent",
-    //           drawTicks: false,
-    //           display: false,
-    //           drawBorder: false
-    //         }
-    //       }
-    //     ],
-    //     xAxes: [
-    //       {
-    //         display: 0,
-    //         ticks: {
-    //           display: false
-    //         },
-    //         gridLines: {
-    //           zeroLineColor: "transparent",
-    //           drawTicks: false,
-    //           display: false,
-    //           drawBorder: false
-    //         }
-    //       }
-    //     ]
-    //   },
-    //   layout: {
-    //     padding: { left: 20, right: 0, top: 15, bottom: 15 }
-    //   }
-    // };
     // ##############################
     // // // Dashboard view - Panel chart Total times per day for the month
     // #############################
