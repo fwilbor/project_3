@@ -14,7 +14,7 @@ import {
   Col
 } from "reactstrap";
 
-class ProgressCharts extends React.Component {
+class KidsProgressCharts extends React.Component {
   state = {
     user: "",
     gamesArray: {
@@ -25,7 +25,8 @@ class ProgressCharts extends React.Component {
       div: [0],
       unknowGame: [0]
     },
-    highScoreArray: [0]
+    highScoreArray: [0],
+    allTimeScoreArray: [0]
   };
 
   componentDidMount() {
@@ -99,8 +100,41 @@ class ProgressCharts extends React.Component {
         this.setState({
           highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
         });
+        this.allTimeScore();
       }
     );
+  }
+
+  allTimeScore() {
+    var mathAllTime =
+      (this.state.gamesArray.math[0].score /
+        this.state.gamesArray.math[0].time) *
+      100;
+    var addAllTime =
+      (this.state.gamesArray.add[0].score / this.state.gamesArray.add[0].time) *
+      100;
+    var subAllTime =
+      (this.state.gamesArray.sub[0].score / this.state.gamesArray.sub[0].time) *
+      100;
+    var multiAllTime =
+      (this.state.gamesArray.multi[0].score /
+        this.state.gamesArray.multi[0].time) *
+      100;
+    var divAllTime =
+      (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) *
+      100;
+    var allScores =
+      mathAllTime + addAllTime + subAllTime + multiAllTime + divAllTime;
+    this.setState({
+      allTimeScoreArray: [
+        mathAllTime,
+        addAllTime,
+        subAllTime,
+        multiAllTime,
+        divAllTime
+      ]
+    });
+    console.log(allScores)
   }
   render() {
     // ##############################
@@ -537,4 +571,4 @@ class ProgressCharts extends React.Component {
     );
   }
 }
-export default ProgressCharts;
+export default KidsProgressCharts;
