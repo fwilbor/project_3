@@ -11,29 +11,24 @@ import "./MathQuiz.css";
 import axios from "axios";
 
 class MathQuiz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: false,
-      math,
-      correctGuesses: 0,
-      usersHighScore: 0,
-      totalGuesses: 0,
-      correctClicked: false,
-      disabled: false,
-      display: false,
-      displayQuestions: [true],
-      gameInfo: ""
-    };
-  }
+  state = {
+    game: false,
+    math,
+    correctGuesses: 0,
+    usersHighScore: 0,
+    totalGuesses: 0,
+    correctClicked: false,
+    disabled: false,
+    display: false,
+    displayQuestions: [true],
+    gameInfo: ""
+  };
 
   componentDidMount() {
     this.getGameInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.displayQuestions);
-  }
+  componentDidUpdate() {}
 
   resetGame = () => {
     this.setState({
@@ -56,7 +51,7 @@ class MathQuiz extends Component {
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -133,7 +128,7 @@ class MathQuiz extends Component {
         this.updateHistory(histRes.data._id);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -147,15 +142,13 @@ class MathQuiz extends Component {
           .put(`/api/user/${this.props.match.params.id}`, {
             history: updateArr
           })
-          .then(postData => {
-            console.log(postData.data);
-          })
+          .then(postData => {})
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -174,10 +167,9 @@ class MathQuiz extends Component {
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}
             {this.state.game ? (
               <>
-                &nbsp;| Timer:&nbsp;
+                &nbsp; Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (

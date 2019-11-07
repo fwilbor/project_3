@@ -2,5 +2,6 @@
     width: 100%;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: center;
-    background-color: rgb(255, 38, 38);
+    color: black;
+    background-color: rgb(214, 213, 213) !important;
 }

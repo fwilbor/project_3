@@ -24,13 +24,11 @@ class ChildDashboard extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.user);
-    // this.checkIfSignedIn();
+    this.checkIfSignedIn();
   }
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      console.log(fbUser.email);
       fbUser
         ? this.getUserInfo(fbUser.email)
         : this.props.history.push("/sign-in");
@@ -41,19 +39,15 @@ class ChildDashboard extends Component {
     axios
       .get("/api/user/email/" + userEmail)
       .then(res => {
-        console.log(res);
         this.setState({ user: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
   setGame = gameName => {
-    this.setState({ game: gameName }, () => {
-      console.log("game: ", this.state.game);
-    });
-    // const Game = gameName;
+    this.setState({ game: gameName });
   };
 
   render() {
@@ -66,7 +60,10 @@ class ChildDashboard extends Component {
             <div className="row under-nav">
               <div className="col-md-4">
                 <div className="mascot-container mt-5">
-                  <img src="./assets/img/sections/iphone.png" alt="placeholder" />
+                  <img
+                    src="./assets/img/sections/iphone.png"
+                    alt="placeholder"
+                  />
                   {/*<img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" /> */}
                 </div>
               </div>

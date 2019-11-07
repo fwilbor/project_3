@@ -1,0 +1,7 @@
+img {
+    width: 100%;
+    height: 625px;
+    overflow: auto;
+    clear: both;
+    background-size: cover;
+}

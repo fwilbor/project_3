@@ -48,16 +48,25 @@ class Landing extends Component {
                 <div className="row">
                   <div className="col-md-8 ml-auto mr-auto">
                     <h2 className="title">
-                      J-BOT is a Safe, Fun, COPPA (Child Online Privacy Protection Act) compliant Learning Application for kids under the age of 12. Designed for parents to monitor their child's online learning, J-BOT gives parents ease of mind by tracking their time and progress online.
+                      J-BOT is a Safe, Fun, COPPA (Child Online Privacy
+                      Protection Act) compliant Learning Application for kids
+                      under the age of 12. Designed for parents to monitor their
+                      child's online learning, J-BOT gives parents ease of mind
+                      by tracking their time and progress online.
                     </h2>
                     <h5 className="description">
                       <p className="pull-left">JBot allows you to: </p>
                       <ul className="pull-left">
                         <li>
-                          <p> Supervise, manage, and protect your child’s learning in a Monitored Online Learning Environment (M.O.L.E)
+                          <p>
+                            {" "}
+                            Supervise, manage, and protect your child’s learning
+                            in a Monitored Online Learning Environment (M.O.L.E)
                           </p>
                           <p>
-                            J-BOT has a flexible screen time management tool that makes it easy for parents to keep time spent online structured and monitored.
+                            J-BOT has a flexible screen time management tool
+                            that makes it easy for parents to keep time spent
+                            online structured and monitored.
                           </p>
                         </li>
                         {/*<li>
@@ -68,9 +77,16 @@ class Landing extends Component {
                           </p>
                         </li>*/}
                         <li>
-                          <p>Meaningful, up-to-date tracking on your child's progress.</p>
                           <p>
-                            Stay connected with your child’s progress with J-BOT's real time up to date progress reports in your Parental Dashboard. See progress improvements, skill completions, and time logged in all in one place.
+                            Meaningful, up-to-date tracking on your child's
+                            progress.
+                          </p>
+                          <p>
+                            Stay connected with your child’s progress with
+                            J-BOT's real time up to date progress reports in
+                            your Parental Dashboard. See progress improvements,
+                            skill completions, and time logged in all in one
+                            place.
                           </p>
                         </li>
                       </ul>

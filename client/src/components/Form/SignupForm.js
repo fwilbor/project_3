@@ -9,16 +9,12 @@ class SignupForm extends Component {
 
   toggleAccepted = () => {
     let accept = !this.state.accepted;
-    this.setState({ accepted: accept }, () => {
-      console.log("accepted: " + this.state.accepted);
-    });
+    this.setState({ accepted: accept }, () => {});
   };
 
   toggleAge = () => {
     let age = !this.state.ofAge;
-    this.setState({ ofAge: age }, () => {
-      console.log("ofAge: " + this.state.ofAge);
-    });
+    this.setState({ ofAge: age }, () => {});
   };
 
   shouldButtonBeDisabled = () => {

@@ -43,7 +43,7 @@ class ChooseExperience extends Component {
         this.setState({ user: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -57,8 +57,6 @@ class ChooseExperience extends Component {
     this.setState({
       [name]: value
     });
-
-    console.log(name + ": " + value);
   };
 
   handleInputSignIn = event => {
@@ -67,7 +65,6 @@ class ChooseExperience extends Component {
       this.props.history.push("/parent");
     } else {
       // User input wrong guardian password
-      console.log("None shall PAASSSSS!!!");
       setTimeout(() => {
         this.openModal();
       }, 1000);
