@@ -14,7 +14,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body.time);
     db.History.create(req.body)
       .then(dbModel => {
         res.json(dbModel);
@@ -68,14 +67,14 @@ module.exports = {
           }
         ])
           .then(hist => {
-            db.User.findOne({ email: "jessman51386@gmail.com" })
+            db.User.findOne({ email: "tcutlip08@gmail.com" })
               .then(preData => {
                 let updateArr = preData.history;
                 for (let i = 0; i < hist.length; i++) {
                   updateArr.push(hist[i]._id);
                 }
                 db.User.findOneAndUpdate(
-                  { email: "jessman51386@gmail.com" },
+                  { email: "tcutlip08@gmail.com" },
                   {
                     history: updateArr
                   }

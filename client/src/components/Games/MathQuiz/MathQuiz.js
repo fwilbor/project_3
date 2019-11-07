@@ -53,7 +53,7 @@ class MathQuiz extends Component {
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -130,7 +130,7 @@ class MathQuiz extends Component {
         this.updateHistory(histRes.data._id);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -145,14 +145,13 @@ class MathQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData.data);
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 

@@ -26,7 +26,8 @@ class ProgressCharts extends React.Component {
       multi: [0],
       div: [0],
       unknowGame: [0]
-    }
+    },
+    highScoreArray: [0]
   };
 
   componentDidMount() {
@@ -43,8 +44,18 @@ class ProgressCharts extends React.Component {
         this.organizeGamesByName(user.data.history);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
+  }
+
+  highScoresByGame(data) {
+    let highScore = 0;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].score > highScore) {
+        highScore = data[i].score;
+      }
+    }
+    return highScore;
   }
 
   organizeGamesByName(data) {
@@ -81,7 +92,15 @@ class ProgressCharts extends React.Component {
         }
       },
       () => {
-        console.log(this.state.gamesArray.math[0].time);
+        let mathHS = this.highScoresByGame(this.state.gamesArray.math);
+        let addHS = this.highScoresByGame(this.state.gamesArray.add);
+        let subHS = this.highScoresByGame(this.state.gamesArray.sub);
+        let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
+        let divHS = this.highScoresByGame(this.state.gamesArray.div);
+
+        this.setState({
+          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
+        });
       }
     );
   }
@@ -102,58 +121,58 @@ class ProgressCharts extends React.Component {
     // ##############################
     // // // general variables for charts
     // #############################
-    const chartColor = "#FFFFFF";
-    // General configuration for the charts with Line gradientStroke
-    const gradientChartOptionsConfiguration = {
-      maintainAspectRatio: false,
-      legend: {
-        display: true
-      },
-      tooltips: {
-        bodySpacing: 4,
-        mode: "nearest",
-        intersect: 0,
-        position: "nearest",
-        xPadding: 10,
-        yPadding: 10,
-        caretPadding: 10
-      },
-      responsive: 1,
-      scales: {
-        yAxes: [
-          {
-            display: 0,
-            ticks: {
-              display: false,
-              maxTicksLimit: 7
-            },
-            gridLines: {
-              zeroLineColor: "transparent",
-              drawTicks: false,
-              display: false,
-              drawBorder: false
-            }
-          }
-        ],
-        xAxes: [
-          {
-            display: 0,
-            ticks: {
-              display: false
-            },
-            gridLines: {
-              zeroLineColor: "transparent",
-              drawTicks: false,
-              display: false,
-              drawBorder: false
-            }
-          }
-        ]
-      },
-      layout: {
-        padding: { left: 20, right: 0, top: 15, bottom: 15 }
-      }
-    };
+    // const chartColor = "#FFFFFF";
+    // // General configuration for the charts with Line gradientStroke
+    // const gradientChartOptionsConfiguration = {
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     display: true
+    //   },
+    //   tooltips: {
+    //     bodySpacing: 4,
+    //     mode: "nearest",
+    //     intersect: 0,
+    //     position: "nearest",
+    //     xPadding: 10,
+    //     yPadding: 10,
+    //     caretPadding: 10
+    //   },
+    //   responsive: 1,
+    //   scales: {
+    //     yAxes: [
+    //       {
+    //         display: 0,
+    //         ticks: {
+    //           display: false,
+    //           maxTicksLimit: 7
+    //         },
+    //         gridLines: {
+    //           zeroLineColor: "transparent",
+    //           drawTicks: false,
+    //           display: false,
+    //           drawBorder: false
+    //         }
+    //       }
+    //     ],
+    //     xAxes: [
+    //       {
+    //         display: 0,
+    //         ticks: {
+    //           display: false
+    //         },
+    //         gridLines: {
+    //           zeroLineColor: "transparent",
+    //           drawTicks: false,
+    //           display: false,
+    //           drawBorder: false
+    //         }
+    //       }
+    //     ]
+    //   },
+    //   layout: {
+    //     padding: { left: 20, right: 0, top: 15, bottom: 15 }
+    //   }
+    // };
     // ##############################
     // // // Dashboard view - Panel chart Total times per day for the month
     // #############################
@@ -316,49 +335,114 @@ class ProgressCharts extends React.Component {
       }
     };
     // ##############################
-    // // // Dashboard view - Total time logged in per day of the week
+    // // // Dashboard view - High Scores
     // #############################
-    const dashboardTimePerDayForTheWeek = {
+    const dashboardHighScores = {
       data: canvas => {
         var ctx = canvas.getContext("2d");
-        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-        gradientStroke.addColorStop(0, "#80b6f4");
-        gradientStroke.addColorStop(1, chartColor);
         var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
         gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-        gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
+        gradientFill.addColorStop(1, hexToRGB("#008000", 0.6));
         return {
-          //X-axis
-          //labels are days of the week //below
           labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            "MathQuiz",
+            "Addition",
+            "Subtraction",
+            "Multiplication",
+            "Division"
           ],
           datasets: [
             {
-              label: "Minutes Per Day",
-              borderColor: "#f96332",
-              pointBorderColor: "#FFF",
-              pointBackgroundColor: "#f96332",
+              label: "High Score",
+              /////////////////////////////////////////////////////////////////
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBorderColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              pointBackgroundColor: [
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 206, 86, 0.8)",
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(153, 102, 255, 0.8)"
+              ],
+              /////////////////////////////////////////////////////////////////
               pointBorderWidth: 2,
               pointHoverRadius: 4,
               pointHoverBorderWidth: 1,
               pointRadius: 4,
               fill: true,
-              backgroundColor: gradientFill,
-              borderWidth: 2,
-              // data minutes per day //below
-              data: [200, 133, 98, 75, 130, 116, 175]
+              borderWidth: 1,
+              //user high score for each game
+              //   Math/ Add/ Sub/ Multi/ Div
+              data: this.state.highScoreArray
             }
           ]
         };
       },
-      options: gradientChartOptionsConfiguration
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        tooltips: {
+          bodySpacing: 4,
+          mode: "nearest",
+          intersect: 0,
+          position: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10
+        },
+        responsive: 1,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawBorder: false
+              }
+            }
+          ],
+          xAxes: [
+            {
+              display: 0,
+              ticks: {
+                display: false
+              },
+              gridLines: {
+                zeroLineColor: "transparent",
+                drawTicks: false,
+                display: false,
+                drawBorder: false
+              }
+            }
+          ]
+        },
+        layout: {
+          padding: { left: 20, right: 0, top: 15, bottom: 15 }
+        }
+      }
     };
     // ##############################
     // // // Dashboard view - All Products - Card
@@ -604,25 +688,26 @@ class ProgressCharts extends React.Component {
             />
           }
         />
+
         <div className="content">
           <Row>
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Total Time Logged</h5>
-                  <CardTitle tag="h4">Minutes Per Day</CardTitle>
+                  <h5 className="card-category">High Scores</h5>
+                  <CardTitle tag="h4">High Scores Per Game</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
-                    <Line
-                      data={dashboardTimePerDayForTheWeek.data}
-                      options={dashboardTimePerDayForTheWeek.options}
+                    <Bar
+                      data={dashboardHighScores.data}
+                      options={dashboardHighScores.options}
                     />
                   </div>
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
-                    <i className="now-ui-icons" /> Minutes Per Day
+                    <i className="now-ui-icons" /> High Scores
                   </div>
                 </CardFooter>
               </Card>

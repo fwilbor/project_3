@@ -28,12 +28,9 @@ class MultiplyQuiz extends Component {
     this.getGameInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.displayQuestions);
-  }
+  componentDidUpdate() {}
 
   resetGame = () => {
-    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       multiply,
@@ -54,7 +51,7 @@ class MultiplyQuiz extends Component {
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -131,7 +128,7 @@ class MultiplyQuiz extends Component {
         this.updateHistory(histRes.data._id);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -145,15 +142,13 @@ class MultiplyQuiz extends Component {
           .put(`/api/user/${this.props.match.params.id}`, {
             history: updateArr
           })
-          .then(postData => {
-            console.log(postData.data);
-          })
+          .then(postData => {})
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 

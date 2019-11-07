@@ -10,14 +10,14 @@ class SignupForm extends Component {
   toggleAccepted = () => {
     let accept = !this.state.accepted;
     this.setState({ accepted: accept }, () => {
-      console.log("accepted: " + this.state.accepted);
+      // console.log("accepted: " + this.state.accepted);
     });
   };
 
   toggleAge = () => {
     let age = !this.state.ofAge;
     this.setState({ ofAge: age }, () => {
-      console.log("ofAge: " + this.state.ofAge);
+      // console.log("ofAge: " + this.state.ofAge);
     });
   };
 

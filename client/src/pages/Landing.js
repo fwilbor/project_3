@@ -48,29 +48,45 @@ class Landing extends Component {
                 <div className="row">
                   <div className="col-md-8 ml-auto mr-auto">
                     <h2 className="title">
-                      J-BOT is a Safe, Fun, COPPA (Child Online Privacy Protection Act) compliant Learning Application for kids under the age of 16. Designed for Parents to Monitor their child's online learning, J-BOT gives parents the ease of mind to track their daily time online and their progress.
+                      J-BOT is a Safe, Fun, COPPA (Child Online Privacy
+                      Protection Act) compliant Learning Application for kids
+                      under the age of 12. Designed for parents to monitor their
+                      child's online learning, J-BOT gives parents ease of mind
+                      by tracking their time and progress online.
                     </h2>
                     <h5 className="description">
                       <p className="pull-left">JBot allows you to: </p>
                       <ul className="pull-left">
                         <li>
-                          <p> Supervise, manage, and protect your child’s learning in a Monitored Online Learning Environment (M.O.L.E)
+                          <p>
+                            {" "}
+                            Supervise, manage, and protect your child’s learning
+                            in a Monitored Online Learning Environment (M.O.L.E)
                           </p>
                           <p>
-                            J-BOT gives parents the ability to schedule the total number of internet hours per day, in addition to blocking off specific usage times each day. This flexible screen time management tool makes it easy for parents to keep time spent online structured and monitored.
+                            J-BOT has a flexible screen time management tool
+                            that makes it easy for parents to keep time spent
+                            online structured and monitored.
                           </p>
                         </li>
-                        <li>
+                        {/*<li>
                           <p>Set limits.</p>
                           <p>
                             J-BOT lets you turn off data access for a
                             specific game once it has hit a specified limit.
                           </p>
-                        </li>
+                        </li>*/}
                         <li>
-                          <p>Meaningful, up-to-date tracking on your child's progress.</p>
                           <p>
-                            Stay connected with your child’s progress with J-Bot's real time up to date progress reports in your Parental Dashboard.  Get instant notifications on progress improvement, skill completions, and time logged in all in one place.
+                            Meaningful, up-to-date tracking on your child's
+                            progress.
+                          </p>
+                          <p>
+                            Stay connected with your child’s progress with
+                            J-BOT's real time up to date progress reports in
+                            your Parental Dashboard. See progress improvements,
+                            skill completions, and time logged in all in one
+                            place.
                           </p>
                         </li>
                       </ul>

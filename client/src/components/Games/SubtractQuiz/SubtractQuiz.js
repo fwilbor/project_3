@@ -29,11 +29,9 @@ class SubtractQuiz extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
-    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       subtract,
@@ -54,7 +52,7 @@ class SubtractQuiz extends Component {
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -120,7 +118,6 @@ class SubtractQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(document.getElementById("timer").getAttribute("value"));
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
@@ -132,7 +129,7 @@ class SubtractQuiz extends Component {
         this.updateHistory(histRes.data._id);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -147,14 +144,13 @@ class SubtractQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData.data);
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 

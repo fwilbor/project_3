@@ -13,7 +13,7 @@ const auth = firebase.auth();
 
 const navBarStyle = {
   "a:hover": "background-color: yellow"
-}
+};
 
 class NavBar extends Component {
   state = {
@@ -33,7 +33,6 @@ class NavBar extends Component {
   };
 
   signOut = () => {
-    console.log("sign out");
     firebase.auth().signOut();
   };
   render() {
@@ -85,7 +84,6 @@ class NavBar extends Component {
                   <Link to="/about/us" className="dropdown-item">
                     <i className="material-icons">group</i> About Us
                   </Link>
-
                 </div>
               </li>
 
@@ -128,13 +126,13 @@ class NavBar extends Component {
                     Sign Out{" "}
                   </Link>
                 ) : (
-                    <Link
-                      className="btn btn-rose btn-round btn-block"
-                      to="/sign-up"
-                    >
-                      Sign Up/Sign In
+                  <Link
+                    className="btn btn-rose btn-round btn-block"
+                    to="/sign-up"
+                  >
+                    Sign Up/Sign In
                   </Link>
-                  )}
+                )}
               </li>
             </ul>
           </div>
