@@ -22,7 +22,10 @@ function App() {
   return (
     <Router>
       <Switch>
+        {/* Still trying to tie in a current all time leaderboard in here for the kids */}
         <Route exact path="/KidsProgressCharts" component={KidsProgressCharts} />
+        {/* Still trying to tie in a current all time leaderboard in here for the kids */}
+        
         <Route exact path="/COPPA" component={COPPA} />
         <Route path="/(sign-up|sign-in)" component={SignUp} />
         <Route exact path="/choose-experience" component={ChooseExperience} />
