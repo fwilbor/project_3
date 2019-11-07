@@ -37,31 +37,31 @@ module.exports = {
         db.History.create([
           {
             date: new Date(Date.now()),
-            score: Math.floor(Math.random() * 10 + 1),
+            score: Math.floor(Math.random() * 1500 + 500),
             time: Math.floor(Math.random() * 60 + 1),
             game: games[0]
           },
           {
             date: new Date(Date.now()),
-            score: Math.floor(Math.random() * 10 + 1),
+            score: Math.floor(Math.random() * 1500 + 500),
             time: Math.floor(Math.random() * 60 + 1),
             game: games[1]
           },
           {
             date: new Date(Date.now()),
-            score: Math.floor(Math.random() * 10 + 1),
+            score: Math.floor(Math.random() * 1500 + 500),
             time: Math.floor(Math.random() * 40 + 21),
             game: games[2]
           },
           {
             date: new Date(Date.now()),
-            score: Math.floor(Math.random() * 10 + 1),
+            score: Math.floor(Math.random() * 1500 + 500),
             time: Math.floor(Math.random() * 60 + 1),
             game: games[3]
           },
           {
             date: new Date(Date.now()),
-            score: Math.floor(Math.random() * 10 + 1),
+            score: Math.floor(Math.random() * 1500 + 500),
             time: Math.floor(Math.random() * 60 + 1),
             game: games[4]
           }
