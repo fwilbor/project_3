@@ -85,7 +85,6 @@ class ParentDashboard extends Component {
     return (
       <div>
         <NavBar />
-        {/* TODO: Update this page to show relevant content. Supporting components for parent view should be added to this page. */}
         <div className="features-5">
           <div className="col-md-8 ml-auto mr-auto text-center">
             <h2 className="title" style={title}>
@@ -119,7 +118,6 @@ class ParentDashboard extends Component {
                   </p>
                 </div>
               </div>
-
               <div className="col-sm-4">
                 <div className="info">
                   <div className="icon">

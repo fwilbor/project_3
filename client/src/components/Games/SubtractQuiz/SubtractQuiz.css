@@ -1,5 +1,7 @@
 #subtractjumbotron {
   width: 100%;
+  background-color: grey;
+  opacity: 0.92;
 }
 
 #subtractHeader {

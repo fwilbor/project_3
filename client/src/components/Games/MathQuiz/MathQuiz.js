@@ -28,9 +28,7 @@ class MathQuiz extends Component {
     this.getGameInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.displayQuestions);
-  }
+  componentDidUpdate() {}
 
   resetGame = () => {
     this.setState({
@@ -144,8 +142,7 @@ class MathQuiz extends Component {
           .put(`/api/user/${this.props.match.params.id}`, {
             history: updateArr
           })
-          .then(postData => {
-          })
+          .then(postData => {})
           .catch(err => {
             // console.log(err);
           });
@@ -170,10 +167,9 @@ class MathQuiz extends Component {
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}
             {this.state.game ? (
               <>
-                &nbsp;| Timer:&nbsp;
+                &nbsp; Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (
