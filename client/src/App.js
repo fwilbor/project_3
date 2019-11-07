@@ -22,7 +22,6 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* <Route exact path="/child/:id" component={KidsProgressCharts} /> */}
         <Route exact path="/COPPA" component={COPPA} />
         <Route path="/(sign-up|sign-in)" component={SignUp} />
         <Route exact path="/choose-experience" component={ChooseExperience} />

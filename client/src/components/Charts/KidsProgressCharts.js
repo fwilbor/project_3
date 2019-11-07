@@ -25,11 +25,13 @@ class ProgressCharts extends React.Component {
       div: [0],
       unknowGame: [0]
     },
-    highScoreArray: [0]
+    highScoreArray: [0],
+    allHighScores: [0]
   };
 
   componentDidMount() {
     this.getUserInfo();
+    this.getAllHighScores();
   }
 
   componentDidUpdate() {}
@@ -38,11 +40,42 @@ class ProgressCharts extends React.Component {
     axios
       .get(`/api/user/${this.props.match.params.id}`)
       .then(user => {
-        this.setState({ user: user.data });
-        this.organizeGamesByName(user.data.history);
+        this.setState({
+          user: user.data,
+          gamesArray: this.organizeGamesByName(user.data.history)
+        });
+        let mathHS = this.highScoresByGame(this.state.gamesArray.math);
+        let addHS = this.highScoresByGame(this.state.gamesArray.add);
+        let subHS = this.highScoresByGame(this.state.gamesArray.sub);
+        let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
+        let divHS = this.highScoresByGame(this.state.gamesArray.div);
+
+        this.setState({
+          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
+        });
       })
       .catch(err => {
         // console.log(err);
+      });
+  }
+
+  getAllHighScores() {
+    axios
+      .get("/api/user")
+      .then(data => {
+        let highScoresAllUsers = [];
+        for (let i = 0; i < Object.keys(data.data).length; i++) {
+          let name = data.data[i].username;
+          let array = this.organizeGamesByName(data.data[i].history);
+          highScoresAllUsers.push({ name: name, history: array });
+        }
+        console.log(highScoresAllUsers);
+        for (let i = 0; i < highScoresAllUsers.length; i++) {
+          console.log(highScoresAllUsers[i]);
+        }
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
@@ -78,29 +111,14 @@ class ProgressCharts extends React.Component {
         unknowGame.unshift(data[i]);
       }
     }
-    this.setState(
-      {
-        gamesArray: {
-          math,
-          add,
-          sub,
-          multi,
-          div,
-          unknowGame
-        }
-      },
-      () => {
-        let mathHS = this.highScoresByGame(this.state.gamesArray.math);
-        let addHS = this.highScoresByGame(this.state.gamesArray.add);
-        let subHS = this.highScoresByGame(this.state.gamesArray.sub);
-        let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
-        let divHS = this.highScoresByGame(this.state.gamesArray.div);
-
-        this.setState({
-          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
-        });
-      }
-    );
+    return {
+      math,
+      add,
+      sub,
+      multi,
+      div,
+      unknowGame
+    };
   }
   render() {
     // ##############################

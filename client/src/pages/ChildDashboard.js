@@ -264,9 +264,9 @@ class ChildDashboard extends Component {
                         </div>
                         <div className="description">
                           <h4 className="info-title">Stats</h4>
-                          <p className="child-text">
-                            Check your gaming history and stats.
-                          </p>
+                          <Link to={`/child/${this.state.user._id}`}>
+                            Check your gaming stats
+                          </Link>
                         </div>
                       </div>
                     </div>
