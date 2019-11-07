@@ -31,9 +31,7 @@ class SignUp extends Component {
     this.checkIfSignedIn();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state);
-  }
+  componentDidUpdate() {}
   optionSelect = option => {
     if (option === "signUp") {
       this.setState({ isSigningUp: true, isLoggingIn: false });
@@ -55,11 +53,9 @@ class SignUp extends Component {
     } else {
       this.setState({ canSubmit: false });
     }
-    // console.log(name + ": " + value);
   };
   handleInputSignUp = event => {
     event.preventDefault();
-    // console.log("sign up");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
       this.setState({ openModal: true });
@@ -71,23 +67,19 @@ class SignUp extends Component {
         .then(result => {
           axios
             .post("/api/user", this.state)
-            .then(res => {
-              // console.log(res);
-            })
+            .then(res => {})
             .catch(err => {
               // console.log(err);
             });
         })
         .catch(e => {
-          // console.log(e.message);
-          this.setState({openModal: true});
-          this.setState({modalMsg: e.message});
+          this.setState({ openModal: true });
+          this.setState({ modalMsg: e.message });
         });
     }
   };
   handleInputSignIn = event => {
     event.preventDefault();
-    // console.log("sign in");
     if (!this.state.email || !this.state.password) {
       // Just in case the first catch misses bad data
       this.setState({ openModal: true });
@@ -96,13 +88,10 @@ class SignUp extends Component {
       this.setState({ canSubmit: true });
       auth
         .signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(result => {
-          // console.log("Successfully Logged In");
-        })
+        .then(result => {})
         .catch(e => {
-          // console.log(e.message);
-          this.setState({openModal: true});
-          this.setState({modalMsg: e.message});
+          this.setState({ openModal: true });
+          this.setState({ modalMsg: e.message });
         });
     }
   };
@@ -209,12 +198,12 @@ class SignUp extends Component {
           </div>
         </div>
         {this.state.openModal && (
-        <SignupModal 
-            title = "Uh Oh..."
-            message = {this.state.modalMsg}
-            fx = {this.openErrorModal}
-            btnText = "Ok"
-        />
+          <SignupModal
+            title="Uh Oh..."
+            message={this.state.modalMsg}
+            fx={this.openErrorModal}
+            btnText="Ok"
+          />
         )}
       </>
     );

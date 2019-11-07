@@ -32,9 +32,7 @@ class ProgressCharts extends React.Component {
     this.getUserInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.gamesArray.math);
-  }
+  componentDidUpdate() {}
 
   getUserInfo() {
     axios
@@ -44,7 +42,7 @@ class ProgressCharts extends React.Component {
         this.organizeGamesByName(user.data.history);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -55,7 +53,7 @@ class ProgressCharts extends React.Component {
         highScore = data[i].score;
       }
     }
-    return highScore
+    return highScore;
   }
 
   organizeGamesByName(data) {
@@ -98,7 +96,9 @@ class ProgressCharts extends React.Component {
         let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
         let divHS = this.highScoresByGame(this.state.gamesArray.div);
 
-        this.setState({highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]})
+        this.setState({
+          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
+        });
       }
     );
   }

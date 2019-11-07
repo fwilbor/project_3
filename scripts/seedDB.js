@@ -36,9 +36,7 @@ const userSeeds = [
 
 db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeeds))
-  .then(data => {
-    // console.log(data.result.n + " records inserted into User");
-  })
+  .then(data => {})
   .catch(err => {
     // console.error(err);
   });
@@ -71,7 +69,6 @@ db.Game.remove({})
     db.Game.collection
       .insertMany(gameSeeds)
       .then(data => {
-        // console.log(data.result.n + " records inserted into Games");
         process.exit(0);
       })
       .catch(err => {
@@ -83,5 +80,8 @@ db.Game.remove({})
     // console.error(err);
   });
 
-db.History.remove({}).then(() => console.log("Deleted History Collection"));
-
+db.History.remove({})
+  .then()
+  .catch(err => {
+    // console.log(err);
+  });

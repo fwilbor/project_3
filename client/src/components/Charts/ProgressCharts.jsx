@@ -35,9 +35,7 @@ class ProgressCharts extends React.Component {
     this.getUserInfo();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.gamesArray.math);
-  }
+  componentDidUpdate() {}
 
   getUserInfo() {
     axios
@@ -47,7 +45,7 @@ class ProgressCharts extends React.Component {
         this.organizeGamesByName(user.data.history);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -58,7 +56,7 @@ class ProgressCharts extends React.Component {
         highScore = data[i].score;
       }
     }
-    return highScore
+    return highScore;
   }
 
   organizeGamesByName(data) {
@@ -101,26 +99,43 @@ class ProgressCharts extends React.Component {
         let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
         let divHS = this.highScoresByGame(this.state.gamesArray.div);
 
-        this.setState({highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]})
+        this.setState({
+          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
+        });
         this.allTimeScore();
       }
     );
   }
 
   allTimeScore() {
-    var mathAllTime = (this.state.gamesArray.math[0].score / this.state.gamesArray.math[0].time) * 100;
-    var addAllTime = (this.state.gamesArray.add[0].score / this.state.gamesArray.add[0].time) * 100;
-    var subAllTime = (this.state.gamesArray.sub[0].score / this.state.gamesArray.sub[0].time) * 100;
-    var multiAllTime = (this.state.gamesArray.multi[0].score / this.state.gamesArray.multi[0].time) * 100;
-    var divAllTime = (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) * 100;
-    var allScores = (mathAllTime+addAllTime+subAllTime+multiAllTime+divAllTime)
-    // console.log("Math Game Score: "+ mathAllTime)
-    // console.log("Add Game Score: "+ addAllTime)
-    // console.log("Sub Game Score: "+ subAllTime)
-    // console.log("Multi Game Score: "+ multiAllTime)
-    // console.log("Div Game Score: "+ divAllTime)
-    console.log("All Time High Score: " + allScores)
-    this.setState({allTimeScoreArray: [mathAllTime, addAllTime, subAllTime, multiAllTime, divAllTime]})
+    var mathAllTime =
+      (this.state.gamesArray.math[0].score /
+        this.state.gamesArray.math[0].time) *
+      100;
+    var addAllTime =
+      (this.state.gamesArray.add[0].score / this.state.gamesArray.add[0].time) *
+      100;
+    var subAllTime =
+      (this.state.gamesArray.sub[0].score / this.state.gamesArray.sub[0].time) *
+      100;
+    var multiAllTime =
+      (this.state.gamesArray.multi[0].score /
+        this.state.gamesArray.multi[0].time) *
+      100;
+    var divAllTime =
+      (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) *
+      100;
+    var allScores =
+      mathAllTime + addAllTime + subAllTime + multiAllTime + divAllTime;
+    this.setState({
+      allTimeScoreArray: [
+        mathAllTime,
+        addAllTime,
+        subAllTime,
+        multiAllTime,
+        divAllTime
+      ]
+    });
   }
 
   render() {

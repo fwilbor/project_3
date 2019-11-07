@@ -24,13 +24,11 @@ class ChildDashboard extends Component {
   }
 
   componentDidUpdate() {
-    // console.log(this.state.user);
-    // this.checkIfSignedIn();
+    this.checkIfSignedIn();
   }
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      // console.log(fbUser.email);
       fbUser
         ? this.getUserInfo(fbUser.email)
         : this.props.history.push("/sign-in");
@@ -41,7 +39,6 @@ class ChildDashboard extends Component {
     axios
       .get("/api/user/email/" + userEmail)
       .then(res => {
-        // console.log(res);
         this.setState({ user: res.data });
       })
       .catch(err => {
@@ -50,10 +47,7 @@ class ChildDashboard extends Component {
   }
 
   setGame = gameName => {
-    this.setState({ game: gameName }, () => {
-      // console.log("game: ", this.state.game);
-    });
-    // const Game = gameName;
+    this.setState({ game: gameName });
   };
 
   render() {
@@ -270,9 +264,9 @@ class ChildDashboard extends Component {
                         </div>
                         <div className="description">
                           <h4 className="info-title">Stats</h4>
-                            <p className="child-text">
-                              Check your gaming history and stats.
-                            </p>
+                          <p className="child-text">
+                            Check your gaming history and stats.
+                          </p>
                         </div>
                       </div>
                     </div>
