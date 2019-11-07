@@ -11,32 +11,27 @@ import "./SubtractQuiz.css";
 import axios from "axios";
 
 class SubtractQuiz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: false,
-      subtract,
-      correctGuesses: 0,
-      usersHighScore: 0,
-      totalGuesses: 0,
-      correctClicked: false,
-      disabled: false,
-      display: false,
-      displayQuestions: [true],
-      gameInfo: ""
-    };
-  }
+  state = {
+    game: false,
+    subtract,
+    correctGuesses: 0,
+    usersHighScore: 0,
+    totalGuesses: 0,
+    correctClicked: false,
+    disabled: false,
+    display: false,
+    displayQuestions: [true],
+    gameInfo: ""
+  };
 
   componentDidMount() {
     this.getGameInfo();
   }
 
   componentDidUpdate() {
-    // console.log(this.state.displayQuestions);
   }
 
   resetGame = () => {
-    console.log("Time: " + document.getElementById("timer").getAttribute("value") + " seconds");
     this.setState({
       game: false,
       subtract,
@@ -57,7 +52,7 @@ class SubtractQuiz extends Component {
         this.setState({ gameInfo: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -123,7 +118,6 @@ class SubtractQuiz extends Component {
   };
 
   sendHighScore() {
-    console.log(document.getElementById("timer").getAttribute("value"));
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
@@ -135,7 +129,7 @@ class SubtractQuiz extends Component {
         this.updateHistory(histRes.data._id);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -150,14 +144,13 @@ class SubtractQuiz extends Component {
             history: updateArr
           })
           .then(postData => {
-            console.log(postData.data);
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -176,10 +169,9 @@ class SubtractQuiz extends Component {
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
-            High Score: {this.state.usersHighScore}
             {this.state.game ? (
               <>
-                &nbsp;| Timer:&nbsp;
+                &nbsp; Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (

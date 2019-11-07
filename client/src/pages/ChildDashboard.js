@@ -5,7 +5,7 @@ import axios from "axios";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "../firebase";
-import MathQuiz from "../components/Games/MathQuiz/MathQuiz";
+// import MathQuiz from "../components/Games/MathQuiz/MathQuiz";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -24,13 +24,11 @@ class ChildDashboard extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.user);
-    // this.checkIfSignedIn();
+    this.checkIfSignedIn();
   }
 
   checkIfSignedIn = () => {
     auth.onAuthStateChanged(fbUser => {
-      console.log(fbUser.email);
       fbUser
         ? this.getUserInfo(fbUser.email)
         : this.props.history.push("/sign-in");
@@ -41,19 +39,15 @@ class ChildDashboard extends Component {
     axios
       .get("/api/user/email/" + userEmail)
       .then(res => {
-        console.log(res);
         this.setState({ user: res.data });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
   setGame = gameName => {
-    this.setState({ game: gameName }, () => {
-      console.log("game: ", this.state.game);
-    });
-    // const Game = gameName;
+    this.setState({ game: gameName });
   };
 
   render() {
@@ -66,7 +60,10 @@ class ChildDashboard extends Component {
             <div className="row under-nav">
               <div className="col-md-4">
                 <div className="mascot-container mt-5">
-                  <img src="./assets/img/sections/iphone.png" alt="placeholder" />
+                  <img
+                    src="./assets/img/sections/iphone.png"
+                    alt="placeholder"
+                  />
                   {/*<img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" /> */}
                 </div>
               </div>
@@ -98,6 +95,10 @@ class ChildDashboard extends Component {
                           data-target="#carouselExampleCaptions"
                           data-slide-to="3"
                         ></li>
+                        <li
+                          data-target="#carouselExampleCaptions"
+                          data-slide-to="4"
+                        ></li>
                       </ol>
                       <div className="carousel-inner">
                         <Link
@@ -114,35 +115,18 @@ class ChildDashboard extends Component {
                             <p>Are you an arithmetic boss?</p>
                           </div>
                         </Link>
-                        <button
-                          onClick={() => this.setGame(MathQuiz)}
-                          className="carousel-item high-contrast"
-                        >
-                          <img
-                            src={require("../assets/img/mathGame.jpg")}
-                            className="carouselImg"
-                            alt="game"
-                          />
-                          <div className="carousel-caption d-none d-md-block">
-                            <h5>Math Game</h5>
-                            <p>Hope this works</p>
-                          </div>
-                        </button>
                         <Link
                           to={`${this.state.user._id}/addQuiz`}
                           className="carousel-item "
                         >
                           <img
-                            src="../assets/img/bg0.jpg"
+                            src={require("../assets/img/643x0w-addition.jpg")}
                             className="carouselImg"
                             alt="game"
                           />
                           <div className="carousel-caption d-none d-md-block">
                             <h5>Add-tastic!</h5>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
+                            <p>It's time to add it all up!</p>
                           </div>
                         </Link>
                         <Link
@@ -150,16 +134,13 @@ class ChildDashboard extends Component {
                           className="carousel-item"
                         >
                           <img
-                            src="../assets/img/dg2.jpg"
+                            src={require("../assets/img/mathematics-sub.jpg")}
                             className="carouselImg"
                             alt="game"
                           />
                           <div className="carousel-caption d-none d-md-block">
                             <h5>Subtractify</h5>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </p>
+                            <p>Subtractify for the next high score!</p>
                           </div>
                         </Link>
                         <Link
@@ -167,16 +148,27 @@ class ChildDashboard extends Component {
                           className="carousel-item"
                         >
                           <img
-                            src="../assets/img/dg6.jpg"
+                            src={require("../assets/img/kids-multiplication-table-800x442.jpg")}
                             className="carouselImg"
                             alt="game"
                           />
                           <div className="carousel-caption d-none d-md-block">
                             <h5>Multiples of Fun</h5>
-                            <p>
-                              Praesent commodo cursus magna, vel scelerisque
-                              nisl consectetur.
-                            </p>
+                            <p>Multiplicity of Multiples</p>
+                          </div>
+                        </Link>
+                        <Link
+                          to={`${this.state.user._id}/divQuiz`}
+                          className="carousel-item"
+                        >
+                          <img
+                            src={require("../assets/img/4-square-div.jpg")}
+                            className="carouselImg"
+                            alt="game"
+                          />
+                          <div className="carousel-caption d-none d-md-block">
+                            <h5>Divide and Conquer</h5>
+                            <p>Division Control</p>
                           </div>
                         </Link>
                       </div>

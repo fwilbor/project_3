@@ -1,14 +1,10 @@
 import React from "react";
+import "./NoMatch.css";
 
 function NoMatch() {
   return (
     <>
-      <h1>404 Page Not Found</h1>
-      <h1>
-        <span role="img" aria-label="Face With Rolling Eyes Emoji">
-          🙄
-        </span>
-      </h1>
+        <img src={require("../assets/img/JBOTErrorPage.jpg")} alt={"Error Page"} />
     </>
   );
 }

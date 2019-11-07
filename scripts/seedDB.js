@@ -36,11 +36,9 @@ const userSeeds = [
 
 db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeeds))
-  .then(data => {
-    console.log(data.result.n + " records inserted into User");
-  })
+  .then(data => {})
   .catch(err => {
-    console.error(err);
+    // console.error(err);
   });
 
 const gameSeeds = [
@@ -71,46 +69,19 @@ db.Game.remove({})
     db.Game.collection
       .insertMany(gameSeeds)
       .then(data => {
-        console.log(data.result.n + " records inserted into Games");
         process.exit(0);
       })
       .catch(err => {
-        console.error(err);
+        // console.error(err);
         process.exit(1);
       });
   })
   .catch(err => {
-    console.error(err);
+    // console.error(err);
   });
 
-// db.Game.find({})
-//   .then(games => {
-//     console.log(games);
-// const historySeeds = [
-//   {
-//     date: "right here right now",
-//     score: Math.floor(Math.random() * 10 + 1),
-//     game: games[1]._id
-//   },
-//   {
-//     date: "sometime last week",
-//     score: Math.floor(Math.random() * 10 + 1),
-//     game: games[0]._id
-//   }
-// ];
-db.History.remove({}).then(() => console.log("Deleted History Collection"));
-//   .then(() => db.History.collection.insertMany(historySeeds))
-//   .then(data => {
-//     console.log("Data: " + data);
-//     console.log(data.result.n + " records inserted into History");
-//     // process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     // process.exit(1);
-//   });
-// })
-// .catch(err => {
-//   console.error(err);
-//   process.exit(1);
-// });
+db.History.remove({})
+  .then()
+  .catch(err => {
+    // console.log(err);
+  });
