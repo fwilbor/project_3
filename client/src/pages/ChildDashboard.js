@@ -117,7 +117,7 @@ class ChildDashboard extends Component {
                             <p>Are you an arithmetic boss?</p>
                           </div>
                         </Link>
-                        <button
+                        {/*<button
                           onClick={() => this.setGame(MathQuiz)}
                           className="carousel-item high-contrast"
                         >
@@ -130,7 +130,7 @@ class ChildDashboard extends Component {
                             <h5>Math Game</h5>
                             <p>Hope this works</p>
                           </div>
-                        </button>
+                        </button>*/}
                         <Link
                           to={`${this.state.user._id}/addQuiz`}
                           className="carousel-item "
