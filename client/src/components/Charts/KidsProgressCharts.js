@@ -34,7 +34,9 @@ class ProgressCharts extends React.Component {
     this.getAllHighScores();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    console.log(this.state.allHighScores);
+  }
 
   getUserInfo() {
     axios
@@ -70,8 +72,29 @@ class ProgressCharts extends React.Component {
           highScoresAllUsers.push({ name: name, history: array });
         }
         console.log(highScoresAllUsers);
+        let finalHS = [];
         for (let i = 0; i < highScoresAllUsers.length; i++) {
-          console.log(highScoresAllUsers[i]);
+          let name = highScoresAllUsers[i].name;
+          let mathHS = this.highScoresByGame(
+            highScoresAllUsers[i].history.math
+          );
+          let addHS = this.highScoresByGame(highScoresAllUsers[i].history.add);
+          let subHS = this.highScoresByGame(highScoresAllUsers[i].history.sub);
+          let multiHS = this.highScoresByGame(
+            highScoresAllUsers[i].history.multi
+          );
+          let divHS = this.highScoresByGame(highScoresAllUsers[i].history.div);
+          finalHS.push({
+            name: name,
+            highScores: [
+              { math: mathHS },
+              { add: addHS },
+              { sub: subHS },
+              { multi: multiHS },
+              { div: divHS }
+            ]
+          });
+          this.setState({ allHighScores: finalHS });
         }
       })
       .catch(err => {
