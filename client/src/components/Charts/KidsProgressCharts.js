@@ -122,7 +122,7 @@ class ProgressCharts extends React.Component {
           allHighScores: [
             { game: "Math", user: math },
             { game: "Addition", user: add },
-            { game: "Subtract", user: sub },
+            { game: "Subtraction", user: sub },
             { game: "Multiplication", user: multi },
             { game: "Division", user: div }
           ]

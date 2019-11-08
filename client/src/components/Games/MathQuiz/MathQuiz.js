@@ -122,9 +122,10 @@ class MathQuiz extends Component {
         date: new Date(Date.now()),
         time: parseInt(document.getElementById("timer").getAttribute("value")),
         score:
-          ((this.state.usersHighScore * this.state.usersHighScore) /
-            parseInt(document.getElementById("timer").getAttribute("value"))) *
-          100,
+          parseInt(
+            (this.state.usersHighScore * this.state.usersHighScore) /
+              parseFloat(document.getElementById("timer").getAttribute("value"))
+          ) * 100,
         game: this.state.gameInfo
       })
       .then(histRes => {
