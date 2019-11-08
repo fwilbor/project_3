@@ -36,7 +36,8 @@ class KidsProgressCharts extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.allHighScores);
+    if (this.state.allHighScores[0]) console.log(this.state.allHighScores);
+    // console.log(this.state.allHighScores[0].user[0].name);
   }
 
   getUserInfo() {
@@ -121,11 +122,36 @@ class KidsProgressCharts extends React.Component {
         );
         this.setState({
           allHighScores: [
-            { game: "Math", user: math },
-            { game: "Addition", user: add },
-            { game: "Subtract", user: sub },
-            { game: "Multiplication", user: multi },
-            { game: "Division", user: div }
+            {
+              game: "Math",
+              history: math,
+              highScore: math[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Addition",
+              history: add,
+              highScore: add[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Subtract",
+              history: sub,
+              highScore: sub[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Multiplication",
+              history: multi,
+              highScore: multi[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Division",
+              history: div,
+              highScore: div[0].score,
+              user: math[0].name
+            }
           ]
         });
       })
@@ -650,7 +676,7 @@ class KidsProgressCharts extends React.Component {
           <Col xs={12} md={6}>
             <Card>
               <CardHeader>
-                <h5 className="card-category">LeaderBoard</h5>
+                <h5 className="card-category">Leader-Board</h5>
                 <CardTitle tag="h4">All Time High Scores:</CardTitle>
               </CardHeader>
               <CardBody>
@@ -658,42 +684,26 @@ class KidsProgressCharts extends React.Component {
                   <thead className="text-primary">
                     <tr>
                       <th>User Name:</th>
-                      <th></th>
                       <th>Game:</th>
-                      <th className="text-right">High Scores:</th>
+                      <th className="text-right">Score:</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>User#1</td>
-                      <td></td>
-                      <td>MathQuiz</td>
-                      <td className="text-right">Score#1</td>
-                    </tr>
-                    <tr>
-                      <td>User#2</td>
-                      <td></td>
-                      <td>AddQuiz</td>
-                      <td className="text-right">Score#2</td>
-                    </tr>
-                    <tr>
-                      <td>User#3</td>
-                      <td></td>
-                      <td>SubQuiz</td>
-                      <td className="text-right">Score#3</td>
-                    </tr>
-                    <tr>
-                      <td>User#4</td>
-                      <td></td>
-                      <td>MultiQuiz</td>
-                      <td className="text-right">Score#4</td>
-                    </tr>
-                    <tr>
-                      <td>User#5</td>
-                      <td></td>
-                      <td>DivQuiz</td>
-                      <td className="text-right">Score#5</td>
-                    </tr>
+                    {this.state.allHighScores.map(game => {
+                      if (game.highScore) {
+                        return (
+                          <div>
+                            <tr>
+                              <td>{game.user ? game.user : "TBD"}</td>
+                              <td>{game.game ? game.game : "TBD"}</td>
+                              <td className="text-right">
+                                {game.highScore ? game.highScore : "TBD"}
+                              </td>
+                            </tr>
+                          </div>
+                        );
+                      }
+                    })}
                   </tbody>
                 </Table>
               </CardBody>
@@ -706,3 +716,4 @@ class KidsProgressCharts extends React.Component {
   }
 }
 export default KidsProgressCharts;
+
