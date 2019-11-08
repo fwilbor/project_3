@@ -72,7 +72,7 @@ class KidsProgressCharts extends React.Component {
           let array = this.organizeGamesByName(data.data[i].history);
           highScoresAllUsers.push({ name: name, history: array });
         }
-        console.log(highScoresAllUsers);
+        // console.log(highScoresAllUsers);
         let finalHS = [];
         for (let i = 0; i < highScoresAllUsers.length; i++) {
           let name = highScoresAllUsers[i].name;
