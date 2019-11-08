@@ -132,25 +132,25 @@ class KidsProgressCharts extends React.Component {
               game: "Addition",
               history: add,
               highScore: add[0].score,
-              user: math[0].name
+              user: add[0].name
             },
             {
               game: "Subtract",
               history: sub,
               highScore: sub[0].score,
-              user: math[0].name
+              user: sub[0].name
             },
             {
               game: "Multiplication",
               history: multi,
               highScore: multi[0].score,
-              user: math[0].name
+              user: multi[0].name
             },
             {
               game: "Division",
               history: div,
               highScore: div[0].score,
-              user: math[0].name
+              user: div[0].name
             }
           ]
         });
@@ -685,22 +685,20 @@ class KidsProgressCharts extends React.Component {
                     <tr>
                       <th>User Name:</th>
                       <th>Game:</th>
-                      <th className="text-right">Score:</th>
+                      <th>Score:</th>
                     </tr>
                   </thead>
                   <tbody>
                     {this.state.allHighScores.map(game => {
                       if (game.highScore) {
                         return (
-                          <div>
                             <tr>
                               <td>{game.user ? game.user : "TBD"}</td>
                               <td>{game.game ? game.game : "TBD"}</td>
-                              <td className="text-right">
+                              <td>
                                 {game.highScore ? game.highScore : "TBD"}
                               </td>
                             </tr>
-                          </div>
                         );
                       }
                     })}
