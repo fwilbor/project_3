@@ -36,7 +36,8 @@ class KidsProgressCharts extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.allHighScores);
+    if (this.state.allHighScores[0]) console.log(this.state.allHighScores);
+    // console.log(this.state.allHighScores[0].user[0].name);
   }
 
   getUserInfo() {
@@ -73,35 +74,98 @@ class KidsProgressCharts extends React.Component {
           highScoresAllUsers.push({ name: name, history: array });
         }
         console.log(highScoresAllUsers);
-        let finalHS = [];
+        let finalHS = {
+          math: [],
+          add: [],
+          sub: [],
+          multi: [],
+          div: []
+        };
         for (let i = 0; i < highScoresAllUsers.length; i++) {
           let name = highScoresAllUsers[i].name;
-          let mathHS = this.highScoresByGame(
-            highScoresAllUsers[i].history.math
-          );
-          let addHS = this.highScoresByGame(highScoresAllUsers[i].history.add);
-          let subHS = this.highScoresByGame(highScoresAllUsers[i].history.sub);
-          let multiHS = this.highScoresByGame(
-            highScoresAllUsers[i].history.multi
-          );
-          let divHS = this.highScoresByGame(highScoresAllUsers[i].history.div);
-          finalHS.push({
+          finalHS.math.push({
             name: name,
-            highScores: [
-              { math: mathHS },
-              { add: addHS },
-              { sub: subHS },
-              { multi: multiHS },
-              { div: divHS }
-            ]
+            score: this.highScoresByGame(highScoresAllUsers[i].history.math)
           });
-          this.setState({ allHighScores: finalHS });
+          finalHS.add.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.add)
+          });
+          finalHS.sub.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.sub)
+          });
+          finalHS.multi.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.multi)
+          });
+          finalHS.div.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.div)
+          });
         }
+        console.log(finalHS);
+        let math = finalHS.math.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let add = finalHS.add.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let sub = finalHS.sub.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let multi = finalHS.multi.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let div = finalHS.div.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        this.setState({
+          allHighScores: [
+            {
+              game: "Math",
+              history: math,
+              highScore: math[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Addition",
+              history: add,
+              highScore: add[0].score,
+              user: add[0].name
+            },
+            {
+              game: "Subtract",
+              history: sub,
+              highScore: sub[0].score,
+              user: sub[0].name
+            },
+            {
+              game: "Multiplication",
+              history: multi,
+              highScore: multi[0].score,
+              user: multi[0].name
+            },
+            {
+              game: "Division",
+              history: div,
+              highScore: div[0].score,
+              user: div[0].name
+            }
+          ]
+        });
       })
       .catch(err => {
         console.log(err);
       });
   }
+
+  // arrangeHighScores1stToLast(data) {
+  //   let array = [];
+  //   for (let i = 0; i < data.math.length; i++) {
+  //     console.log(data.math[i]);
+  //   }
+  // }
 
   highScoresByGame(data) {
     let highScore = 0;
@@ -612,7 +676,7 @@ class KidsProgressCharts extends React.Component {
           <Col xs={12} md={6}>
             <Card>
               <CardHeader>
-                <h5 className="card-category">LeaderBoard</h5>
+                <h5 className="card-category">Leader-Board</h5>
                 <CardTitle tag="h4">All Time High Scores:</CardTitle>
               </CardHeader>
               <CardBody>
@@ -620,42 +684,24 @@ class KidsProgressCharts extends React.Component {
                   <thead className="text-primary">
                     <tr>
                       <th>User Name:</th>
-                      <th></th>
                       <th>Game:</th>
-                      <th className="text-right">High Scores:</th>
+                      <th>Score:</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>User#1</td>
-                      <td></td>
-                      <td>MathQuiz</td>
-                      <td className="text-right">Score#1</td>
-                    </tr>
-                    <tr>
-                      <td>User#2</td>
-                      <td></td>
-                      <td>AddQuiz</td>
-                      <td className="text-right">Score#2</td>
-                    </tr>
-                    <tr>
-                      <td>User#3</td>
-                      <td></td>
-                      <td>SubQuiz</td>
-                      <td className="text-right">Score#3</td>
-                    </tr>
-                    <tr>
-                      <td>User#4</td>
-                      <td></td>
-                      <td>MultiQuiz</td>
-                      <td className="text-right">Score#4</td>
-                    </tr>
-                    <tr>
-                      <td>User#5</td>
-                      <td></td>
-                      <td>DivQuiz</td>
-                      <td className="text-right">Score#5</td>
-                    </tr>
+                    {this.state.allHighScores.map(game => {
+                      if (game.highScore) {
+                        return (
+                            <tr>
+                              <td>{game.user ? game.user : "TBD"}</td>
+                              <td>{game.game ? game.game : "TBD"}</td>
+                              <td>
+                                {game.highScore ? game.highScore : "TBD"}
+                              </td>
+                            </tr>
+                        );
+                      }
+                    })}
                   </tbody>
                 </Table>
               </CardBody>
@@ -668,3 +714,4 @@ class KidsProgressCharts extends React.Component {
   }
 }
 export default KidsProgressCharts;
+
