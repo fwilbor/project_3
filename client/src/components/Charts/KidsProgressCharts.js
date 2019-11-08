@@ -692,13 +692,11 @@ class KidsProgressCharts extends React.Component {
                     {this.state.allHighScores.map(game => {
                       if (game.highScore) {
                         return (
-                            <tr>
-                              <td>{game.user ? game.user : "TBD"}</td>
-                              <td>{game.game ? game.game : "TBD"}</td>
-                              <td>
-                                {game.highScore ? game.highScore : "TBD"}
-                              </td>
-                            </tr>
+                          <tr>
+                            <td>{game.user ? game.user : "TBD"}</td>
+                            <td>{game.game ? game.game : "TBD"}</td>
+                            <td>{game.highScore ? game.highScore : "TBD"}</td>
+                          </tr>
                         );
                       }
                     })}
@@ -714,4 +712,3 @@ class KidsProgressCharts extends React.Component {
   }
 }
 export default KidsProgressCharts;
-
