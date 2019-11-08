@@ -51,7 +51,7 @@ class ChildDashboard extends Component {
   };
 
   render() {
-    const Game = this.state.game;
+    // const Game = this.state.game;
     return (
       <div className="child-dash">
         <NavBar />
@@ -117,7 +117,7 @@ class ChildDashboard extends Component {
                         </Link>
                         <Link
                           to={`${this.state.user._id}/addQuiz`}
-                          className="carousel-item "
+                          className="carousel-item high-contrast"
                         >
                           <img
                             src={require("../assets/img/643x0w-addition.jpg")}
@@ -131,7 +131,7 @@ class ChildDashboard extends Component {
                         </Link>
                         <Link
                           to={`${this.state.user._id}/subQuiz`}
-                          className="carousel-item"
+                          className="carousel-item high-contrast"
                         >
                           <img
                             src={require("../assets/img/mathematics-sub.jpg")}
@@ -145,7 +145,7 @@ class ChildDashboard extends Component {
                         </Link>
                         <Link
                           to={`${this.state.user._id}/multiQuiz`}
-                          className="carousel-item"
+                          className="carousel-item high-contrast"
                         >
                           <img
                             src={require("../assets/img/kids-multiplication-table-800x442.jpg")}
@@ -159,7 +159,7 @@ class ChildDashboard extends Component {
                         </Link>
                         <Link
                           to={`${this.state.user._id}/divQuiz`}
-                          className="carousel-item"
+                          className="carousel-item high-contrast"
                         >
                           <img
                             src={require("../assets/img/4-square-div.jpg")}
@@ -200,13 +200,13 @@ class ChildDashboard extends Component {
                     </div>
                   </div>
 
-                  {this.state.game && (
+                  {/* {this.state.game && (
                     <div className="bd-example">
                       <div className="playingField">
                         <Game />
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className="row">
                   <div className="col-md-4">

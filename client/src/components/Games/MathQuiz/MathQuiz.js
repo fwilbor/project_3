@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "../../NavBar";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -9,6 +8,7 @@ import math from "./jsonfiles/math.json";
 import Timer from "../../Timer/Timer";
 import "./MathQuiz.css";
 import axios from "axios";
+import CloseButton from "../../Buttons/CloseButton";
 
 class MathQuiz extends Component {
   state = {
@@ -162,10 +162,10 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
-        <NavBar />
+        <div className="game-container">
+        <CloseButton/>
         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
-          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
@@ -205,6 +205,8 @@ class MathQuiz extends Component {
               </div>
             </div>
           )}
+          <ResetButton resetClick={this.resetGame} />
+        </div>
         </div>
       </Wrapper>
     );
