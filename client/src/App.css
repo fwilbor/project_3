@@ -19,6 +19,9 @@
 .navbar a.dropdown-item:hover{
   background-color: rgba(233, 30, 99, 0.85);
 }
+.navbar .collapse {
+  display: block !important;
+}
 .navbar-brand {
   color: inherit !important;
 }
@@ -209,19 +212,3 @@ ul > li {
 .yep:disabled {
   color: gray !important;
 }
-
-#nav-menu {
-  position: relative;
-  left: 90%;
-}
-
-#nav-menu .collapse .show {
-  /* display: block !important; */
-}
-
-#nav-menu .collapse {
-  /* display: none !important; */
-}
-
-
-
