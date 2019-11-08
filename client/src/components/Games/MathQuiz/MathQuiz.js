@@ -109,11 +109,9 @@ class MathQuiz extends Component {
   };
 
   mappingDisplayQuestions = () => {
-    // if (this.state.displayQuestions.length < 20) {
     for (let i = 1; i < math.length; i++) {
       this.state.displayQuestions.push(false);
     }
-    // }
   };
 
   sendHighScore() {
