@@ -10,6 +10,7 @@ import {
   CardBody,
   CardFooter,
   CardTitle,
+  Table,
   Row,
   Col
 } from "reactstrap";
@@ -26,24 +27,79 @@ class KidsProgressCharts extends React.Component {
       unknowGame: [0]
     },
     highScoreArray: [0],
-    allTimeScoreArray: [0]
+    allHighScores: [0]
   };
 
   componentDidMount() {
     this.getUserInfo();
+    this.getAllHighScores();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    console.log(this.state.allHighScores);
+  }
 
   getUserInfo() {
     axios
       .get(`/api/user/${this.props.match.params.id}`)
       .then(user => {
-        this.setState({ user: user.data });
-        this.organizeGamesByName(user.data.history);
+        this.setState({
+          user: user.data,
+          gamesArray: this.organizeGamesByName(user.data.history)
+        });
+        let mathHS = this.highScoresByGame(this.state.gamesArray.math);
+        let addHS = this.highScoresByGame(this.state.gamesArray.add);
+        let subHS = this.highScoresByGame(this.state.gamesArray.sub);
+        let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
+        let divHS = this.highScoresByGame(this.state.gamesArray.div);
+
+        this.setState({
+          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
+        });
       })
       .catch(err => {
         // console.log(err);
+      });
+  }
+
+  getAllHighScores() {
+    axios
+      .get("/api/user")
+      .then(data => {
+        let highScoresAllUsers = [];
+        for (let i = 0; i < Object.keys(data.data).length; i++) {
+          let name = data.data[i].username;
+          let array = this.organizeGamesByName(data.data[i].history);
+          highScoresAllUsers.push({ name: name, history: array });
+        }
+        console.log(highScoresAllUsers);
+        let finalHS = [];
+        for (let i = 0; i < highScoresAllUsers.length; i++) {
+          let name = highScoresAllUsers[i].name;
+          let mathHS = this.highScoresByGame(
+            highScoresAllUsers[i].history.math
+          );
+          let addHS = this.highScoresByGame(highScoresAllUsers[i].history.add);
+          let subHS = this.highScoresByGame(highScoresAllUsers[i].history.sub);
+          let multiHS = this.highScoresByGame(
+            highScoresAllUsers[i].history.multi
+          );
+          let divHS = this.highScoresByGame(highScoresAllUsers[i].history.div);
+          finalHS.push({
+            name: name,
+            highScores: [
+              { math: mathHS },
+              { add: addHS },
+              { sub: subHS },
+              { multi: multiHS },
+              { div: divHS }
+            ]
+          });
+          this.setState({ allHighScores: finalHS });
+        }
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
@@ -79,30 +135,14 @@ class KidsProgressCharts extends React.Component {
         unknowGame.unshift(data[i]);
       }
     }
-    this.setState(
-      {
-        gamesArray: {
-          math,
-          add,
-          sub,
-          multi,
-          div,
-          unknowGame
-        }
-      },
-      () => {
-        let mathHS = this.highScoresByGame(this.state.gamesArray.math);
-        let addHS = this.highScoresByGame(this.state.gamesArray.add);
-        let subHS = this.highScoresByGame(this.state.gamesArray.sub);
-        let multiHS = this.highScoresByGame(this.state.gamesArray.multi);
-        let divHS = this.highScoresByGame(this.state.gamesArray.div);
-
-        this.setState({
-          highScoreArray: [mathHS, addHS, subHS, multiHS, divHS]
-        });
-        this.allTimeScore();
-      }
-    );
+    return {
+      math,
+      add,
+      sub,
+      multi,
+      div,
+      unknowGame
+    };
   }
 
   allTimeScore() {
@@ -134,7 +174,7 @@ class KidsProgressCharts extends React.Component {
         divAllTime
       ]
     });
-    console.log(allScores)
+    console.log(allScores);
   }
   render() {
     // ##############################
@@ -567,6 +607,62 @@ class KidsProgressCharts extends React.Component {
             </Col>
           </Row>
         </div>
+        <Row>
+          <Col xs={12} md={3}></Col>
+          <Col xs={12} md={6}>
+            <Card>
+              <CardHeader>
+                <h5 className="card-category">LeaderBoard</h5>
+                <CardTitle tag="h4">All Time High Scores:</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Table responsive>
+                  <thead className="text-primary">
+                    <tr>
+                      <th>User Name:</th>
+                      <th></th>
+                      <th>Game:</th>
+                      <th className="text-right">High Scores:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>User#1</td>
+                      <td></td>
+                      <td>MathQuiz</td>
+                      <td className="text-right">Score#1</td>
+                    </tr>
+                    <tr>
+                      <td>User#2</td>
+                      <td></td>
+                      <td>AddQuiz</td>
+                      <td className="text-right">Score#2</td>
+                    </tr>
+                    <tr>
+                      <td>User#3</td>
+                      <td></td>
+                      <td>SubQuiz</td>
+                      <td className="text-right">Score#3</td>
+                    </tr>
+                    <tr>
+                      <td>User#4</td>
+                      <td></td>
+                      <td>MultiQuiz</td>
+                      <td className="text-right">Score#4</td>
+                    </tr>
+                    <tr>
+                      <td>User#5</td>
+                      <td></td>
+                      <td>DivQuiz</td>
+                      <td className="text-right">Score#5</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs={12} md={3}></Col>
+        </Row>
       </>
     );
   }

@@ -28,8 +28,7 @@ class SubtractQuiz extends Component {
     this.getGameInfo();
   }
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   resetGame = () => {
     this.setState({
@@ -122,7 +121,10 @@ class SubtractQuiz extends Component {
       .post("/api/history", {
         date: new Date(Date.now()),
         time: parseInt(document.getElementById("timer").getAttribute("value")),
-        score: this.state.usersHighScore,
+        score:
+          ((this.state.usersHighScore * this.state.usersHighScore) /
+            parseInt(document.getElementById("timer").getAttribute("value"))) *
+          100,
         game: this.state.gameInfo
       })
       .then(histRes => {
@@ -143,8 +145,7 @@ class SubtractQuiz extends Component {
           .put(`/api/user/${this.props.match.params.id}`, {
             history: updateArr
           })
-          .then(postData => {
-          })
+          .then(postData => {})
           .catch(err => {
             // console.log(err);
           });
