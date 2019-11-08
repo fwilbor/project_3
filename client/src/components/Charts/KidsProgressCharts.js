@@ -72,36 +72,74 @@ class KidsProgressCharts extends React.Component {
           let array = this.organizeGamesByName(data.data[i].history);
           highScoresAllUsers.push({ name: name, history: array });
         }
-        // console.log(highScoresAllUsers);
-        let finalHS = [];
+        console.log(highScoresAllUsers);
+        let finalHS = {
+          math: [],
+          add: [],
+          sub: [],
+          multi: [],
+          div: []
+        };
         for (let i = 0; i < highScoresAllUsers.length; i++) {
           let name = highScoresAllUsers[i].name;
-          let mathHS = this.highScoresByGame(
-            highScoresAllUsers[i].history.math
-          );
-          let addHS = this.highScoresByGame(highScoresAllUsers[i].history.add);
-          let subHS = this.highScoresByGame(highScoresAllUsers[i].history.sub);
-          let multiHS = this.highScoresByGame(
-            highScoresAllUsers[i].history.multi
-          );
-          let divHS = this.highScoresByGame(highScoresAllUsers[i].history.div);
-          finalHS.push({
+          finalHS.math.push({
             name: name,
-            highScores: [
-              { math: mathHS },
-              { add: addHS },
-              { sub: subHS },
-              { multi: multiHS },
-              { div: divHS }
-            ]
+            score: this.highScoresByGame(highScoresAllUsers[i].history.math)
           });
-          this.setState({ allHighScores: finalHS });
+          finalHS.add.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.add)
+          });
+          finalHS.sub.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.sub)
+          });
+          finalHS.multi.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.multi)
+          });
+          finalHS.div.push({
+            name: name,
+            score: this.highScoresByGame(highScoresAllUsers[i].history.div)
+          });
         }
+        console.log(finalHS);
+        let math = finalHS.math.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let add = finalHS.add.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let sub = finalHS.sub.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let multi = finalHS.multi.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        let div = finalHS.div.sort(
+          (a, b) => parseFloat(b.score) - parseFloat(a.score)
+        );
+        this.setState({
+          allHighScores: [
+            { game: "Math", user: math },
+            { game: "Addition", user: add },
+            { game: "Subtract", user: sub },
+            { game: "Multiplication", user: multi },
+            { game: "Division", user: div }
+          ]
+        });
       })
       .catch(err => {
         console.log(err);
       });
   }
+
+  // arrangeHighScores1stToLast(data) {
+  //   let array = [];
+  //   for (let i = 0; i < data.math.length; i++) {
+  //     console.log(data.math[i]);
+  //   }
+  // }
 
   highScoresByGame(data) {
     let highScore = 0;
