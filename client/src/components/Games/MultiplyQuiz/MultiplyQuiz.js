@@ -117,6 +117,9 @@ class MultiplyQuiz extends Component {
   };
 
   sendHighScore() {
+    console.log(
+      parseFloat(document.getElementById("timer").getAttribute("value"))
+    );
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
