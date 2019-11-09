@@ -585,7 +585,9 @@ class KidsProgressCharts extends React.Component {
     };
     return (
       <>
+      <div className="child-dash">
         <NavBar />
+      </div>
         <br></br>
         <br></br>
         <br></br>
