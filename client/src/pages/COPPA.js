@@ -10,14 +10,14 @@ const COPPA = () => {
       <div className="experience-page sidebar-collapse">
       <div className="coppa-page page-header header-filter" data-parallax="true"></div>
 
-      <div className="main main-raised">
+      <div className="coppa-page main main-raised">
           <div className="container">
             <div className="section text-center">
               <div className="row">
                 <div className="col-md-8 ml-auto mr-auto">
                   <h2 className="title">Privacy Policy</h2>
                   <div className="description">
-                    <ul className="pull-left">
+                    
                       <h5>
                         Your privacy is important to J-BOT so we’ve developed a
                         Privacy Policy that covers how we collect, use,
@@ -39,54 +39,59 @@ const COPPA = () => {
                         services or respond to any queries you may have.
                       </h5>
 
-                      <h3>What personal information we collect:</h3>
-                      <ul>
-                        <li>
-                          When you create an J-BOT ID, we may collect a variety
-                          of information, including your name, email address and
-                          profile information.
-                        </li>
-                        <li>
-                          In certain jurisdictions, we may ask for a government
-                          issued ID in limited circumstances.
-                        </li>
-                      </ul>
+                      <div className="mb-2">
+                        <h3>What personal information we collect:</h3>
+                        <ul>
+                          <li>
+                            When you create an J-BOT ID, we may collect a variety
+                            of information, including your name, email address and
+                            profile information.
+                          </li>
+                          <li>
+                            In certain jurisdictions, we may ask for a government
+                            issued ID in limited circumstances.
+                          </li>
+                        </ul>
+                      </div>
 
-                      <h3>How we use your personal information:</h3>
-                      <ul>
-                        <li>
-                          The personal information we collect allows us to keep
-                          you posted on J-BOT’s latest announcements, software
-                          updates, and upcoming events.
-                        </li>
-                        <li>
-                          We also use personal information to help us create,
-                          develop, operate, deliver, and improve our products
-                          and services.
-                        </li>
-                        <li>
-                          We may use your personal information, including date
-                          of birth, to verify identity, assist with
-                          identification of users, and to determine appropriate
-                          services.
-                        </li>
-                        <li>
-                          From time to time, we may use your personal
-                          information to send important notices, such as
-                          communications about purchases and changes to our
-                          terms, conditions, and policies. Because this
-                          information is important to your interaction with
-                          Apple, you may not opt out of receiving these
-                          communications.
-                        </li>
-                        <li>
-                          We may also use personal information for internal
-                          purposes such as auditing, data analysis, and research
-                          to improve J-BOT’s products, services, and customer
-                          communications.
-                        </li>
-                      </ul>
+                      <div className="mb-2">
+                        <h3>How we use your personal information:</h3>
+                        <ul>
+                          <li>
+                            The personal information we collect allows us to keep
+                            you posted on J-BOT’s latest announcements, software
+                            updates, and upcoming events.
+                          </li>
+                          <li>
+                            We also use personal information to help us create,
+                            develop, operate, deliver, and improve our products
+                            and services.
+                          </li>
+                          <li>
+                            We may use your personal information, including date
+                            of birth, to verify identity, assist with
+                            identification of users, and to determine appropriate
+                            services.
+                          </li>
+                          <li>
+                            From time to time, we may use your personal
+                            information to send important notices, such as
+                            communications about purchases and changes to our
+                            terms, conditions, and policies. Because this
+                            information is important to your interaction with
+                            Apple, you may not opt out of receiving these
+                            communications.
+                          </li>
+                          <li>
+                            We may also use personal information for internal
+                            purposes such as auditing, data analysis, and research
+                            to improve J-BOT’s products, services, and customer
+                            communications.
+                          </li>
+                        </ul>
+                      </div>
 
+                      <div className="mb-2">
                       <h3>Children &amp; Education:</h3>
                       <ul>
                         <li>
@@ -124,7 +129,8 @@ const COPPA = () => {
                           the options provided.
                         </li>
                       </ul>
-                    </ul>
+                      </div>
+                    
                   </div>
                 </div>
               </div>

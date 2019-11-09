@@ -59,10 +59,6 @@ class ChildDashboard extends Component {
             <div className="row under-nav">
               <div className="col-md-4">
                 <div className="mascot-container mt-5">
-                  {/*<img
-                    src="./assets/img/sections/iphone.png"
-                    alt="placeholder"
-                    />*/}
                   <img
                     src={require("../assets/img/JBOTPlaceHolder.png")}
                     alt="mascot"

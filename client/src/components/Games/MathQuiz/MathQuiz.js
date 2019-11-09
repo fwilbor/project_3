@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -121,9 +122,7 @@ class MathQuiz extends Component {
         time: parseInt(document.getElementById("timer").getAttribute("value")),
         score: parseInt(
           ((this.state.usersHighScore * this.state.usersHighScore) /
-            parseFloat(
-              document.getElementById("timer").getAttribute("value")
-            )) *
+            parseInt(document.getElementById("timer").getAttribute("value"))) *
             100
         ),
         game: this.state.gameInfo
@@ -163,16 +162,18 @@ class MathQuiz extends Component {
   render() {
     return (
       <Wrapper>
-        <NavBar />
+        {/*<NavBar />*/}
         <div className="jumbotron" id="mathjumbotron">
+          <Link to="/child"><button className="btn btn-primary back-button">Go Back</button></Link>
           <Header id="mathHeader">J-BOT Math!</Header>
+          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
             <br />
             {this.state.game ? (
               <>
-                &nbsp; Timer:&nbsp;
+                Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (
@@ -205,7 +206,6 @@ class MathQuiz extends Component {
               </div>
             </div>
           )}
-          <ResetButton resetClick={this.resetGame} />
         </div>
       </Wrapper>
     );

@@ -83,13 +83,17 @@ class SignupForm extends Component {
                   <input
                     type="password"
                     className="form-control"
-                    placeholder="General Password..."
+                    placeholder="Password..."
                     name="password"
                     onChange={this.props.handleInputChange}
                   />
                 </div>
               </span>
-              <span className="bmd-form-group">
+              <span className="bmd-form-group"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="The password you will use to access the Parent Dashboard."
+              >
                 <div className="input-group">
                   <div className="input-group-prepend">
                     <span className="input-group-text">

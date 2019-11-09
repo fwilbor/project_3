@@ -83,7 +83,7 @@ class ParentDashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="parent-dash">
         <NavBar />
         <div className="features-5">
           <div className="col-md-8 ml-auto mr-auto text-center">
@@ -123,7 +123,9 @@ class ParentDashboard extends Component {
                   <div className="icon">
                     <i className="material-icons">dashboard</i>
                   </div>
-                  <h4 className="info-title">Game Info</h4>
+                  <Link to="/about/game-info">
+                    <h4 className="info-title">Game Info</h4>
+                  </Link>
                   <p>
                     Get more information about the games and how they help your
                     child learn.

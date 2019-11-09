@@ -17,6 +17,7 @@ import ProgressCharts from "./components/Charts/ProgressCharts";
 import KidsProgressCharts from "./components/Charts/KidsProgressCharts";
 import ChooseExperience from "./pages/ChooseExperience";
 import Error404 from "./pages/NoMatch";
+import GameInfo from "./components/Menu/GameInfo";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/child" component={ChildDashboard} />
         <Route exact path="/about/us" component={About} />
         <Route exact path="/about/philosophy" component={Philosophy} />
+        <Route exact path="/about/game-info" component={GameInfo} />
         <Route exact path="/:id/mathQuiz" component={MathQuiz} />
         <Route exact path="/:id/addQuiz" component={AddQuiz} />
         <Route exact path="/:id/subQuiz" component={SubQuiz} />
