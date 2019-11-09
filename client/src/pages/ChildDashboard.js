@@ -5,7 +5,6 @@ import axios from "axios";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "../firebase";
-// import MathQuiz from "../components/Games/MathQuiz/MathQuiz";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -64,7 +63,10 @@ class ChildDashboard extends Component {
                     src="./assets/img/sections/iphone.png"
                     alt="placeholder"
                     />*/}
-                  <img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" />
+                  <img
+                    src={require("../assets/img/JBOTPlaceHolder.png")}
+                    alt="mascot"
+                  />
                 </div>
               </div>
 
@@ -260,7 +262,9 @@ class ChildDashboard extends Component {
                         <div className="description">
                           <h4 className="info-title">Stats</h4>
                           <Link to={`/child/${this.state.user._id}`}>
-                            <span className="game-list">Check your gaming stats</span>
+                            <span className="game-list">
+                              Check your gaming stats
+                            </span>
                           </Link>
                         </div>
                       </div>
