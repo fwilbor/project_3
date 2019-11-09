@@ -83,7 +83,7 @@ class ParentDashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="parent-dash">
         <NavBar />
         <div className="features-5">
           <div className="col-md-8 ml-auto mr-auto text-center">

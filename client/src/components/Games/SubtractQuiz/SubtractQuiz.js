@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -165,9 +166,10 @@ class SubtractQuiz extends Component {
   render() {
     return (
       <Wrapper>
-        <NavBar />
+        {/*<NavBar />*/}
         <div className="jumbotron" id="subtractjumbotron">
-          <Header id="subtractHeader">J-BOT Subtraction!</Header>
+        <Link to="/child"><button className="btn btn-primary back-button">Go Back</button></Link>
+        <Header id="subtractHeader">J-BOT Subtraction!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="subtractcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
