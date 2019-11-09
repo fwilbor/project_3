@@ -440,7 +440,7 @@
           // creates a bit of a problem for us. we would need to render the LIs to figure out their width
           // that is what lazyLoading is all about avoiding.  these options are incompatible
           // tell somebody and opt out of lazy load
-          console.log('Selectpicker option lazyLoadLiElements=true is incompatible with option width="auto".  Option \'lazyLoadLiElements\' has been reset to false, however this may cause serious performance degradation.');
+          // console.log('Selectpicker option lazyLoadLiElements=true is incompatible with option width="auto".  Option \'lazyLoadLiElements\' has been reset to false, however this may cause serious performance degradation.');
           this.options.lazyLoadLiElements = false;
         }
 

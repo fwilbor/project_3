@@ -35,10 +35,7 @@ class KidsProgressCharts extends React.Component {
     this.getAllHighScores();
   }
 
-  componentDidUpdate() {
-    if (this.state.allHighScores[0]) console.log(this.state.allHighScores);
-    // console.log(this.state.allHighScores[0].user[0].name);
-  }
+  componentDidUpdate() {}
 
   getUserInfo() {
     axios
@@ -73,7 +70,6 @@ class KidsProgressCharts extends React.Component {
           let array = this.organizeGamesByName(data.data[i].history);
           highScoresAllUsers.push({ name: name, history: array });
         }
-        console.log(highScoresAllUsers);
         let finalHS = {
           math: [],
           add: [],
@@ -104,7 +100,6 @@ class KidsProgressCharts extends React.Component {
             score: this.highScoresByGame(highScoresAllUsers[i].history.div)
           });
         }
-        console.log(finalHS);
         let math = finalHS.math.sort(
           (a, b) => parseFloat(b.score) - parseFloat(a.score)
         );
@@ -156,16 +151,9 @@ class KidsProgressCharts extends React.Component {
         });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
-
-  // arrangeHighScores1stToLast(data) {
-  //   let array = [];
-  //   for (let i = 0; i < data.math.length; i++) {
-  //     console.log(data.math[i]);
-  //   }
-  // }
 
   highScoresByGame(data) {
     let highScore = 0;
@@ -238,7 +226,6 @@ class KidsProgressCharts extends React.Component {
         divAllTime
       ]
     });
-    console.log(allScores);
   }
   render() {
     // ##############################
