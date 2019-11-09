@@ -42,7 +42,7 @@ const COPPA = () => {
                       <h3>What personal information we collect:</h3>
                       <ul>
                         <li>
-                          When you create an J-Bot ID, we may collect a variety
+                          When you create an J-BOT ID, we may collect a variety
                           of information, including your name, email address and
                           profile information.
                         </li>

@@ -117,15 +117,20 @@ class MultiplyQuiz extends Component {
   };
 
   sendHighScore() {
+    console.log(
+      parseFloat(document.getElementById("timer").getAttribute("value"))
+    );
     axios
       .post("/api/history", {
         date: new Date(Date.now()),
         time: parseInt(document.getElementById("timer").getAttribute("value")),
-        score:
-          parseInt(
-            (this.state.usersHighScore * this.state.usersHighScore) /
-              parseFloat(document.getElementById("timer").getAttribute("value"))
-          ) * 100,
+        score: parseInt(
+          ((this.state.usersHighScore * this.state.usersHighScore) /
+            parseFloat(
+              document.getElementById("timer").getAttribute("value")
+            )) *
+            100
+        ),
         game: this.state.gameInfo
       })
       .then(histRes => {

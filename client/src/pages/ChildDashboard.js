@@ -60,11 +60,11 @@ class ChildDashboard extends Component {
             <div className="row under-nav">
               <div className="col-md-4">
                 <div className="mascot-container mt-5">
-                  <img
+                  {/*<img
                     src="./assets/img/sections/iphone.png"
                     alt="placeholder"
-                  />
-                  {/*<img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" /> */}
+                    />*/}
+                  <img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" />
                 </div>
               </div>
 
@@ -260,7 +260,7 @@ class ChildDashboard extends Component {
                         <div className="description">
                           <h4 className="info-title">Stats</h4>
                           <Link to={`/child/${this.state.user._id}`}>
-                            Check your gaming stats
+                            <span className="game-list">Check your gaming stats</span>
                           </Link>
                         </div>
                       </div>

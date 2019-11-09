@@ -27,9 +27,9 @@ class Timer extends Component {
     this.timer = setInterval(
       () =>
         this.setState({
-          time: Math.floor((Date.now() - this.state.start) / 100)
+          time: Math.floor((Date.now() - this.state.start) / 10)
         }),
-      100
+      10
     );
   }
 
@@ -44,8 +44,8 @@ class Timer extends Component {
 
   render() {
     return (
-      <span id="timer" value={`${this.state.time * 0.1}`}>
-        {`${Math.floor(this.state.time * 0.1)}`}s
+      <span id="timer" value={`${this.state.time * 0.01}`}>
+        {`${Math.floor(this.state.time * 0.01)}`}s
       </span>
     );
   }
