@@ -121,9 +121,7 @@ class MathQuiz extends Component {
         time: parseInt(document.getElementById("timer").getAttribute("value")),
         score: parseInt(
           ((this.state.usersHighScore * this.state.usersHighScore) /
-            parseFloat(
-              document.getElementById("timer").getAttribute("value")
-            )) *
+            parseInt(document.getElementById("timer").getAttribute("value"))) *
             100
         ),
         game: this.state.gameInfo
@@ -172,7 +170,7 @@ class MathQuiz extends Component {
             <br />
             {this.state.game ? (
               <>
-                &nbsp; Timer:&nbsp;
+                Timer:&nbsp;
                 <Timer time={this.state.time} />
               </>
             ) : (

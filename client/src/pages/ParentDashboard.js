@@ -123,7 +123,9 @@ class ParentDashboard extends Component {
                   <div className="icon">
                     <i className="material-icons">dashboard</i>
                   </div>
-                  <h4 className="info-title">Game Info</h4>
+                  <Link to="/about/game-info">
+                    <h4 className="info-title">Game Info</h4>
+                  </Link>
                   <p>
                     Get more information about the games and how they help your
                     child learn.
