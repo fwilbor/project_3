@@ -88,7 +88,7 @@ class NavBar extends Component {
                 </div>
               </li>
 
-              <li className="dropdown nav-item">
+              <li className="dropdown nav-item link-parent">
                 <Link
                   to="/"
                   className="dropdown-toggle nav-link"
@@ -102,7 +102,7 @@ class NavBar extends Component {
                   </Link>
                 </div>
               </li>
-              <li className="dropdown nav-item">
+              <li className="dropdown nav-item link-child">
                 <Link
                   to="/"
                   className="dropdown-toggle nav-link"

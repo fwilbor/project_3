@@ -208,6 +208,13 @@ ul > li {
 .child-dash .navbar {
   color: rgb(65, 95, 219) !important;
 }
+.child-dash .navbar .link-parent {
+  display: none;
+}
+
+.parent-dash .navbar .link-child {
+  display: none;
+}
 
 .yep:disabled {
   color: gray !important;
@@ -226,6 +233,10 @@ ul > li {
   justify-content: space-around;
   align-content: flex-start;
   overflow: auto;
+}
+#mathwrapper .back-button, #addwrapper .back-button, #subtractwrapper .back-button, #multiplywrapper .back-button, #dividewrapper .back-button {
+  position: relative;
+  left: 95%;
 }
 
 .coppa-page .description li {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -165,8 +166,9 @@ class DivideQuiz extends Component {
   render() {
     return (
       <Wrapper>
-        <NavBar />
+        {/*<NavBar />*/}
         <div className="jumbotron" id="dividejumbotron">
+        <Link to="/child"><button className="btn btn-primary back-button">Go Back</button></Link>
           <Header id="divideHeader">J-BOT division!</Header>
           <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="dividecardHeader">

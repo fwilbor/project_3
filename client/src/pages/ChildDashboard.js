@@ -5,7 +5,6 @@ import axios from "axios";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import config from "../firebase";
-// import MathQuiz from "../components/Games/MathQuiz/MathQuiz";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -60,10 +59,6 @@ class ChildDashboard extends Component {
             <div className="row under-nav">
               <div className="col-md-4">
                 <div className="mascot-container mt-5">
-                  {/*<img
-                    src="./assets/img/sections/iphone.png"
-                    alt="placeholder"
-                    />*/}
                   <img src={require('../assets/img/JBOTPlaceHolder.png')} alt="mascot" />
                 </div>
               </div>
