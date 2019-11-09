@@ -164,6 +164,7 @@ class MathQuiz extends Component {
         <NavBar />
         <div className="jumbotron" id="mathjumbotron">
           <Header id="mathHeader">J-BOT Math!</Header>
+          <ResetButton resetClick={this.resetGame} />
           <h3 className="cardHeader" id="mathcardHeader">
             Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
             {this.state.totalGuesses}
@@ -203,7 +204,6 @@ class MathQuiz extends Component {
               </div>
             </div>
           )}
-          <ResetButton resetClick={this.resetGame} />
         </div>
       </Wrapper>
     );
