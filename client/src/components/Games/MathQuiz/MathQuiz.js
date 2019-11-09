@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NavBar from "../../NavBar";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import NavBar from "../../NavBar";
 import StartButton from "./components/StartButton";
 import ResetButton from "./components/ResetButton";
 import math from "./jsonfiles/math.json";
@@ -164,49 +164,49 @@ class MathQuiz extends Component {
     return (
       <Wrapper>
         <NavBar />
-        <div className="jumbotron" id="mathjumbotron">
-          <Header id="mathHeader">J-BOT Math!</Header>
-          <ResetButton resetClick={this.resetGame} />
-          <h3 className="cardHeader" id="mathcardHeader">
-            Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
-            {this.state.totalGuesses}
-            <br />
-            {this.state.game ? (
-              <>
-                &nbsp; Timer:&nbsp;
-                <Timer time={this.state.time} />
-              </>
+          <div className="jumbotron" id="mathjumbotron">
+            <Header id="mathHeader">J-BOT Math!</Header>
+            <h3 className="cardHeader" id="mathcardHeader">
+              Correct Guesses: {this.state.correctGuesses}&nbsp;| Total Guesses:{" "}
+              {this.state.totalGuesses}
+              <br />
+              {this.state.game ? (
+                <>
+                  &nbsp; Timer:&nbsp;
+                  <Timer time={this.state.time} />
+                </>
+              ) : (
+                ""
+              )}
+            </h3>
+            {this.state.totalGuesses === math.length ? (
+              this.endGame()
+            ) : !this.state.game ? (
+              <StartButton startClick={this.startGame} />
             ) : (
-              ""
-            )}
-          </h3>
-          {this.state.totalGuesses === math.length ? (
-            this.endGame()
-          ) : !this.state.game ? (
-            <StartButton startClick={this.startGame} />
-          ) : (
-            <div className="container">
-              <div className="row" id="mathrow">
-                {this.state.displayQuestions.map((bool, i) => {
-                  if (bool === true) {
-                    return (
-                      <Card
-                        id={math[i].id}
-                        key={math[i].id}
-                        question={math[i].question}
-                        answers={math[i].answers}
-                        correctAnswer={math[i].correctAnswer}
-                        testClick={this.testClicked}
-                        clicked={`${math[i].clicked}`}
-                      />
-                    );
-                  }
-                  return true;
-                })}
+              <div className="container">
+                <div className="row" id="mathrow">
+                  {this.state.displayQuestions.map((bool, i) => {
+                    if (bool === true) {
+                      return (
+                        <Card
+                          id={math[i].id}
+                          key={math[i].id}
+                          question={math[i].question}
+                          answers={math[i].answers}
+                          correctAnswer={math[i].correctAnswer}
+                          testClick={this.testClicked}
+                          clicked={`${math[i].clicked}`}
+                        />
+                      );
+                    }
+                    return true;
+                  })}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+            <ResetButton resetClick={this.resetGame} />
+          </div>
       </Wrapper>
     );
   }

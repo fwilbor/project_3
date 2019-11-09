@@ -10,11 +10,12 @@ import {
   CardBody,
   CardFooter,
   CardTitle,
+  Table,
   Row,
   Col
 } from "reactstrap";
 
-class ProgressCharts extends React.Component {
+class KidsProgressCharts extends React.Component {
   state = {
     user: "",
     gamesArray: {
@@ -34,9 +35,7 @@ class ProgressCharts extends React.Component {
     this.getAllHighScores();
   }
 
-  componentDidUpdate() {
-    console.log(this.state.allHighScores);
-  }
+  componentDidUpdate() {}
 
   getUserInfo() {
     axios
@@ -71,7 +70,6 @@ class ProgressCharts extends React.Component {
           let array = this.organizeGamesByName(data.data[i].history);
           highScoresAllUsers.push({ name: name, history: array });
         }
-        console.log(highScoresAllUsers);
         let finalHS = {
           math: [],
           add: [],
@@ -102,7 +100,6 @@ class ProgressCharts extends React.Component {
             score: this.highScoresByGame(highScoresAllUsers[i].history.div)
           });
         }
-        console.log(finalHS);
         let math = finalHS.math.sort(
           (a, b) => parseFloat(b.score) - parseFloat(a.score)
         );
@@ -120,25 +117,43 @@ class ProgressCharts extends React.Component {
         );
         this.setState({
           allHighScores: [
-            { game: "Math", user: math },
-            { game: "Addition", user: add },
-            { game: "Subtraction", user: sub },
-            { game: "Multiplication", user: multi },
-            { game: "Division", user: div }
+            {
+              game: "Math",
+              history: math,
+              highScore: math[0].score,
+              user: math[0].name
+            },
+            {
+              game: "Addition",
+              history: add,
+              highScore: add[0].score,
+              user: add[0].name
+            },
+            {
+              game: "Subtract",
+              history: sub,
+              highScore: sub[0].score,
+              user: sub[0].name
+            },
+            {
+              game: "Multiplication",
+              history: multi,
+              highScore: multi[0].score,
+              user: multi[0].name
+            },
+            {
+              game: "Division",
+              history: div,
+              highScore: div[0].score,
+              user: div[0].name
+            }
           ]
         });
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
-
-  // arrangeHighScores1stToLast(data) {
-  //   let array = [];
-  //   for (let i = 0; i < data.math.length; i++) {
-  //     console.log(data.math[i]);
-  //   }
-  // }
 
   highScoresByGame(data) {
     let highScore = 0;
@@ -180,6 +195,37 @@ class ProgressCharts extends React.Component {
       div,
       unknowGame
     };
+  }
+
+  allTimeScore() {
+    var mathAllTime =
+      (this.state.gamesArray.math[0].score /
+        this.state.gamesArray.math[0].time) *
+      100;
+    var addAllTime =
+      (this.state.gamesArray.add[0].score / this.state.gamesArray.add[0].time) *
+      100;
+    var subAllTime =
+      (this.state.gamesArray.sub[0].score / this.state.gamesArray.sub[0].time) *
+      100;
+    var multiAllTime =
+      (this.state.gamesArray.multi[0].score /
+        this.state.gamesArray.multi[0].time) *
+      100;
+    var divAllTime =
+      (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) *
+      100;
+    var allScores =
+      mathAllTime + addAllTime + subAllTime + multiAllTime + divAllTime;
+    this.setState({
+      allTimeScoreArray: [
+        mathAllTime,
+        addAllTime,
+        subAllTime,
+        multiAllTime,
+        divAllTime
+      ]
+    });
   }
   render() {
     // ##############################
@@ -612,8 +658,44 @@ class ProgressCharts extends React.Component {
             </Col>
           </Row>
         </div>
+        <Row>
+          <Col xs={12} md={3}></Col>
+          <Col xs={12} md={6}>
+            <Card>
+              <CardHeader>
+                <h5 className="card-category">Leader-Board</h5>
+                <CardTitle tag="h4">All Time High Scores:</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Table responsive>
+                  <thead className="text-primary">
+                    <tr>
+                      <th>User Name:</th>
+                      <th>Game:</th>
+                      <th>Score:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.allHighScores.map(game => {
+                      if (game.highScore) {
+                        return (
+                          <tr>
+                            <td>{game.user ? game.user : "TBD"}</td>
+                            <td>{game.game ? game.game : "TBD"}</td>
+                            <td>{game.highScore ? game.highScore : "TBD"}</td>
+                          </tr>
+                        );
+                      }
+                    })}
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs={12} md={3}></Col>
+        </Row>
       </>
     );
   }
 }
-export default ProgressCharts;
+export default KidsProgressCharts;

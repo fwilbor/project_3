@@ -125,8 +125,8 @@ class ProgressCharts extends React.Component {
     var divAllTime =
       (this.state.gamesArray.div[0].score / this.state.gamesArray.div[0].time) *
       100;
-    var allScores =
-      mathAllTime + addAllTime + subAllTime + multiAllTime + divAllTime;
+    // var allScores =
+    //   mathAllTime + addAllTime + subAllTime + multiAllTime + divAllTime;
     this.setState({
       allTimeScoreArray: [
         mathAllTime,

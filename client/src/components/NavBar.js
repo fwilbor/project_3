@@ -51,6 +51,7 @@ class NavBar extends Component {
             <button
               className="navbar-toggler"
               type="button"
+              data-target="#nav-menu"
               data-toggle="collapse"
               aria-expanded="false"
               aria-label="Toggle navigation"
@@ -62,8 +63,8 @@ class NavBar extends Component {
             </button>
           </div>
 
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ml-auto">
+          <div className="" id="nav-menu">
+            <ul className="navbar-nav pull-right ">
               <li className="dropdown nav-item">
                 <Link
                   to="/"
