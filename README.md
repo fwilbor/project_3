@@ -4,7 +4,7 @@
 
 Full Stack Application designed to supervise, manage, and protect a child’s learning in a Monitored Online Learning Environment (M.O.L.E), thru interactive games.
 
-J-Bot App is a COPPA (Child Online Privacy Protection Act)compliant Learning application for kids under the age of 16.
+J-Bot App is a COPPA (Child Online Privacy Protection Act)compliant Learning application for kids under the age of 12.
 
 ## Technologies Used
 
