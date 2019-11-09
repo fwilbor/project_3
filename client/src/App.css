@@ -212,3 +212,22 @@ ul > li {
 .yep:disabled {
   color: gray !important;
 }
+
+#mathwrapper, #addwrapper, #subtractwrapper, #multiplywrapper, #dividewrapper {
+  background-image: url("./assets/img/JBOTChildDashboard.JPG") !important;
+  background-size: 100% !important;
+  padding-top: 50px;
+  background: whitesmoke no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
+}
+
+.coppa-page .description li {
+  font-size: 16px;
+}
